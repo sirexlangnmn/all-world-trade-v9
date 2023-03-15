@@ -15,7 +15,6 @@ module.exports = (app) => {
 
     const middleware = require('../middleware');
 
-    const tutorials = require('../controllers/tutorial.controller.js');
     const usersBusiness = require('../controllers/users-business.controller.js');
     const users = require('../controllers/users.controller.js');
     const usersAccounts = require('../controllers/users-accounts.controller.js');
@@ -50,8 +49,6 @@ module.exports = (app) => {
     const helpAndSupportLogin = require('../controllers/help-and-support-login.controller.js');
     const getCount = require('../controllers/get-count.controller.js');
 
-    // Retrieve all Tutorials
-    app.get(['/api/get/tutorials'], tutorials.findAll);
 
     // Retrieve all Categories
     app.get(['/api/get/categories'], categories.findAll);

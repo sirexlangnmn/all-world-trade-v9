@@ -7,9 +7,11 @@
         "dev": "nodemon app/src/server.js",
         "start": "node app/src/server.js",
         "twBuild": "tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css/output.css --watch",
+        "wpBuild": "webpack",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "npx prettier --write ."
     },
+    "sideEffects": false,
     "repository": {
         "type": "git",
         "url": ""
@@ -54,6 +56,8 @@
         "node-fetch": "^3.2.10",
         "prettier": "2.4.1",
         "sequelize-cli": "^6.4.1",
-        "tailwindcss": "^3.2.7"
+        "tailwindcss": "^3.2.7",
+        "webpack": "^5.76.1",
+        "webpack-cli": "^5.0.1"
     }
 }

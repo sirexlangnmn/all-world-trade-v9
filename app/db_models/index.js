@@ -9,10 +9,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// this 2 lines of code will be delete later on
-db.tutorials = require('./tutorial.model.js')(sequelize, Sequelize);
-db.tutorial2s = require('./tutorial2.model.js')(sequelize, Sequelize);
-
 
 db.reset_tokens = require('./reset_tokens.model.js')(sequelize, Sequelize);
 db.support_accounts = require('./support_accounts.model.js')(sequelize, Sequelize);

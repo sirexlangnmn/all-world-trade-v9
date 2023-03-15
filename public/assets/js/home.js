@@ -1,62 +1,77 @@
-// document.onreadystatechange = function () {
-//     if (document.readyState === "complete") {
-//         // setInterval(function () {
-//             var myElement = document.getElementById("my-element");
-//             myElement.style.visibility = "visible";
-//         // }, 2000);
-        
-//     }
-// }
+let numberOfTraderMembers = getId('numberOfTraderMembers');
+let numberOfVisitorMembers = getId('numberOfVisitorMembers');
 
-let numberOfTraderMembers;
-let numberOfVisitorMembers;
-numberOfTraderMembers = getId('numberOfTraderMembers');
-numberOfVisitorMembers = getId('numberOfVisitorMembers');
-
-
-window.onload = function () {
-    getNumberOfTraderMembers();
-    getNumberOfVisitorMembers();
-    getUsersLogoAndBanner();
+const API_URL = {
+    users_logo_and_banners: `/api/get/users-logo-and-banners`,
+    number_of_visitor_members: `/api/v2/get/number-of-visitor-members`,
+    number_of_trader_members: `/api/v2/get/number-of-trader-members`,
+    logo_placeholder: `${host}/uploads/placeholder/logo-placeholder.jpg`,
 };
 
-function getNumberOfTraderMembers() {
-    $.ajax({
-        url: '/api/v2/get/number-of-trader-members',
-        type: 'GET',
-        success: function (data) {
-            numberOfTraderMembers.innerHTML = 'Number of Trader Members: ' + data.length;
-        },
-    });
-}
+export function square(x) {
+    return x * x;
+  }
+  
+  export function cube(x) {
+    return x * x * x;
+  }
 
-function getNumberOfVisitorMembers() {
-    $.ajax({
-        url: '/api/v2/get/number-of-visitor-members',
-        type: 'GET',
-        success: function (data) {
-            numberOfVisitorMembers.innerHTML = 'Numbers of Visitor Members: ' + data.length;
-        },
-    });
-}
-
-function getUsersLogoAndBanner() {
-    $.ajax({
-        url: '/api/get/users-logo-and-banners',
-        type: 'GET',
-        success: function (data) {
-            if (data.length > 0) {
-                if (data[0].logo) {
-                    userImageOutsideProfile.src = host + '/uploads/users_upload_files/' + data[0].logo;
-                    isAvatarOutsideProfile.src = host + '/uploads/users_upload_files/' + data[0].logo;
-                } else {
-                    userImageOutsideProfile.src = host + '/uploads/placeholder/logo-placeholder.jpg';
-                    isAvatarOutsideProfile.src = host + '/uploads/placeholder/logo-placeholder.jpg';
-                }
-            } else {
-                userImageOutsideProfile.src = host + '/uploads/placeholder/logo-placeholder.jpg';
-                isAvatarOutsideProfile.src = host + '/uploads/placeholder/logo-placeholder.jpg';
+const displayUsersLogoAndBanner = () => {
+    return fetch(API_URL.users_logo_and_banners)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        },
-    });
-}
+            return response.json();
+        })
+        .then((data) => {
+            const logoUrl =
+                data.length > 0 && data[0].logo
+                    ? `${host}/uploads/users_upload_files/${data[0].logo}`
+                    : API_URL.logo_placeholder;
+
+            userImageOutsideProfile.src = logoUrl;
+            isAvatarOutsideProfile.src = logoUrl;
+        })
+        .catch((error) => {
+            console.error('Error fetching user logo and banner:', error);
+            userImageOutsideProfile.src = API_URL.logo_placeholder;
+            isAvatarOutsideProfile.src = API_URL.logo_placeholder;
+        });
+};
+
+const getNumberOfTraderMembers = () => {
+    return fetch(API_URL.number_of_trader_members)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            numberOfTraderMembers.innerHTML = `Number of Trader Members: ${data.length}`;
+        })
+        .catch((error) => {
+            console.error('Error fetching number of trader members:', error);
+            numberOfTraderMembers.innerHTML = 'Error fetching number of trader members';
+        });
+};
+
+const getNumberOfVisitorMembers = () => {
+    return fetch(API_URL.number_of_visitor_members)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            numberOfVisitorMembers.innerHTML = `Number of Visitor Members: ${data.length}`;
+        })
+        .catch((error) => {
+            console.error('Error fetching number of visitor members:', error);
+            numberOfVisitorMembers.innerHTML = 'Error fetching number of visitor members';
+        });
+};
+
+Promise.all([displayUsersLogoAndBanner(), getNumberOfVisitorMembers()]);

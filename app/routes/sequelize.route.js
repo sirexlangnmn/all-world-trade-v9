@@ -27,8 +27,6 @@ module.exports = (app) => {
     const updateLarge = controllers.update_large_scale_company;
     const updateMedium = controllers.update_medium_scale_company;
 
-    const testController = controllers.testValidation; // I used support_links table for my input tests
-    const testValidation = middleware.testValidation;
 
     app.post(
         ['/api/v2/post/small-scale-company-registration'],
@@ -86,25 +84,5 @@ module.exports = (app) => {
     app.post(['/api/v2/post/update-medium-scale-company',], updateMedium.update);
 
 
-    // app.post(
-    //     ['/api/v2/test/post/file-and-input-test'],
-    //     testValidation,
-    //     testController.create,
-    // );
 
-    app.post('/api/v2/test/post/file-and-input-test', [
-        check('testName').not().isEmpty().withMessage('Text field is required')
-      ], (req, res) => {
-        console.log('req.body', req.body);
-        console.log('req.file', req.file);
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-          return res.status(422).json({ errors: errors.array() });
-        }
-
-        // const text = req.body.text;
-        // console.log('req.body.text', text);
-
-        // your code to save the file and text
-      });
 };
