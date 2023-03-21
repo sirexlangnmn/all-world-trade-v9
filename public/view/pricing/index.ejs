@@ -17,18 +17,25 @@
 
         <!-- Main Css -->
         <link href="<%= process.env.AWT_HOSTNAME %>assets2/libs/@iconscout/unicons/css/line.css" type="text/css" rel="stylesheet" />
-        <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets2/css/icons.min.css" />
+        <!-- <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets2/css/icons.min.css" /> -->
 
         <!-- <link href="uploads/placeholder/logo-placeholder2.jpg" rel="icon" type="image/png" /> -->
         
 
         <meta name="description" content="All World Trade - Pricing" />
 
-        <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/icons.css" />
-        <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/uikit.css" />
-        <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/style.css" />
+        <!-- <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/icons.css" /> -->
+        <link  rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css-min/icons.min.css" />
+
+        <!-- <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/uikit.css" /> -->
+        <link  rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css-min/uikit.min.css" />
+
+        <!-- <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/style.css" /> -->
+        <link  rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css-min/style.min.css" />
+
         <link rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css/custom.css" />
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/cdn.tailwind.3.2.4.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link  rel="stylesheet" href="<%= process.env.AWT_HOSTNAME %>assets/css-tailwind/custom.css" /> -->
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.0/sweetalert2.min.css"
             rel="stylesheet" />
@@ -43,7 +50,6 @@
     
         <!-- Main Css -->
 
-        <!-- <link rel="stylesheet" href="assets/css/tailwind.min.css" /> -->
 
     </head>
     
@@ -79,261 +85,10 @@
                     color: black !important;
                 }
             </style>
-            <nav class="bg-white shadow-lg defaultscroll is-sticky sticky top-0">
-                <div class="max-w-full mx-auto px-4">
-                    <div class="flex justify-between">
-                        <!-- Website Logo -->
-                        <a href="#" class="flex items-center">
-                            <img src="" class="navLogo" id="navLogo" alt="All World Trade" />
-                        </a>
-            
-                        <!-- Primary Navbar items -->
-                        <!-- <div class="hidden md:flex items-center defaultscroll is-sticky sticky top-0" id="primaryNav" style="margin-left: -250px;"> -->
-                            <div class="hidden md:flex items-center defaultscroll is-sticky sticky top-0" id="primaryNav" >
-                            <div class="grid grid-cols-7">
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10 "
-                                    uk-tooltip="title: Home; pos: bottom">
-                                    <a class="" href="#" onclick="goToHomePage()">
-                                        <!-- <span class="icon-feather-home nav-span dark:text-slate-500 text-black hover:text-blue-500 " > </span> -->
-                                        <!-- <span class="icon-feather-home nav-span text-black dark:text-white hover:text-blue-500 " > </span> -->
-                                        <!-- <span class="icon-feather-home nav-span dark:text-gray-400 text-black hover:text-blue-500 " > </span> -->
-                                        <span class="icon-feather-home nav-span text-slate-900 dark:text-white hover:text-blue-500 " > </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Event Calendar; pos: bottom">
-                                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                        href="/#eventCalendar">
-                                        <span class="icon-feather-calendar nav-span" > </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Traders Videos; pos: bottom">
-                                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                        href="/#tradersVideos">
-                                        <span class="icon-feather-video nav-span" > </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Traders Webinars; pos: bottom">
-                                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                        href="/#tradersWebinars">
-                                        <span class="icon-feather-info nav-span" > </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Pricing; pos: bottom">
-                                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                        href="/pricing">
-                                        <span class="icon-feather-tag nav-span" > </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Selections; pos: bottom">
-                                    <a href="#" onclick="goToSelectionPage()"
-                                        class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                        <span class="icon-feather-users nav-span" >
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
-                                    uk-tooltip="title: Help / Suggestion; pos: bottom">
-                                    <a href="#" onclick="goToHelpSuggestionPage()"
-                                        class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                        <span class="icon-feather-message-square nav-span" >
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- Secondary Navbar items -->
-                        <div class="md:flex items-center py-2 px-2 ">
-                            <div class="right_side" id="right_side_with_session">
-                                <div class="header_widgets" id="primaryWidgets">
-                                    <!-- === CART - START === -->
-              
-                                    <!-- === CART - END === -->
-                                
-                                    <!-- === NOTIFICATIONS - START === -->
-                       
-                                    <!-- === NOTIFICATIONS - END === -->
-                               
-                                    <!-- === MESSAGES - START === -->
-                                
-                                    <!-- === MESSAGES - END === -->
-                                   
-                                    <!-- === AVATAR - START === -->
-                                    <%- include('../includes/header_avatar/index.ejs') %>
-                                    <!-- === AVATAR - END === -->
-                                </div>
-                            </div>
-            
-                            <div class="right_side rightSide" id="right_side_with_no_session" >
-                                <div class="header_widgets">
-                                    <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
-                                        <a href="#" onclick="goToLoginPage()"
-                                            class="bg-blue-500 blue-500 px-6 py-3 rounded-md shadow text-white blue-white-hover">Login</a>
-            
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- Mobile menu button -->
-                        <!-- <div class="md:hidden flex items-center">
-                      <button class="outline-none mobile-menu-button">
-                        <svg class=" w-6 h-6 text-gray-500 hover:text-blue-500 " x-show="!showMenu" fill="none"
-                          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                      </button>
-                    </div> -->
-                    </div>
-                </div>
-                <!-- mobile menu -->
-                <div class="hidden mobile-menu">
-                    <div class="grid grid-cols-7">
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Home; pos: bottom">
-                            <a class="" href="#" onclick="goToHomePage()">
-                                <span class="icon-feather-home nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Event Calendar; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                href="/#eventCalendar">
-                                <span class="icon-feather-calendar nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Traders Videos; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                href="/#tradersVideos">
-                                <span class="icon-feather-video nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Traders Webinars; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                href="/#tradersWebinars">
-                                <span class="icon-feather-info nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Pricing; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
-                                href="/pricing">
-                                <span class="icon-feather-users nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Selections; pos: bottom">
-                            <a href="#" onclick="goToSelectionPage()"
-                                class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                <span class="icon-feather-users nav-span" > </span>
-                            </a>
-                        </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
-                            uk-tooltip="title: Help / Suggestion; pos: bottom">
-                            <a href="#" onclick="goToHelpSuggestionPage()"
-                                class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                <span class="icon-feather-message-square nav-span" > </span>
-                            </a>
-                        </div>
-                    </div>
-            
-                    <!-- <script src="assets/js/help-and-support.js"></script> -->
-                    <script >
-                        const btn = document.querySelector("button.mobile-menu-button");
-                        const mobileMenu = document.querySelector(".mobile-menu");
-                 
-                        // btn.addEventListener("click", () => {
-                        //   mobileMenu.classList.toggle("hidden");
-                        // });
-            
-                        let w = window.innerWidth;
-            
-                        if (w < 768) {
-                            mobileMenu.classList.remove("hidden");
-                        }
-                        if (w > 768) {
-                            mobileMenu.classList.add("hidden");
-                        }
-            
-                        addEventListener('resize', (event) => {
-                            let w = window.innerWidth;
-            
-                            if (w < 768) {
-                                mobileMenu.classList.remove("hidden");
-                            }
-                            if (w > 768) {
-                                mobileMenu.classList.add("hidden");
-                            }
-                        });
-        
-                        let sessionUuid = `<%= data.uuid %>`;
-                        
-                        if (sessionUuid) {
-                            document.getElementById('right_side_with_session').style.display = 'block';
-                            document.getElementById('right_side_with_no_session').style.display = 'none';
-                        } else {
-                            document.getElementById('right_side_with_session').style.display = 'none';
-                            document.getElementById('right_side_with_no_session').style.display = 'block';
-                        }
-            
-                        function goToHomePage() {
-                            location.replace(host + '/');
-                        }
-            
-            
-                        function goToSelectionPage() {
-                            location.replace(host + '/selection');
-                        }
-            
-                       
-        
-                        addEventListener("load", (event) => {
-                            let innerWidth = window.innerWidth;
-        
-                            if (innerWidth > 1280) {
-                                document.getElementById("primaryNav").style.marginLeft = "-250px";
-                            } else {
-                                document.getElementById("primaryNav").style.marginLeft = null;
-                            }
-        
-                            if (innerWidth > 1460) {
-                                document.getElementById("primaryNav").style.marginLeft = "-250px";
-                            } else {
-                                document.getElementById("primaryNav").style.marginLeft = null;
-                            }
-        
-                        });
-        
-                        addEventListener('resize', (event) => {
-                            let innerWidth = window.innerWidth;
-        
-                            if (innerWidth > 1280) {
-                                document.getElementById("primaryNav").style.marginLeft = "-250px";
-                            } else {
-                                document.getElementById("primaryNav").style.marginLeft = null;
-                            }
-        
-                            if (innerWidth > 1460) {
-                                document.getElementById("primaryNav").style.marginLeft = "-250px";
-                            } else {
-                                document.getElementById("primaryNav").style.marginLeft = null;
-                            }
-                        });
-                    </script>
-                    <!-- </ul> -->
-                </div>
-            
-            </nav>
         </header>
         <!--end header-->
+             <!-- Navbar goes here -->
+            <%- include('../includes/nav/primary-navigation.ejs') %>
         <!-- End Navbar -->
 
          <!-- Start Hero -->
@@ -525,16 +280,28 @@
 
 
 
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/toggle-dark-light.js"></script>
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/toggle-dark-light.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/toggle-dark-light.min.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <!-- <script src="assets/js/upgrade-plan.js"></script> -->
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/uikit.js"></script>
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/simplebar.js"></script>
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/custom.js"></script>
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/bootstrap-select.min.js"></script>
+
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/uikit.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/uikit.min.js"></script>
+
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/simplebar.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/simplebar.min.js"></script>
+
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/custom.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/custom.min.js"></script>
+
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/bootstrap-select.min.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/bootstrap-select.min.js"></script>
+
         <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/session-checker.js"></script>
-        <script src="<%= process.env.AWT_HOSTNAME %>assets/js/help-and-support.js"></script>
+
+        <!-- <script src="<%= process.env.AWT_HOSTNAME %>assets/js/help-and-support.js"></script> -->
+        <script  src="<%= process.env.AWT_HOSTNAME %>assets/js-min/help-and-support.min.js"></script>
     </body>
 </html>

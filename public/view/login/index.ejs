@@ -15,7 +15,11 @@
             <!-- nav -->
             <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
                 <div class=" flex flex-wrap justify-between items-center mx-auto">
-                <img src="" class="h-35px" id="navLogo" alt="All World Trade" />
+                <!-- <img src="" class="h-35px" id="navLogo" alt="All World Trade" /> -->
+                <a href="#" class="flex items-center text-2xl text-gray-900 dark:text-white">
+                    <img class="w-16 h-10 mr-2" src="/uploads/logo/rectangle-logo-26kb.webp" alt="logo">
+                    All World Trade
+                </a>
                 <div class="flex md:order-2">
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 orbitron" onclick="lookingForSmallScaleCompany()" >Register</button>
                 </div>
@@ -30,10 +34,10 @@
   
 
             <!-- Content-->
-            <div class="mt-12">
+            <div class="mt-32">
                 <div class="lg:p-12 max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
                     <div class="pb-12">
-                        <img src="uploads/logo/rectangle-logo2.png" alt="" class="login-image" />
+                        <!-- <img src="uploads/logo/rectangle-logo2.png" alt="" class="login-image" /> -->
                     </div>
                     <form
                         action="javascript:void(0);"
@@ -49,8 +53,8 @@
                             <label class="mb-0 orbitron"> Email Address </label>
                             <input
                                 type="email"
-                                placeholder="info@example.com"
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full orbitron"
+                                placeholder=""
+                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginEmailAddress"
                                 name="loginEmailAddress"
                             />
@@ -60,7 +64,7 @@
                             <input
                                 type="password"
                                 placeholder=""
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full orbitron"
+                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginPassword"
                                 name="loginPassword"
                             />
@@ -80,7 +84,7 @@
             </div>
 
             <!-- Footer -->
-            <%- include('../includes/footer/index.ejs') %>
+            <!-- include('../includes/footer/index.ejs') -->
         </div>
         <script >
             let ourGenerateNonce = `<%= data.ourGenerateNonce %>`;

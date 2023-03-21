@@ -73,7 +73,7 @@
 }
 
 .main_content_custom {
-    padding-top: 39px;
+    padding-top: 15px;
 }
 
 
@@ -810,6 +810,18 @@ div.ex4 {
     box-shadow: none;
 }
 
+.main_content_custom_v2 {
+    padding-top:90px;
+}
+
+.main_content_custom_v3 {
+    padding-top: 90px;
+}
+
+.dark .swal-title {
+    color: black;
+}
+
 /* ===================================== */
 /* Orbitron [start]   */
 /* ===================================== */
@@ -877,6 +889,10 @@ div.ex4 {
     .main_content_custom {
         padding-top: 90px;
     }
+
+    .main_content_custom_v2 {
+        padding-top: 29px;
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 5000px) {
@@ -936,3 +952,6 @@ div.ex4 {
 /* @media only screen and (min-width: 1200px) {...} */
 
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

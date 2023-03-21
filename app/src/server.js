@@ -748,7 +748,7 @@ app.get(['/registration'], (req, res) => {
     const sessionData = {
         ourGenerateNonce: lodashNonce,
     };
-    res.render(path.join(__dirname, '../../', 'public/view/registration-V2/index'), {
+    res.render(path.join(__dirname, '../../', 'public/view/registration-v2/index'), {
         data: sessionData,
     });
 });

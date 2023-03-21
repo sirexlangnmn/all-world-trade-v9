@@ -16,6 +16,9 @@ module.exports = (app) => {
     const traderScaleCompanyRegistrationValidation = middleware.traderScaleCompanyRegistrationValidation;
     const traderScaleCompanyRegistrationController = controllers.trader_scale_company_registration;
 
+    const registrationV2Controller = controllers.registration_v2;
+    const registrationV2Validation = middleware.registration_v2;
+
     const helpAndSupportRegistrationController = controllers.help_and_support_registration;
     const supportLinksController = controllers.support_links;
     const supportMessagesController = controllers.support_messages;
@@ -53,10 +56,12 @@ module.exports = (app) => {
     );
 
     app.post(
-        ['/api/v2/post/trader-scale-company-registration'],
-        traderScaleCompanyRegistrationValidation,
-        traderScaleCompanyRegistrationController.create,
+        ['/api/v2/post/registration-v2'],
+        registrationV2Validation,
+        registrationV2Controller.create,
     );
+
+
 
     app.post(['/api/v2/post/help-and-support-registration-process'], helpAndSupportRegistrationController.create);
 

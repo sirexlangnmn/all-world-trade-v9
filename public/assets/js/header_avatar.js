@@ -1,7 +1,5 @@
-let userImageOutsideProfile;
-let isAvatarOutsideProfile;
-userImageOutsideProfile = getId('user-image');
-isAvatarOutsideProfile = getId('is_avatar');
+let userImageOutsideProfile = getId('user-image');
+let isAvatarOutsideProfile = getId('is_avatar');
 
 window.onload = function () {
     getUsersLogoAndBanner();

@@ -19,7 +19,7 @@
 
     // Get our newly insert toggle
     var nightMode = document.querySelector('#night-mode');
-    
+
     if (!nightMode) return;
 
     // When clicked, toggle night mode on or off
@@ -28,51 +28,34 @@
         function (event) {
             event.preventDefault();
             document.documentElement.classList.toggle('dark');
-            
+
             if (document.documentElement.classList.contains('dark')) {
                 localStorage.setItem('gmtNightMode', true);
                 darkLogo();
-                
 
                 return;
             }
             lightLogo();
-           
+
             localStorage.removeItem('gmtNightMode');
         },
         false,
     );
 })(window, document);
 
-
 function darkLogo() {
-    let image = document.getElementById('navLogo');
     let footerLogo = document.getElementById('footerLogo');
-    
-    if (image) {
-        image.src = '';
-        image.src = host + "/uploads/logo/logo-long-with-text-black2_adobe_express.svg";
-    }
-
     if (footerLogo) {
         footerLogo.src = '';
-        footerLogo.src = host + "/uploads/logo/logo-long-with-text-black2_adobe_express.svg";
+        footerLogo.src = host + '/uploads/logo/logo-long-with-text-black2_adobe_express.svg';
     }
 }
 
-
 function lightLogo() {
-    let image = document.getElementById('navLogo');
     let footerLogo = document.getElementById('footerLogo');
-    
-    if (image) {
-        image.src = '';
-        image.src = host + "/uploads/logo/logo-long-with-text_adobe_express.svg";
-    }
-
     if (footerLogo) {
         footerLogo.src = '';
-        footerLogo.src = host + "/uploads/logo/logo-long-with-text_adobe_express.svg";
+        footerLogo.src = host + '/uploads/logo/logo-long-with-text_adobe_express.svg';
     }
 }
 

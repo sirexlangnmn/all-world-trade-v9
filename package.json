@@ -1,13 +1,13 @@
 {
-    "name": "all-world-trade",
-    "version": "1.0.0",
+    "name": "allworldtrade",
+    "version": "9.0.0",
     "description": "",
     "main": "server.js",
     "scripts": {
         "dev": "nodemon app/src/server.js",
         "start": "node app/src/server.js",
-        "twBuild": "tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css/output.css --watch",
-        "wpBuild": "webpack",
+        "tailwindBuild": "tailwindcss -i ./public/assets/css/custom.css -o ./public/assets/css-tailwind/custom.css --watch",
+        "webpackBuild": "webpack",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "npx prettier --write ."
     },
@@ -32,6 +32,7 @@
         "express-flash": "^0.0.2",
         "express-session": "^1.17.2",
         "express-validator": "^6.14.2",
+        "flowbite": "^1.6.4",
         "handlebars": "^4.7.7",
         "helmet": "^6.0.1",
         "jsonwebtoken": "^8.5.1",

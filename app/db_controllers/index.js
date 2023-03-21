@@ -13,5 +13,6 @@ controller.users_accounts = require('./users-accounts.controller.js');
 controller.update_traders = require('./update-traders.controller.js');
 controller.update_large_scale_company = require('./update-large-scale-company.controller.js');
 controller.update_medium_scale_company = require('./update-medium-scale-company.controller.js');
+controller.registration_v2 = require('./registration_v2.controller.js');
 
 module.exports = controller;

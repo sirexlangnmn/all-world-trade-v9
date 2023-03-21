@@ -124,7 +124,6 @@ displayBusinessNameH1 = getId('displayBusinessNameH1');
 displayBusinessTagLineH1 = getId('displayBusinessTagLineH1');
 displayBusinessContact = getId('displayBusinessContact');
 displayBusinessSocialMediaContact = getId('displayBusinessSocialMediaContact');
-displayBusinessEmail = getId('displayBusinessEmail');
 displayBusinessAddress = getId('displayBusinessAddress');
 
 displayBusinessRegionOfOperation = getId('displayBusinessRegionOfOperation');

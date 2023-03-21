@@ -3,10 +3,10 @@
 let location_hostname = location.hostname;
 let host = '';
 if (location_hostname === 'localhost') {
-host = 'http://' + location_hostname + ':' + 3000;
+    host = 'http://' + location_hostname + ':' + 3000;
 }
 if (location.hostname === 'allworldtrade.com' || location.hostname.endsWith('.allworldtrade.com')) {
-host = 'https://' + location_hostname;
+    host = 'https://' + location_hostname;
 }
 
 /**
@@ -33,9 +33,6 @@ function getEcN(className) {
     return document.getElementsByClassName(className);
 }
 
-// function preventBack() { window.history.forward(); }  
-//     setTimeout("preventBack()", 0);  
-// window.onunload = function () { null };  
-
-
-
+// function preventBack() { window.history.forward(); }
+//     setTimeout("preventBack()", 0);
+// window.onunload = function () { null };

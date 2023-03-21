@@ -957,9 +957,9 @@ function formattingBusinessTags(string) {
         for (var i = 0; i < data.length; i++) {
             businessIndustryBelongId.innerHTML =
                 businessIndustryBelongId.innerHTML +
-                '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' +
+                '<p class="bg-gray-200 py-1.5 px-4 rounded-full">' +
                 data[i] +
-                '</a>';
+                '</p>';
         }
     } else {
         businessIndustryBelongId.innerHTML = 'N/A';
@@ -971,9 +971,9 @@ function formattingLanguageName(string) {
     for (var i = 0; i < data.length; i++) {
         businessLanguageOfCommunicationId.innerHTML =
             businessLanguageOfCommunicationId.innerHTML +
-            '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' +
+            '<p class="bg-gray-200 py-1.5 px-4 rounded-full">' +
             getLanguageNameByCode(data[i]) +
-            '</a>';
+            '</p>';
     }
 }
 
