@@ -1,61 +1,58 @@
-let displayCompanyName = getId('displayCompanyName');
-let displayCompanyTagline = getId('displayCompanyTagline');
-let displayBusinessEmail = getId('displayBusinessEmail');
-let displayBusinessContact = getId('displayBusinessContact');
-let displayBusinessWebsite = getId('displayBusinessWebsite');
-let displayBusinessSocialMediaContact = getId('displayBusinessSocialMediaContact');
-let displayBusinessAddress = getId('displayBusinessAddress');
-let displayBusinessRegionOfOperation = getId('displayBusinessRegionOfOperation');
-let displayBusinessTradeCategory = getId('displayBusinessTradeCategory');
-let displayBusinessSubCategory = getId('displayBusinessSubCategory');
-let displayBusinessMinorCategory = getId('displayBusinessMinorCategory');
-let displayBusinessScale = getId('displayBusinessScale');
-let displayBusinessTags = getId('displayBusinessTags');
+const displayCompanyName = getId('displayCompanyName');
+const displayCompanyTagline = getId('displayCompanyTagline');
+const displayBusinessEmail = getId('displayBusinessEmail');
+const displayBusinessContact = getId('displayBusinessContact');
+const displayBusinessWebsite = getId('displayBusinessWebsite');
+const displayBusinessSocialMediaContact = getId('displayBusinessSocialMediaContact');
+const displayBusinessAddress = getId('displayBusinessAddress');
+const displayBusinessRegionOfOperation = getId('displayBusinessRegionOfOperation');
+const displayBusinessTradeCategory = getId('displayBusinessTradeCategory');
+const displayBusinessSubCategory = getId('displayBusinessSubCategory');
+const displayBusinessMinorCategory = getId('displayBusinessMinorCategory');
+const displayBusinessScale = getId('displayBusinessScale');
+const displayBusinessTags = getId('displayBusinessTags');
 
-let displayReprestativeFullname = getId('displayReprestativeFullname');
-let displayReprestativeEmailAddress = getId('displayReprestativeEmailAddress');
-let displayReprestativeContactNumber = getId('displayReprestativeContactNumber');
-let displayReprestativeAddress = getId('displayReprestativeAddress');
+const displayReprestativeFullname = getId('displayReprestativeFullname');
+const displayReprestativeEmailAddress = getId('displayReprestativeEmailAddress');
+const displayReprestativeContactNumber = getId('displayReprestativeContactNumber');
+const displayReprestativeAddress = getId('displayReprestativeAddress');
 
-let divCompanyDetails = getId('divCompanyDetails');
-let divUpdateCompanyDetails = getId('divUpdateCompanyDetails');
-let btnCompanyDetailsEdit = getId('btnCompanyDetailsEdit');
-let btnCompanyDetailsCancelEdit = getId('btnCompanyDetailsCancelEdit');
+const divCompanyDetails = getId('divCompanyDetails');
+const divUpdateCompanyDetails = getId('divUpdateCompanyDetails');
+const btnCompanyDetailsEdit = getId('btnCompanyDetailsEdit');
+const btnCompanyDetailsCancelEdit = getId('btnCompanyDetailsCancelEdit');
 
-let companyBanner = getId('companyBanner');
-let companyBannerPreview = getId('companyBannerPreview');
-let companyBannerId = getId('companyBannerId');
-let companyLogo = getId('companyLogo');
-let companyLogoPreview = getId('companyLogoPreview');
-let companyLogoId = getId('companyLogoId');
-let userImage = getId('user-image');
-let isAvatar = getId('is_avatar');
+const companyBanner = getId('companyBanner');
+const companyBannerPreview = getId('companyBannerPreview');
+const companyBannerId = getId('companyBannerId');
+const companyLogo = getId('companyLogo');
+const companyLogoPreview = getId('companyLogoPreview');
+const companyLogoId = getId('companyLogoId');
+const userImage = getId('user-image');
+const isAvatar = getId('is_avatar');
 
 //edit
-let companyName = getId('companyName');
-let tagline = getId('tagline');
-let businessEmailAddress = getId('businessEmailAddress');
-let businessContactNumber = getId('businessContactNumber');
-let website = getId('website');
-let businessSocialMediaContactType = getId('businessSocialMediaContactType');
-let businessSocialMediaContactNumber = getId('businessSocialMediaContactNumber');
-let businessAddress = getId('businessAddress');
-let editBusinessCountryLocation = getId('editBusinessCountryLocation');
-let editBusinessStatesLocation = getId('editBusinessStatesLocation');
-let editBusinessCityLocation = getId('editBusinessCityLocation');
-let startOperatingHour = getId('startOperatingHour');
-let endOperatingHour = getId('endOperatingHour');
-let editTradeCategory = getId('editTradeCategory');
-let subCategorySelect = getId('sub-category-select');
-let subCategoryManual = getId('sub-category-manual');
-let minorSubCategorySelect = getId('minor-sub-category-select')
-let minorSubCategoryManual = getId('minor-sub-category-manual');
-let editBusinessScale = getId('editBusinessScale');
-let editLanguagesOfCommunication = getId('editLanguagesOfCommunication');
-let tagInput = getId('tag-input');
-
-
-
+const companyName = getId('companyName');
+const tagline = getId('tagline');
+const businessEmailAddress = getId('businessEmailAddress');
+const businessContactNumber = getId('businessContactNumber');
+const website = getId('website');
+const businessSocialMediaContactType = getId('businessSocialMediaContactType');
+const businessSocialMediaContactNumber = getId('businessSocialMediaContactNumber');
+const businessAddress = getId('businessAddress');
+const editBusinessCountryLocation = getId('editBusinessCountryLocation');
+const editBusinessStatesLocation = getId('editBusinessStatesLocation');
+const editBusinessCityLocation = getId('editBusinessCityLocation');
+const startOperatingHour = getId('startOperatingHour');
+const endOperatingHour = getId('endOperatingHour');
+const editTradeCategory = getId('editTradeCategory');
+const subCategorySelect = getId('sub-category-select');
+const subCategoryManual = getId('sub-category-manual');
+const minorSubCategorySelect = getId('minor-sub-category-select');
+const minorSubCategoryManual = getId('minor-sub-category-manual');
+const editBusinessScale = getId('editBusinessScale');
+const editLanguagesOfCommunication = getId('editLanguagesOfCommunication');
+const tagInput = getId('tag-input');
 
 const API_URL = {
     users_upload_files: `${host}/uploads/users_upload_files/`,
@@ -68,11 +65,17 @@ const API_URL = {
     get_users_address: `${host}/api/get/users-address`,
     update_company_banner: `${host}/api/post/update-trader-company-banner`,
     update_company_logo: `${host}/api/post/update-trader-company-logo`,
+    create_communicator_link: `${host}/api/get/create-communicator-link`,
+    get_current_visitor: `${host}/api/post/get-current-visitor`,
+    email_payment_account: `${host}/api/post/email-payment-account`,
+    communicator_domain: `https://meet.allworldtrade.com/join/`,
+    //communicator_domain: 'https://meet2.allworldtrade.com/groupcall/' //old
+    download_current_visitor_data: `${host}/download-current-visitor-data`,
 };
 
-$(function () {
-    // getUsersBusinessBrochures();
-});
+// $(function () {
+//     // getUsersBusinessBrochures();
+// });
 
 //============================
 // COMPANY DETAILS - [START]
@@ -89,6 +92,7 @@ function getCompanyDetails() {
                 business_email,
                 business_contact,
                 business_website,
+                business_social_media_contact_type,
                 business_social_media_contact_number,
                 business_address,
                 business_city,
@@ -109,7 +113,12 @@ function getCompanyDetails() {
             displayBusinessWebsite.innerHTML = business_website || 'N/A';
             displayBusinessSocialMediaContact.innerHTML = business_social_media_contact_number;
             displayBusinessAddress.innerHTML = business_address ? `${business_address}, ` : ' ';
-            getCityNameToBeDisplayUsingCode(business_city, 'displayBusinessAddressCity');
+            getCityNameToBeDisplayUsingCode(
+                business_country,
+                business_states,
+                business_city,
+                'displayBusinessAddressCity',
+            );
             getStatesNameToBeDisplayUsingCode(business_states, 'displayBusinessAddressStates');
             getCountryNameUsingCode(business_country, 'displayBusinessAddressCountry');
             getRegionNameUsingCode(region_of_operation, 'displayBusinessRegionOfOperation');
@@ -127,101 +136,94 @@ function getCompanyDetails() {
             businessEmailAddress.value = business_email;
             businessContactNumber.value = business_contact;
             website.value = business_website || 'N/A';
-            // businessSocialMediaContactType
-            businessSocialMediaContactNumber.value = business_social_media_contact_number
-            businessAddress = business_address || '';
+            getBusinessSocialMediaContactType(business_social_media_contact_type, 'businessSocialMediaContactType');
+            businessSocialMediaContactNumber.value = business_social_media_contact_number;
+            businessAddress.value = business_address || '';
+            getBusinessCountryLocationToBeEditAndOptions(business_country, 'editBusinessCountryLocation');
+            getBusinessStatesLocationToBeEditAndOptions(
+                business_country,
+                business_states,
+                'editBusinessStatesLocation',
+            );
+            getBusinessCityLocationToBeEditAndOptions(
+                business_country,
+                business_states,
+                business_city,
+                'editBusinessCityLocation',
+            );
 
+            // getBusinessCountryLocationToBeEditAndOptions(data, 'editBusinessCountryLocation');
+            // getBusinessStatesLocationToBeEditAndOptions(data, 'editBusinessStatesLocation');
+            // getBusinessCityLocationToBeEditAndOptions(data, 'editBusinessCityLocation');
+            // getRegionOfOperationFunction(data);
+            // getCountryOfOperation(data);
+            // getCountryForState(data);
+            // getStatesOfOperation(data);
+            // getCityOfOperation(data);
         })
         .catch((error) => {
             console.error(error);
         });
 }
 
-function getCityNameToBeDisplayUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+async function getCityNameToBeDisplayUsingCode(countryCode, stateId, cityId, elementId) {
+    const element_id = getId(elementId);
 
-    if (!code) {
+    // if (cityId && cityId !== 'No Cities Found') {
+    //     const cities = await fetchCities();
+    //     const citiesUnderCountry = cities.filter(({ country_code }) => country_code === countryCode);
+    //     const citiesUnderCountryAndState = citiesUnderCountry.filter(({ state_id }) => state_id === parseInt(stateId));
+    //     const selectedCity = citiesUnderCountryAndState.find((d) => d.id === parseInt(cityId));
+
+    //     console.log('selectedCity: ', selectedCity);
+    //     element_id.innerHTML = selectedCity ? selectedCity.name + ', ' : ' ';
+    // } else {
+    //     element_id.innerHTML = ' ';
+    // }
+
+    if (cityId || cityId !== 'No States Found') {
+        const cities = await fetchCities();
+        const selectedCity = cities.find((d) => d.id === parseInt(cityId));
+        console.log('selectedCity: ', selectedCity);
+        element_id.innerHTML = selectedCity ? selectedCity.name + ', ' : ' ';
+    } else {
         element_id.innerHTML = ' ';
-        return;
     }
-
-    if (code === 'No Cities Found') {
-        element_id.innerHTML = ' ';
-        return;
-    }
-
-    fetch('assets/json/cities.json')
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            let filtered = data.filter((d) => d.id == code);
-            if (filtered.length > 0) {
-                element_id.innerHTML = filtered[0].name + ', ';
-            } else {
-                element_id.innerHTML = ' ';
-            }
-        });
 }
 
-function getStatesNameToBeDisplayUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+async function getStatesNameToBeDisplayUsingCode(code, elementId) {
+    const element_id = getId(elementId);
 
-    if (!code) {
+    if (code && code !== 'No States Found') {
+        const states = await fetchStates();
+        const filtered = states.filter((d) => d.id == code);
+        element_id.innerHTML = filtered.length > 0 ? filtered[0].name + ', ' : ' ';
+    } else {
         element_id.innerHTML = ' ';
-        return;
     }
-
-    if (code === 'No States Found') {
-        element_id.innerHTML = ' ';
-        return;
-    }
-
-    fetch('assets/json/states.json')
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            let filtered = data.filter((d) => d.id == code);
-            if (filtered.length > 0) {
-                element_id.innerHTML = filtered[0].name + ', ';
-            } else {
-                element_id.innerHTML = ' ';
-            }
-        });
 }
 
-function getCountryNameUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+async function getCountryNameUsingCode(code, elementId) {
+    const element_id = getId(elementId);
 
-    if (!code) {
+    if (code) {
+        const countries = await fetchCountries();
+        const filtered = countries.filter((d) => d.iso2 == code);
+        element_id.innerHTML = filtered.length > 0 ? filtered[0].name : ' ';
+    } else {
         element_id.innerHTML = ' ';
-        return;
     }
-
-    fetch('assets/json/countries.json')
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            let filtered = data.filter((d) => d.iso2 == code);
-            if (filtered.length > 0) {
-                element_id.innerHTML = filtered[0].name;
-            } else {
-                element_id.innerHTML = ' ';
-            }
-        });
 }
 
 function getLanguageName(string, elementId) {
-    let element_id = getId(elementId);
+    const element_id = getId(elementId);
 
     if (!string) {
         element_id.innerHTML = 'N/A';
         return;
     }
 
-    let data = string.split(',');
+    const data = string.split(',');
     for (var i = 0; i < data.length; i++) {
         element_id.innerHTML =
             element_id.innerHTML +
@@ -358,14 +360,14 @@ function getBusinessScaleTitle(id) {
 }
 
 function formattingBusinessTags(string, elementId) {
-    let element_id = getId(elementId);
+    const element_id = getId(elementId);
 
     if (!string) {
         element_id.innerHTML = 'N/A';
     }
 
     if (string) {
-        let data = string.split(',');
+        const data = string.split(',');
         for (var i = 0; i < data.length; i++) {
             element_id.innerHTML =
                 element_id.innerHTML + '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' + data[i] + '</a>';
@@ -408,12 +410,12 @@ async function getUsersAddress() {
         const response = await fetch(API_URL.get_users_address, { method: 'POST' });
         const data = await response.json();
         if (!data || data.length === 0) {
-            displayReprestativeAddress.textContent = 'N/A';
+            displayReprestativeAddress.textContent = ' ';
             return;
         }
         const { address, city, state_or_province, country } = data[0];
-        displayReprestativeAddress.textContent = address || 'N/A';
-        getCityNameToBeDisplayUsingCode(city, 'displayReprestativeAddressCity');
+        displayReprestativeAddress.textContent = address || ' ';
+        getCityNameToBeDisplayUsingCode(country, state_or_province, city, 'displayReprestativeAddressCity');
         getStatesNameToBeDisplayUsingCode(state_or_province, 'displayReprestativeAddressStates');
         getCountryNameUsingCode(country, 'displayReprestativeAddressCountry');
     } catch (error) {
@@ -429,7 +431,7 @@ async function getUsersAddress() {
 // REGION OF OPERATION DETAILS - [START]
 //=======================================
 function getRegionNameUsingCode(string, elementId) {
-    let element_id = getId(elementId);
+    const element_id = getId(elementId);
 
     if (!string) {
         element_id.innerHTML = 'N/A';
@@ -437,7 +439,7 @@ function getRegionNameUsingCode(string, elementId) {
     }
 
     if (string) {
-        let data = string.split(',');
+        const data = string.split(',');
         for (var i = 0; i < data.length; i++) {
             element_id.innerHTML =
                 element_id.innerHTML + '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' + data[i] + '</a>';
@@ -446,59 +448,72 @@ function getRegionNameUsingCode(string, elementId) {
 }
 
 function getCountryOfOperationNameUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+    const element_id = getId(elementId);
 
     if (!code) {
-        element_id.innerHTML = ' ';
+        element_id.innerHTML = 'N/A';
         return;
     }
 
-    let data = code.split(',');
+    const data = code.split(',');
     for (var i = 0; i < data.length; i++) {
         element_id.innerHTML =
             element_id.innerHTML + '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' + data[i] + '</a>';
     }
 }
 
-function getStatesOfOperationNameUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+async function getStatesOfOperationNameUsingCode(stateId, elementId) {
+    const element_id = getId(elementId);
 
-    if (!code) {
+    // if (!stateId || stateId === 'No States Found') {
+    //     element_id.innerHTML = 'N/A';
+    //     return;
+    // }
+
+    // fetch('assets/json/states.json')
+    //     .then(function (resp) {
+    //         return resp.json();
+    //     })
+    //     .then(function (data) {
+    //         const filtered = data.filter((d) => d.id == stateId);
+    //         element_id.innerHTML = filtered[0].name;
+    //     });
+
+    if (stateId && stateId !== 'No States Found') {
+        const states = await fetchStates();
+        const selectedState = states.find((d) => d.id === parseInt(stateId));
+        console.log('selectedState: ', selectedState);
+        element_id.innerHTML = selectedState ? selectedState.name : ' ';
+    } else {
         element_id.innerHTML = 'N/A';
-        return;
     }
-
-    if (code === 'No States Found') {
-        element_id.innerHTML = 'N/A';
-        return;
-    }
-
-    fetch('assets/json/states.json')
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            let filtered = data.filter((d) => d.id == code);
-            element_id.innerHTML = filtered[0].name;
-        });
 }
 
-function getCityOfOperationNameUsingCode(code, elementId) {
-    let element_id = getId(elementId);
+async function getCityOfOperationNameUsingCode(cityId, elementId) {
+    const element_id = getId(elementId);
 
-    if (!code) {
+    // if (!cityId) {
+    //     element_id.innerHTML = 'N/A';
+    //     return;
+    // }
+
+    // fetch('assets/json/cities.json')
+    //     .then(function (resp) {
+    //         return resp.json();
+    //     })
+    //     .then(function (data) {
+    //         const filtered = data.filter((d) => d.id == cityId);
+    //         element_id.innerHTML = filtered[0].name;
+    //     });
+
+    if (cityId && cityId !== 'No States Found') {
+        const cities = await fetchCities();
+        const selectedCity = cities.find((d) => d.id === parseInt(cityId));
+        console.log('selectedCity: ', selectedCity);
+        element_id.innerHTML = selectedCity ? selectedCity.name : ' ';
+    } else {
         element_id.innerHTML = 'N/A';
-        return;
     }
-
-    fetch('assets/json/cities.json')
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            let filtered = data.filter((d) => d.id == code);
-            element_id.innerHTML = filtered[0].name;
-        });
 }
 //=====================================
 // REGION OF OPERATION DETAILS - [END]
@@ -516,6 +531,164 @@ btnCompanyDetailsCancelEdit.addEventListener('click', (e) => {
     divCompanyDetails.style.display = 'block';
     divUpdateCompanyDetails.style.display = 'none';
 });
+
+function getBusinessSocialMediaContactType(selectedValue, elementId) {
+    const element_id = document.getElementById(elementId);
+    const companyDetails = [
+        { id: '', title: 'None' },
+        { id: '1', title: 'Viber' },
+        { id: '2', title: 'Wechat' },
+        { id: '3', title: 'Whatsapp' },
+    ];
+
+    if (!selectedValue || selectedValue === '' || selectedValue === null) {
+        element_id.innerHTML = companyDetails
+            .map((detail) => `<option value="${detail.id}">${detail.title}</option>`)
+            .join('');
+    } else {
+        const selectedOption = companyDetails.find((detail) => detail.id == selectedValue);
+        const optionsToRender = companyDetails.filter((detail) => detail.id != selectedValue);
+        const optionsHtml = optionsToRender
+            .map((detail) => `<option value="${detail.id}">${detail.title}</option>`)
+            .join('');
+        element_id.innerHTML = `<option value="${selectedOption.id}">${selectedOption.title}</option>${optionsHtml}`;
+        element_id.value = selectedValue;
+    }
+
+    $(`#${elementId}`).selectpicker('refresh');
+}
+
+async function fetchCountries() {
+    const resp = await fetch('assets/json/countries.json');
+    const countries = await resp.json();
+    return countries;
+}
+
+async function getBusinessCountryLocationToBeEditAndOptions(countryCode, elementId) {
+    const element = getId(elementId);
+    const countries = await fetchCountries();
+    const selectedCountry = countries.find((country) => country.iso2 === countryCode);
+
+    element.innerHTML = countryCode
+        ? `<option value="${selectedCountry.iso2}">${selectedCountry.name}</option>`
+        : '<option value="">Select Country</option>';
+
+    const countriesToRender = countries.filter((country) => country.iso2 !== countryCode);
+    businessCountryLocationForOfLoop(countriesToRender, element);
+
+    $(`#${elementId}`).selectpicker('refresh');
+}
+
+function businessCountryLocationForOfLoop(countriesOptionsToRender, element_id) {
+    for (const country of countriesOptionsToRender) {
+        const option = document.createElement('option');
+        option.value = country.iso2;
+        option.textContent = country.name;
+        element_id.appendChild(option);
+    }
+}
+
+async function fetchStates() {
+    const resp = await fetch('assets/json/states.json');
+    const states = await resp.json();
+    return states;
+}
+
+function initialOption(value = null, title, element) {
+    element.innerHTML = `<option value="${value}">${title}</option>`;
+    $(element).selectpicker('refresh');
+}
+
+async function getBusinessStatesLocationToBeEditAndOptions(countryCode, stateId, elementId) {
+    try {
+        const element = getId(elementId);
+        !countryCode ? initialOption(null, 'Select Country First', element) : null;
+        stateId === 'No States Found' ? initialOption('No States Found', 'No States Found', element) : null;
+
+        const states = await fetchStates();
+        const statesInCountry = states.filter((state) => state.country_code === countryCode);
+
+        if (!stateId) {
+            initialOption(null, 'Select States', element);
+            businessStatesLocationForOfLoop(statesInCountry, element);
+        } else {
+            const selectedState = states.find((state) => state.id === parseInt(stateId));
+            initialOption(selectedState.id, selectedState.name, element);
+            const statesToRender = statesInCountry.filter((state) => state.id !== parseInt(stateId));
+            businessStatesLocationForOfLoop(statesToRender, element);
+        }
+    } catch (error) {
+        console.error('Error fetching states:', error);
+    }
+}
+
+function businessStatesLocationForOfLoop(statesOptionsToRender, element_id) {
+    for (const state of statesOptionsToRender) {
+        const option = document.createElement('option');
+        option.value = state.id;
+        option.textContent = state.name;
+        element_id.appendChild(option);
+    }
+    $(element_id).selectpicker('refresh');
+}
+
+async function fetchCities() {
+    const response = await fetch('assets/json/cities.json');
+    const cities = await response.json();
+    return cities;
+}
+
+async function getBusinessCityLocationToBeEditAndOptions(countryCode, stateId, cityId, elementId) {
+    try {
+        const element = document.getElementById(elementId);
+        let citiesUnderCountry, citiesUnderCountryAndState, selectedCity, otherCitiesUnderCountryAndState;
+
+        if (cityId === 'No Cities Found') {
+            element.innerHTML = '<option value="No Cities Found">No Cities Found</option>';
+        }
+
+        if (stateId === 'No States Found') {
+            element.innerHTML = '<option value="No States Found">No States Found</option>';
+        }
+
+        if (!countryCode || !stateId) {
+            element.innerHTML = '<option value="">Select Country and State First</option>';
+        }
+
+        if (countryCode && stateId && !cityId) {
+            const cities = await fetchCities();
+            citiesUnderCountry = cities.filter(({ country_code }) => country_code === countryCode);
+            citiesUnderCountryAndState = citiesUnderCountry.filter(({ state_id }) => state_id === parseInt(stateId));
+
+            element.innerHTML = '<option value="">Select City</option>';
+            businessCityLocationForEachLoop(citiesUnderCountryAndState, element);
+        }
+
+        if (countryCode && stateId && cityId) {
+            const cities = await fetchCities();
+            citiesUnderCountry = cities.filter(({ country_code }) => country_code === countryCode);
+            citiesUnderCountryAndState = citiesUnderCountry.filter(({ state_id }) => state_id === parseInt(stateId));
+            selectedCity = citiesUnderCountryAndState.filter(({ id }) => id === parseInt(cityId));
+            otherCitiesUnderCountryAndState = citiesUnderCountryAndState.filter(({ id }) => id !== parseInt(cityId));
+
+            element.innerHTML = `<option value="${selectedCity[0].id}">${selectedCity[0].name}</option>`;
+            businessCityLocationForEachLoop(otherCitiesUnderCountryAndState, element);
+        }
+
+        $(`#${elementId}`).selectpicker('refresh');
+    } catch (error) {
+        console.error('Error fetching states:', error);
+    }
+}
+
+function businessCityLocationForEachLoop(citiesOptionsToRender, elementId) {
+    citiesOptionsToRender.forEach(({ id, name }) => {
+        const option = document.createElement('option');
+        option.value = id;
+        option.innerHTML = name;
+        elementId.appendChild(option);
+    });
+}
 
 //====================================
 // UPDATE COMPANY DETAILS - [END]
@@ -567,10 +740,10 @@ companyBanner.onchange = (evt) => {
 
 function editcompanyBanner() {
     // Get form
-    let form = $('#editcompanyBanner')[0];
+    const form = $('#editcompanyBanner')[0];
 
     // Create an FormData object
-    let data = new FormData(form);
+    const data = new FormData(form);
 
     $.ajax({
         type: 'POST',
@@ -613,10 +786,10 @@ companyLogo.onchange = (evt) => {
 
 function editcompanyLogo() {
     // Get form
-    let form = $('#editcompanyLogo')[0];
+    const form = $('#editcompanyLogo')[0];
 
     // Create an FormData object
-    let data = new FormData(form);
+    const data = new FormData(form);
 
     $.ajax({
         type: 'POST',
@@ -643,6 +816,76 @@ function editcompanyLogo() {
 //====================
 // LOGO - END
 //====================
+
+//=================================
+// THREE FUNCTION BUTTON - START
+//=================================
+
+const createCommunicatorLink = () => {
+    fetch(API_URL.create_communicator_link, {
+        method: 'POST',
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.communicator) {
+                window.open(API_URL.communicator_domain + data.communicator, '_blank');
+            }
+        })
+        .catch((error) => console.error(error));
+};
+
+const downloadCurrentVisitorData = async () => {
+    try {
+        const response = await fetch(API_URL.get_current_visitor, {
+            method: 'POST',
+        });
+        const res = await response.json();
+
+        if (res.length > 0) {
+            const result = await Swal.fire({
+                title: 'Download?',
+                text: 'Do you want to download visitor details?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, download!',
+            });
+
+            if (result.isConfirmed) {
+                window.location = API_URL.download_current_visitor_data;
+            }
+        } else {
+            Swal.fire('Success', 'Currently No Visitors', 'success');
+        }
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+function paymentAccount() {
+    $.ajax({
+        url: API_URL.email_payment_account,
+        type: 'POST',
+        data: {
+            email: sessionEmail,
+        },
+        success: function (data) {
+            if (data === 'email sent') {
+                Swal.fire('Success', 'Email Sent. Kindly check you email address inbox or spam folder', 'success');
+            } else {
+                Swal.fire('Warning', 'Email not sent. Report to customer service', 'warning');
+            }
+        },
+        error: function (e) {
+            // some code here
+        },
+    });
+}
+
+//==============================
+// THREE FUNCTION BUTTON - END
+//==============================
 
 Promise.all([
     getCompanyDetails(),
