@@ -6,15 +6,21 @@ tagInput = getId('tag-input');
 tagList = getId('tag-list');
 validationMessage = getId('validation-message');
 
+// const tagInput = getId('tag-input');
+// const tagList = getId('tag-list');
+// const validationMessage = getId('validation-message');
+
 let tagCount = 0;
-const maxTags = 10;
+const maxTags = 20;
 
 function displayTagList(tagsData) {
-    const tags = tagsData.split(',');
+    if(tagsData) {
+        const tags = tagsData.split(',');
 
-    // Add existing tags to the tag list
-    for (let i = 0; i < tags.length; i++) {
-        addTag(tags[i]);
+        // Add existing tags to the tag list
+        for (let i = 0; i < tags.length; i++) {
+            addTag(tags[i]);
+        }
     }
 }
 

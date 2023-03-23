@@ -184,11 +184,11 @@
                         </p>
                         <div class="line">
                           <p class="text-xs text-gray-400 mb-2 orbitron"> 8Operation Time (Local) </p>
-                          <p class="orbitron" id="displayOperationTimeLocal"> N/A </p>
+                          <p class="orbitron" id="local-operating-time"> N/A </p>
                         </div>
                         <div class="line">
                           <p class="text-xs text-gray-400 mb-2 orbitron"> 9Operation Time (UCT) </p>
-                          <p class="orbitron" id="displayOperationTimeUCT"> N/A </p>
+                          <p class="orbitron" id="uct-operating-time"> N/A </p>
                         </div>
                         <div class="line">
                           <p class="text-xs text-gray-400 mb-2 orbitron"> 10Trade Category </p>
@@ -227,213 +227,220 @@
                 <!-- UPDATE COMPANY DETAILS - START  -->
                 <!-- =============================== -->
                 <div class="card mb-4" id="divUpdateCompanyDetails" style="display: none;">
-                  <div class="border-b flex items-center justify-between p-4">
-                    <div>
-                      <h2 class="text-lg font-semibold">
-                        Company Details
-                        <a class="hover:border-gray-100" href="#">
-                          <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
-                            uk-tooltip="title: Completion of Company Details can help boost your searchability; pos: right">
-                          </span>
-                        </a>
-                      </h2>
-                    </div>
-                    <div class="text-right">
-                      <button class="p-2 px-4 rounded bg-gray-50 text-red-500 orbitron"
-                        id="btnCompanyDetailsCancelEdit">
-                        Cancel
-                      </button>
-                      <button class="button blue-white-hover orbitron" type="button" id="btnCompanyDetailsSave">
-                        Save
-                      </button>
-                    </div>
-                  </div>
-                  <div class="p-4 -mt-1.5">
-                    <div id="showCompanyDetails">
-                      <div class="flex-1 space-y-4 p-4">
-                        <div>
-                          <label for="" class="orbitron">1Company Name</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="companyName" name="companyName">
-                          <p class="text-red-500" id="companyNameValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">2Business Tagline</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="tagline" name="tagline">
-                          <p class="text-red-500" id="taglineValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">3Business Email Address</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="businessEmailAddress" name="businessEmailAddress">
-                          <p class="text-red-500" id="businessEmailAddressValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">4Business Contact Number</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="businessContactNumber" name="businessContactNumber"
-                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                          <p class="text-red-500" id="businessContactNumberValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">5Business Website</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="website" name="website">
-                          <p class="text-red-500" id="websiteValidation"></p>
-                        </div>
-                        <label for="" class="orbitron">6Business Social Media / Messaging App</label>
-                        <div class="grid grid-cols-2 gap-3">
-                          <div>
-                            <select id="businessSocialMediaContactType" name="businessSocialMediaContactType"
-                              class="shadow-none selectpicker with-border ">
-                            </select>
-                          </div>
-                          <div>
-                            <input type="text" placeholder="Mobile Number"
-                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                              id="businessSocialMediaContactNumber" name="businessSocialMediaContactNumber"
-                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                            <p class="text-red-500" id="businessSocialMediaContactNumberValidation"></p>
-                          </div>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">7Business Address</label>
-                          <input type="text" placeholder=""
-                            class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                            id="businessAddress" name="businessAddress">
-                          <p class="text-red-500" id="businessAddressValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">7Business Country Location</label>
-                          <select id="editBusinessCountryLocation" name="editBusinessCountryLocation"
-                            class="shadow-none selectpicker with-border ">
-                          </select>
-                          <p class="text-red-500" id="editBusinessCountryLocationValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">7Business States Location</label>
-                          <select id="editBusinessStatesLocation" name="editBusinessStatesLocation"
-                            class="shadow-none selectpicker with-border ">
-                          </select>
-                          <p class="text-red-500" id="editBusinessStatesLocationValidation"></p>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">7Business City Location</label>
-                          <select id="editBusinessCityLocation" name="editBusinessCityLocation"
-                            class="shadow-none selectpicker with-border ">
-                          </select>
-                          <p class="text-red-500" id="editBusinessCityLocationValidation"></p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3">
-                          <div>
-                            <label for="" class="orbitron">8Start of Operating Hour
-                              <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
-                                uk-tooltip="title: Local Time; pos: right">
-                              </span>
-                            </label>
-                            <input type="time"
-                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600 indent-10px"
-                              placeholder="" id="startOperatingHour" name="startOperatingHour">
-                            <p class="text-red-500" id="startOperatingHourValidation"></p>
-                          </div>
-                          <div>
-                            <label for="" class="orbitron">9End of Operating Hour
-                              <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
-                                uk-tooltip="title: Local Time; pos: right">
-                              </span>
-                            </label>
-                            <input type="time"
-                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600 indent-10px"
-                              placeholder="" id="endOperatingHour" name="endOperatingHour">
-                            <p class="text-red-500" id="endOperatingHourValidation"></p>
-                          </div>
-                        </div>
-                        <div>
-                          <label for="" class="orbitron">10Trade Category</label>
-                          <select class="selectpicker" id="editTradeCategory" name="editTradeCategory">
-                          </select>
-                          <p class="text-red-500" id="editTradeCategoryValidation"></p>
-                        </div>
+                  <form action="javascript:void(0);" method="POST" id="editCompanyDetails"
+							      name="editCompanyDetails" enctype="multipart/form-data" accept-charset="utf-8">
 
-                        <!-- trial start  -->
-                        <div>
-                          <label for="" class="orbitron">11Sub Category</label>
-                          <select class="selectpicker" id="sub-category-select" name="subCategorySelect"></select>
-                          <input type="text" id="sub-category-manual" name="subCategoryManual" style="display: none;">
-                          <p class="text-red-500" id="editTradeCategoryValidation"></p>
-                        </div>
-
-                        <div>
-                          <label for="" class="orbitron">12Minor Sub Category</label>
-                          <select class="selectpicker" id="minor-sub-category-select"
-                            name="minorSubCategorySelect"></select>
-                          <input type="text" id="minor-sub-category-manual" name="minorSubCategoryManual"
-                            style="display: none;">
-                          <p class="text-red-500" id="editTradeCategoryValidation"></p>
-                        </div>
-                        <!-- trial end  -->
-
-
-                        <div>
-                          <label for="" class="orbitron">13How do you rank your own company</label>
-                          <select id="editBusinessScale" name="editBusinessScale"
-                            class="shadow-none selectpicker with-border ">
-                          </select>
-                          <p class="text-red-500" id="editBusinessScaleValidation"></p>
-                        </div>
-
-                        <label for="" class="orbitron">14Languages of communication</label>
-                        <select class="selectpicker" id="editLanguagesOfCommunication"
-                          name="editLanguagesOfCommunication" multiple>
-                        </select>
-                        <p class="text-red-500" id="editLanguagesOfCommunicationValidation"></p>
-                        <div class="col-span-2" style="display:none;">
-                          <label for="" class="mb-0 ml-2 text-gray-600 text-sm"> Languages of
-                            communication </label>
-                          <textarea type="text" rows="5" class="shadow-none with-border"
-                            id="currentLanguagesOfCommunication" name="currentLanguagesOfCommunication" placeholder=""
-                            class=""></textarea>
-                        </div>
-
-                        <div>
-                          <label for="" class="orbitron">15Search Keywords (Maximum of 10)</label>
-                          <div class="flex flex-wrap bg-white border rounded-lg shadow-md">
-                            <input id="tag-input" name="tags"
-                              class="flex-1 px-3 py-2 text-gray-700 border-none rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                              type="text" placeholder="Add tags">
-                            <button id="add-tag-button"
-                              class="px-4 py-2 text-white bg-blue-600 rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600">
-                              Add
-                            </button>
-                          </div>
-                          <div id="tag-list" class="flex flex-wrap mt-2"></div>
-                          <div id="validation-message" class="hidden text-red-500">You have
-                            reached the maximum number of tags (20)</div>
-                        </div>
-
-                        <div class="col-span-2" style="display:none;">
-                          <label for="" class="mb-0 ml-2 text-gray-600 text-sm">Tag List</label>
-                          <textarea type="text" rows="5" class="shadow-none with-border" id="textAreaAddKeywords"
-                            name="textAreaAddKeywords" placeholder="" class=""></textarea>
-                        </div>
-                        <!-- <div class="col-span-2" style="display:block;">
-                          <label for="" class="mb-0 ml-2 text-gray-600 text-sm">Current Tag List</label>
-                          <textarea type="text" rows="5" class="shadow-none with-border" id="textAreaCurrentKeywords"
-                            name="textAreaCurrentKeywords" placeholder="" class=""></textarea>
-                        </div> -->
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                    <div class="border-b flex items-center justify-between p-4">
+                      <div>
+                        <h2 class="text-lg font-semibold">
+                          Company Details
+                          <a class="hover:border-gray-100" href="#">
+                            <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
+                              uk-tooltip="title: Completion of Company Details can help boost your searchability; pos: right">
+                            </span>
+                          </a>
+                        </h2>
+                      </div>
+                      <div class="text-right">
+                        <button class="p-2 px-4 rounded bg-gray-50 text-red-500 orbitron"
+                          id="btnCompanyDetailsCancelEdit">
+                          Cancel
+                        </button>
+                        <button class="button blue-white-hover orbitron" type="button" id="btnUpdateCompanyDetails">
+                          Save
+                        </button>
                       </div>
                     </div>
-                  </div>
+                    <div class="p-4 -mt-1.5">
+                      <div id="showCompanyDetails">
+                        <div class="flex-1 space-y-4 p-4">
+                          <div>
+                            <label for="" class="orbitron">1Company Name</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="companyName" name="companyName">
+                            <p class="text-red-500" id="companyNameValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">2Business Tagline</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="tagline" name="tagline">
+                            <p class="text-red-500" id="taglineValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">3Business Email Address</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="businessEmailAddress" name="businessEmailAddress">
+                            <p class="text-red-500" id="businessEmailAddressValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">4Business Contact Number</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="businessContactNumber" name="businessContactNumber"
+                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                            <p class="text-red-500" id="businessContactNumberValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">5Business Website</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="website" name="website">
+                            <p class="text-red-500" id="websiteValidation"></p>
+                          </div>
+                          <label for="" class="orbitron">6Business Social Media / Messaging App</label>
+                          <div class="grid grid-cols-2 gap-3">
+                            <div>
+                              <select id="businessSocialMediaContactType" name="businessSocialMediaContactType"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                            <div>
+                              <input type="text" placeholder="Mobile Number"
+                                class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                id="businessSocialMediaContactNumber" name="businessSocialMediaContactNumber"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                              <p class="text-red-500" id="businessSocialMediaContactNumberValidation"></p>
+                            </div>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">7Business Address</label>
+                            <input type="text" placeholder=""
+                              class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                              id="businessAddress" name="businessAddress">
+                            <p class="text-red-500" id="businessAddressValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">7Business Country Location</label>
+                            <select id="editBusinessCountryLocation" name="editBusinessCountryLocation"
+                              class="shadow-none selectpicker with-border ">
+                            </select>
+                            <p class="text-red-500" id="editBusinessCountryLocationValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">7Business States Location</label>
+                            <select id="editBusinessStatesLocation" name="editBusinessStatesLocation"
+                              class="shadow-none selectpicker with-border ">
+                            </select>
+                            <p class="text-red-500" id="editBusinessStatesLocationValidation"></p>
+                          </div>
+                          <div>
+                            <label for="" class="orbitron">7Business City Location</label>
+                            <select id="editBusinessCityLocation" name="editBusinessCityLocation"
+                              class="shadow-none selectpicker with-border ">
+                            </select>
+                            <p class="text-red-500" id="editBusinessCityLocationValidation"></p>
+                          </div>
+                          <div class="grid grid-cols-2 gap-3">
+                            <div>
+                              <label for="" class="orbitron">8Start of Operating Hour
+                                <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
+                                  uk-tooltip="title: Local Time; pos: right">
+                                </span>
+                              </label>
+                              <input type="time"
+                                class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600 indent-10px"
+                                placeholder="" id="startOperatingHour" name="startOperatingHour">
+                              <p class="text-red-500" id="startOperatingHourValidation"></p>
+                            </div>
+                            <div>
+                              <label for="" class="orbitron">9End of Operating Hour
+                                <span class="icon-feather-info" style="font-size: 16px; font-family: inherit"
+                                  uk-tooltip="title: Local Time; pos: right">
+                                </span>
+                              </label>
+                              <input type="time"
+                                class="flex-1 px-3 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600 indent-10px"
+                                placeholder="" id="endOperatingHour" name="endOperatingHour">
+                              <p class="text-red-500" id="endOperatingHourValidation"></p>
+                            </div>
+                          </div>
+  
+                          <label for="" class="orbitron">14Languages of communication</label>
+                          <select class="selectpicker" id="editLanguagesOfCommunication"
+                            name="editLanguagesOfCommunication" multiple>
+                          </select>
+                          <p class="text-red-500" id="editLanguagesOfCommunicationValidation"></p>
+                          <div class="col-span-2" style="display:none;">
+                            <label for="" class="mb-0 ml-2 text-gray-600 text-sm"> Languages of
+                              communication </label>
+                            <textarea type="text" rows="5" class="shadow-none with-border"
+                              id="currentLanguagesOfCommunication" name="currentLanguagesOfCommunication" placeholder=""
+                              class=""></textarea>
+                          </div>
+  
+                          <div>
+                            <label for="" class="orbitron">10Trade Category</label>
+                            <select class="selectpicker" id="editTradeCategory" name="editTradeCategory">
+                            </select>
+                            <p class="text-red-500" id="editTradeCategoryValidation"></p>
+                          </div>
+  
+                          <!-- trial start  -->
+                          <div>
+                            <label for="" class="orbitron">11Sub Category</label>
+                            <select class="selectpicker" id="sub-category-select" name="subCategorySelect"></select>
+                            <input type="text" id="sub-category-manual" name="subCategoryManual" style="display: none;">
+                            <p class="text-red-500" id="editTradeCategoryValidation"></p>
+                          </div>
+  
+                          <div>
+                            <label for="" class="orbitron">12Minor Sub Category</label>
+                            <select class="selectpicker" id="minor-sub-category-select"
+                              name="minorSubCategorySelect"></select>
+                            <input type="text" id="minor-sub-category-manual" name="minorSubCategoryManual"
+                              style="display: none;">
+                            <p class="text-red-500" id="editTradeCategoryValidation"></p>
+                          </div>
+                          <!-- trial end  -->
+  
+  
+                          <div>
+                            <label for="" class="orbitron">13How do you rank your own company</label>
+                            <select id="editBusinessScale" name="editBusinessScale"
+                              class="shadow-none selectpicker with-border ">
+                            </select>
+                            <p class="text-red-500" id="editBusinessScaleValidation"></p>
+                          </div>
+  
+                          <div>
+                            <label for="" class="orbitron">15Search Keywords (Maximum of 20)</label>
+                            <div class="flex flex-wrap bg-white border rounded-lg shadow-md">
+                              <input id="tag-input" name="tags"
+                                class="flex-1 px-3 py-2 text-gray-700 border-none rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                type="text" placeholder="Add tags">
+                              <button id="add-tag-button"
+                                class="px-4 py-2 text-white bg-blue-600 rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                Add
+                              </button>
+                            </div>
+                            <div id="tag-list" class="flex flex-wrap mt-2"></div>
+                            <div id="validation-message" class="hidden text-red-500">You have
+                              reached the maximum number of tags (20)</div>
+                          </div>
+  
+                          <div class="col-span-2" style="display:none;">
+                            <label for="" class="mb-0 ml-2 text-gray-600 text-sm">Tag List</label>
+                            <textarea type="text" rows="5" class="shadow-none with-border" id="textAreaAddKeywords"
+                              name="textAreaAddKeywords" placeholder="" class=""></textarea>
+                          </div>
+                          <!-- <div class="col-span-2" style="display:block;">
+                            <label for="" class="mb-0 ml-2 text-gray-600 text-sm">Current Tag List</label>
+                            <textarea type="text" rows="5" class="shadow-none with-border" id="textAreaCurrentKeywords"
+                              name="textAreaCurrentKeywords" placeholder="" class=""></textarea>
+                          </div> -->
+                          <br />
+                          <br />
+                          <br />
+                          <br />
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </form>
+                  
                 </div>
                 <!-- =============================== -->
                 <!-- UPDATE COMPANY DETAILS - END  -->
@@ -453,7 +460,7 @@
                       <h2 class="text-lg font-semibold">Representative</h2>
                     </div>
                     <div class="text-right">
-                      <button class="button blue-white-hover" type="button" id="">Update</button>
+                      <!-- <button class="button blue-white-hover" type="button" id="">Update</button> -->
                     </div>
                   </div>
                   <div class="flex-1 space-y-4 p-6">
@@ -484,7 +491,7 @@
                       <h2 class="text-lg font-semibold">Region Of Operation</h2>
                     </div>
                     <div class="text-right">
-                      <button class="button blue-white-hover" type="button" id="">Update</button>
+                      <!-- <button class="button blue-white-hover" type="button" id="">Update</button> -->
                     </div>
                   </div>
                   <div class="flex-1 space-y-4 p-6">
@@ -1075,6 +1082,9 @@
         <%- include('../includes/scripts/index.ejs') %>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.0/sweetalert2.min.js"></script>
           <script src="assets/js/traders-profile-v2.js"></script>
+          <script src="assets/js/timezone.js"></script>
+          <script src="assets/js/dropdown-select-option-with-input-other.js"></script>
+					<script src="assets/js/tags.js"></script>
           <!-- <script src="assets/js/traders-profile.js"></script> -->
           <!-- <script src="assets/js/global-countries.js"></script> -->
           <!-- <script src="assets/js/getStatesNameToBeDisplayUsingCode.js"></script> -->

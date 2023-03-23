@@ -26,9 +26,12 @@ module.exports = (app) => {
     const usersBusinessesController = controllers.users_businesses;
     const usersAccountsController = controllers.users_accounts;
 
-    const updateTraders = controllers.update_traders;
-    const updateLarge = controllers.update_large_scale_company;
-    const updateMedium = controllers.update_medium_scale_company;
+    const updateTrader = controllers.update_trader;
+
+
+    const updateTraders = controllers.update_traders; // delete in future
+    const updateLarge = controllers.update_large_scale_company; // delete in future
+    const updateMedium = controllers.update_medium_scale_company; // delete in future
 
 
     app.post(
@@ -84,9 +87,12 @@ module.exports = (app) => {
     // api for data aggregation and data checking
     app.get(['/api/v2/get/traders-data'], usersAccountsController.tradersData);
 
-    app.post(['/api/v2/post/update-company-details'], updateTraders.update);
-    app.post(['/api/v2/post/update-large-scale-company'], updateLarge.update);
-    app.post(['/api/v2/post/update-medium-scale-company',], updateMedium.update);
+
+    app.post(['/api/v2/update/update-company-details'], updateTrader.update);
+
+    app.post(['/api/v2/post/update-company-details'], updateTraders.update); // delete in future
+    app.post(['/api/v2/post/update-large-scale-company'], updateLarge.update);  // delete in future
+    app.post(['/api/v2/post/update-medium-scale-company',], updateMedium.update);  // delete in future
 
 
 

@@ -1,3 +1,4 @@
+// NOTE: also use html element in ejs file that related in the declared element here
 const subCategorySelectpicker = getId('sub-category-select');
 const subCategoryManual = getId('sub-category-manual');
 const minorSubCategoryManual = getId('minor-sub-category-manual');
@@ -11,48 +12,50 @@ let globalOldMinorSubCategorySelected = '';
 
 async function getSubCategoriesToBeEditByTradeCategoryId(value) {
     const tradeCategoryId = value[0].business_major_category;
-    const response = await fetch(`${host}/api/get/sub-categories-by-trade-category-id/${tradeCategoryId}`);
-    const data = await response.json();
-    globalSubCategoryOptions = data;
+    if (tradeCategoryId) {
+        const response = await fetch(`${host}/api/get/sub-categories-by-trade-category-id/${tradeCategoryId}`);
+        const data = await response.json();
+        globalSubCategoryOptions = data;
 
-    const subCategoryId = value[0].business_sub_category;
-    const subCategoryString = value[0].business_sub_category_str;
+        const subCategoryId = value[0].business_sub_category;
+        const subCategoryString = value[0].business_sub_category_str;
 
-    globalOldTradeCategorySelected = tradeCategoryId;
-    globalOldSubCategorySelected = subCategoryId;
+        globalOldTradeCategorySelected = tradeCategoryId;
+        globalOldSubCategorySelected = subCategoryId;
 
-    // Clear existing options from dropdown
-    $(subCategorySelectpicker).empty();
+        // Clear existing options from dropdown
+        $(subCategorySelectpicker).empty();
 
-    // Loop through subcategories and add them as options to the dropdown
-    data.forEach(({ id, title }) => {
-        const option = document.createElement('option');
-        option.value = id;
-        option.text = title;
-        subCategorySelectpicker.appendChild(option);
+        // Loop through subcategories and add them as options to the dropdown
+        data.forEach(({ id, title }) => {
+            const option = document.createElement('option');
+            option.value = id;
+            option.text = title;
+            subCategorySelectpicker.appendChild(option);
 
-        // Set the selected attribute of the option that matches the old data
-        if (subCategoryId && id == subCategoryId) {
-            option.selected = true;
+            // Set the selected attribute of the option that matches the old data
+            if (subCategoryId && id == subCategoryId) {
+                option.selected = true;
+            }
+        });
+
+        // Add "Other" option to the dropdown
+        const otherOption = document.createElement('option');
+        otherOption.value = 'other';
+        otherOption.text = 'Other';
+        subCategorySelectpicker.appendChild(otherOption);
+
+        // Refresh the Bootstrap selectpicker
+        $(subCategorySelectpicker).selectpicker('refresh');
+
+        // Check if the subcategory string is present and display the corresponding input field
+        if (subCategoryString) {
+            subCategorySelectpicker.style.display = 'none';
+            $(subCategorySelectpicker).selectpicker('hide');
+            $(minorSubCategorySelectpicker).selectpicker('hide');
+            subCategoryManual.style.display = 'block';
+            subCategoryManual.value = subCategoryString;
         }
-    });
-
-    // Add "Other" option to the dropdown
-    const otherOption = document.createElement('option');
-    otherOption.value = 'other';
-    otherOption.text = 'Other';
-    subCategorySelectpicker.appendChild(otherOption);
-
-    // Refresh the Bootstrap selectpicker
-    $(subCategorySelectpicker).selectpicker('refresh');
-
-    // Check if the subcategory string is present and display the corresponding input field
-    if (subCategoryString) {
-        subCategorySelectpicker.style.display = 'none';
-        $(subCategorySelectpicker).selectpicker('hide');
-        $(minorSubCategorySelectpicker).selectpicker('hide');
-        subCategoryManual.style.display = 'block';
-        subCategoryManual.value = subCategoryString;
     }
 }
 
@@ -76,7 +79,7 @@ subCategorySelectpicker.addEventListener('change', function () {
         minorSubCategoryManual.disabled = true;
         subCategoryManual.value = '';
         minorSubCategoryManual.value = '';
-        getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategorySelectpicker.value)
+        getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategorySelectpicker.value);
     }
 });
 
@@ -90,7 +93,7 @@ subCategoryManual.onblur = function () {
         minorSubCategoryManual.disabled = true;
         subCategoryManual.value = '';
         minorSubCategoryManual.value = '';
-        
+
         console.log('globalOldTradeCategorySelected: ', globalOldTradeCategorySelected);
         console.log('editTradeCategory.value: ', editTradeCategory.value);
         console.log('subCategorySelectpicker.value: ', subCategorySelectpicker.value);
@@ -143,7 +146,7 @@ async function getMinorSubCategoriesToBeEditByTradeCategoryId(value) {
     if (subCategoryId) {
         const response = await fetch(`${host}/api/get/minor-sub-categories-by-sub-category-id/${subCategoryId}`);
         const data = await response.json();
-    
+
         globalMinorSubCategoryOptions = data;
         globalOldMinorSubCategorySelected = minorSubCategoryId;
 
@@ -210,7 +213,7 @@ minorSubCategoryManual.onblur = function () {
         if (globalOldSubCategorySelected == subCategorySelectpicker.value) {
             repopulateMinorSubCategoriesToBeEdit();
         } else {
-            getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategorySelectpicker.value)
+            getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategorySelectpicker.value);
         }
     }
 };
@@ -250,10 +253,10 @@ async function getSubCategoriesOptionsWhenTradeCategoriesChange(tradeCategoryId)
     // Clear existing options from dropdown
     $(subCategorySelectpicker).empty();
     $(minorSubCategorySelectpicker).empty();
-   
+
     const response = await fetch(host + '/api/get/sub-categories-by-trade-category-id/' + tradeCategoryId);
     const data = await response.json();
-        // Loop through subcategories and add them as options to the dropdown
+    // Loop through subcategories and add them as options to the dropdown
     data.forEach(({ id, title }) => {
         const option = document.createElement('option');
         option.value = id;
@@ -271,7 +274,6 @@ async function getSubCategoriesOptionsWhenTradeCategoriesChange(tradeCategoryId)
     $(subCategorySelectpicker).selectpicker('refresh');
     $(minorSubCategorySelectpicker).selectpicker('refresh');
     getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategorySelectpicker.value);
-    
 }
 
 async function getMinorSubCategoriesOptionsWhenSubCategoriesChange(subCategoryId) {
