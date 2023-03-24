@@ -42,5 +42,6 @@ function comparePassword(plainPassword, hashedPassword) {
 }
 
 function lookingForSmallScaleCompany() {
-    location.replace(host + '/registration-for-small-scale-company');
+    // location.replace(host + '/registration-for-small-scale-company');
+    location.replace(host + '/registration');
 }
