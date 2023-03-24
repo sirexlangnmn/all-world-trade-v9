@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "nodemon app/src/server.js",
         "start": "node app/src/server.js",
-        "tailwindBuild": "tailwindcss -i ./public/assets/css/custom.css -o ./public/assets/css-tailwind/custom.css --watch",
+        "tailwindBuild": "tailwindcss -i ./public/assets/css/input.css -o ./public/assets/css-tailwind/output.css --watch",
         "webpackBuild": "webpack",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "npx prettier --write ."
