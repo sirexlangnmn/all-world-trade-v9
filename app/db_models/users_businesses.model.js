@@ -48,6 +48,12 @@ module.exports = (sequelize, Sequelize) => {
         states_of_operation: {
             type: Sequelize.STRING,
         },
+        country_for_city: {
+            type: Sequelize.STRING,
+        },
+        states_for_city: {
+            type: Sequelize.STRING,
+        },
         city_of_operation: {
             type: Sequelize.STRING,
         },
@@ -61,6 +67,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.TEXT('long'),
         },
         status: {
+            type: Sequelize.TINYINT,
+        },
+        isPaid: {
             type: Sequelize.TINYINT,
         },
         uuid: {

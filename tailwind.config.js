@@ -3,19 +3,11 @@
 module.exports = {
 	mode: 'jit',
     content: [
-		// './public/**/*.{html,js,ejs}',
-		'./public/**/*.html',
-		'./public/**/*.ejs',
-		'./public/**/*.js',
-		'./public/**/*.css',
+		'./public/**/*.{html,js,ejs,css}',
 		'./node_modules/flowbite/**/*.js'
 	],
 	purge: [
-		// './public/**/*.{html,js,ejs}',
-		'./public/**/*.html',
-		'./public/**/*.ejs',
-		'./public/**/*.js',
-		'./public/**/*.css',
+		'./public/**/*.{html,js,ejs, css}',
 		'./node_modules/flowbite/**/*.js'
 	],
     theme: {

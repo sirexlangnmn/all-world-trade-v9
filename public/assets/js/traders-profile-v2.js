@@ -1,6 +1,16 @@
+// HEAD PROFILE
 const displayBusinessNameH1 = getId('displayBusinessNameH1');
 const displayBusinessTagLineH1 = getId('displayBusinessTagLineH1');
+const companyBanner = getId('companyBanner');
+const companyBannerPreview = getId('companyBannerPreview');
+const companyBannerId = getId('companyBannerId');
+const companyLogo = getId('companyLogo');
+const companyLogoPreview = getId('companyLogoPreview');
+const companyLogoId = getId('companyLogoId');
+const userImage = getId('user-image');
+const isAvatar = getId('is_avatar');
 
+// DISPLAY COMPANY DETAILS
 const displayCompanyName = getId('displayCompanyName');
 const displayCompanyTagline = getId('displayCompanyTagline');
 const displayBusinessEmail = getId('displayBusinessEmail');
@@ -10,7 +20,6 @@ const displayBusinessSocialMediaContact = getId('displayBusinessSocialMediaConta
 const displayBusinessAddress = getId('displayBusinessAddress');
 const localOperatingTimeId = getId('local-operating-time');
 const uctOperatingTimeId = getId('uct-operating-time');
-const displayBusinessRegionOfOperation = getId('displayBusinessRegionOfOperation');
 const displayBusinessTradeCategory = getId('displayBusinessTradeCategory');
 const displayBusinessSubCategory = getId('displayBusinessSubCategory');
 const displayBusinessMinorCategory = getId('displayBusinessMinorCategory');
@@ -27,16 +36,7 @@ const divUpdateCompanyDetails = getId('divUpdateCompanyDetails');
 const btnCompanyDetailsEdit = getId('btnCompanyDetailsEdit');
 const btnCompanyDetailsCancelEdit = getId('btnCompanyDetailsCancelEdit');
 
-const companyBanner = getId('companyBanner');
-const companyBannerPreview = getId('companyBannerPreview');
-const companyBannerId = getId('companyBannerId');
-const companyLogo = getId('companyLogo');
-const companyLogoPreview = getId('companyLogoPreview');
-const companyLogoId = getId('companyLogoId');
-const userImage = getId('user-image');
-const isAvatar = getId('is_avatar');
-
-//edit
+// EDIT COMPANY DETAILS
 const companyName = getId('companyName');
 const tagline = getId('tagline');
 const businessEmailAddress = getId('businessEmailAddress');
@@ -55,7 +55,6 @@ const editBusinessScale = getId('editBusinessScale');
 const editLanguagesOfCommunication = getId('editLanguagesOfCommunication');
 const btnUpdateCompanyDetails = getId('btnUpdateCompanyDetails');
 
-
 // NOTE: declared on file dropdown-select-option-with-input-other.js
 // const subCategorySelect = getId('sub-category-select');
 // const subCategoryManual = getId('sub-category-manual');
@@ -65,7 +64,73 @@ const btnUpdateCompanyDetails = getId('btnUpdateCompanyDetails');
 // NOTE: declared on file tags.js
 // const tagInput = getId('tag-input');
 
+// DISPLAY REGION OF OPERATION
+const displayBusinessRegionOfOperation = getId('displayBusinessRegionOfOperation');
+const displayBusinessCountryOfOperation = getId('displayBusinessCountryOfOperation');
+const displayBusinessStatesOfOperation = getId('displayBusinessStatesOfOperation');
+const displayBusinessCityOfOperation = getId('displayBusinessCityOfOperation');
 
+// UPDATE REGION OF OPERATION
+const btnRegionOfOperationEdit = getId('btnRegionOfOperationEdit');
+const btnRegionOfOperationCancelUpdate = getId('btnRegionOfOperationCancelUpdate');
+const btnRegionOfOperationUpdate = getId('btnRegionOfOperationUpdate');
+const divDisplayRegionOfOperation = getId('divDisplayRegionOfOperation');
+const divUpdateRegionOfOperation = getId('divUpdateRegionOfOperation');
+
+const iOperateOnAWorldWideLevelRadioButton = getId('iOperateOnAWorldWideLevelRadioButton');
+const iOperateOnAGlobalRegionalLevelRadioButton = getId('iOperateOnAGlobalRegionalLevelRadioButton');
+const iOperateOnANationalLevelRadioButton = getId('iOperateOnANationalLevelRadioButton');
+const iOperateOnAStateLevelRadioButton = getId('iOperateOnAStateLevelRadioButton');
+const iOperateOnACityLevelRadioButton = getId('iOperateOnACityLevelRadioButton');
+
+const countryForStateOperation = getId('countryForStateOperation');
+const traderStatesOfOperation = getId('traderStatesOfOperation');
+const countryForCityOperation = getId('countryForCityOperation');
+const statesForCityOperation = getId('statesForCityOperation');
+const traderCityOfOperation = getId('traderCityOfOperation');
+
+const traderRegionOfOperationValidation = getId('traderRegionOfOperationValidation');
+const traderCountryOfOperationValidation = getId('traderCountryOfOperationValidation');
+const traderStatesOfOperationValidation = getId('traderStatesOfOperationValidation');
+const traderCityOfOperationValidation = getId('traderCityOfOperationValidation');
+
+const divRegionOfOperation = getId('divRegionOfOperation');
+const divCountryOfOperation = getId('divCountryOfOperation');
+const divStatesOfOperation = getId('divStatesOfOperation');
+const divCityOfOperation = getId('divCityOfOperation');
+
+const $editRegionOfOperation = $('#editRegionOfOperation');
+
+iOperateOnAWorldWideLevelRadioButton.checked = false;
+iOperateOnAGlobalRegionalLevelRadioButton.checked = false;
+iOperateOnANationalLevelRadioButton.checked = false;
+iOperateOnAStateLevelRadioButton.checked = false;
+iOperateOnACityLevelRadioButton.checked = false;
+
+traderRegionOfOperationValidation.innerHTML = '';
+traderCountryOfOperationValidation.innerHTML = '';
+traderStatesOfOperationValidation.innerHTML = '';
+traderCityOfOperationValidation.innerHTML = '';
+
+divRegionOfOperation.style.display = 'none';
+divCountryOfOperation.style.display = 'none';
+divStatesOfOperation.style.display = 'none';
+divCityOfOperation.style.display = 'none';
+
+const radioButtonArray = [
+    'iOperateOnAWorldWideLevelRadioButton',
+    'iOperateOnAGlobalRegionalLevelRadioButton',
+    'iOperateOnANationalLevelRadioButton',
+    'iOperateOnAStateLevelRadioButton',
+    'iOperateOnACityLevelRadioButton',
+];
+
+const divRegionOfOperationArray = [
+    'divRegionOfOperation',
+    'divCountryOfOperation',
+    'divStatesOfOperation',
+    'divCityOfOperation',
+];
 
 const API_URL = {
     users_upload_files: `${host}/uploads/users_upload_files/`,
@@ -85,15 +150,18 @@ const API_URL = {
     //communicator_domain: 'https://meet2.allworldtrade.com/groupcall/' //old
     download_current_visitor_data: `${host}/download-current-visitor-data`,
     get_trade_categories: `${host}/api/get/categories`,
+    get_region_of_operations: `${host}/api/get/region-of-operations`,
+    get_business_visibility: `${host}/api/get/users-business-visibility`,
+    region_of_operation: `${host}/api/v2/update/region-of-operation`,
 };
 
 // $(function () {
 //     // getUsersBusinessBrochures();
 // });
 
-//============================
-// COMPANY DETAILS - [START]
-//============================
+//====================================
+// DISPLAY COMPANY DETAILS - [START]
+//====================================
 async function getCompanyDetails() {
     try {
         const response = await fetch(API_URL.get_company_details, {
@@ -196,9 +264,12 @@ const editCompanyDetails = (data) => {
         business_states,
         business_country,
         region_of_operation,
-        city_of_operation,
-        states_of_operation,
         country_of_operation,
+        country_for_state,
+        states_of_operation,
+        country_for_city,
+        states_for_city,
+        city_of_operation,
         business_language_of_communication,
         start_operating_hour,
         end_operating_hour,
@@ -215,15 +286,22 @@ const editCompanyDetails = (data) => {
     displayDataToEdit(startOperatingHour, start_operating_hour);
     displayDataToEdit(endOperatingHour, end_operating_hour);
 
-    getBusinessCountryLocationToBeEditAndOptions(business_country, 'editBusinessCountryLocation');
-    getBusinessStatesLocationToBeEditAndOptions(business_country, business_states, 'editBusinessStatesLocation');
-    getBusinessCityLocationToBeEditAndOptions(
-        business_country,
-        business_states,
-        business_city,
-        'editBusinessCityLocation',
-    );
+    getCountryToBeEditAndOptions(business_country, 'editBusinessCountryLocation');
+    getStatesToBeEditAndOptions(business_country, business_states, 'editBusinessStatesLocation');
+    getCityToBeEditAndOptions(business_country, business_states, business_city, 'editBusinessCityLocation');
     getLanguagesToBeEditAndOptions(business_language_of_communication);
+
+    // update region of operation | I operate on a Global Regional Level
+    getRegionOfOperationToBeEditAndOptions(region_of_operation, 'traderRegionOfOperation');
+    // update country of operation | I operate on a National Level
+    getCountriesOfOperationToBeEditAndOptions(country_of_operation, 'traderCountryOfOperation');
+    // update state of operation | I operate on a Provincial/State Level
+    getCountryToBeEditAndOptions(country_for_state, 'countryForStateOperation');
+    getStatesToBeEditAndOptions(country_for_state, states_of_operation, 'traderStatesOfOperation');
+    // update state of operation | I operate on a City Level
+    getCountryToBeEditAndOptions(country_for_city, 'countryForCityOperation');
+    getStatesToBeEditAndOptions(country_for_city, states_for_city, 'statesForCityOperation');
+    getCityToBeEditAndOptions(country_for_city, states_for_city, city_of_operation, 'traderCityOfOperation');
 };
 
 const displayDataToEdit = (elemenId, data) => {
@@ -350,7 +428,7 @@ async function getUsersBusinessCharacteristics() {
         getTradeCategoriesToBeEditAndOptions(business_major_category, 'editTradeCategory');
         getSubCategoriesToBeEditByTradeCategoryId(data);
         getMinorSubCategoriesToBeEditByTradeCategoryId(data);
-        getUsersBusinessScale(data)
+        getUsersBusinessScale(data);
         displayTagList(business_industry_belong_to);
     } catch (error) {
         console.error(error);
@@ -454,13 +532,13 @@ function formattingBusinessTags(string, elementId) {
         }
     }
 }
-//============================
-// COMPANY DETAILS - [END]
-//============================
+//==================================
+// DISPLAY COMPANY DETAILS - [END]
+//==================================
 
-//====================================
-// REPRESENTATIVE DETAILS - [START]
-//====================================
+//==========================================
+// DISPLAY REPRESENTATIVE DETAILS - [START]
+//==========================================
 async function getUser() {
     try {
         const response = await fetch(API_URL.get_user, { method: 'POST' });
@@ -503,13 +581,13 @@ async function getUsersAddress() {
     }
 }
 
-//====================================
-// REPRESENTATIVE DETAILS - [END]
-//====================================
+//========================================
+// DISPLAY REPRESENTATIVE DETAILS - [END]
+//========================================
 
-//=======================================
-// REGION OF OPERATION DETAILS - [START]
-//=======================================
+//=================================================
+// DISPLAY COMPANY REGION OF OPERATION - [START]
+//=================================================
 function getRegionNameUsingCode(string, elementId) {
     const element_id = getId(elementId);
 
@@ -527,7 +605,7 @@ function getRegionNameUsingCode(string, elementId) {
     }
 }
 
-function getCountryOfOperationNameUsingCode(code, elementId) {
+async function getCountryOfOperationNameUsingCode(code, elementId) {
     const element_id = getId(elementId);
 
     if (!code) {
@@ -537,9 +615,17 @@ function getCountryOfOperationNameUsingCode(code, elementId) {
 
     const data = code.split(',');
     for (var i = 0; i < data.length; i++) {
+        const countryName = await displayCountryName(data[i]);
         element_id.innerHTML =
-            element_id.innerHTML + '<a href="#" class="bg-gray-200 py-1.5 px-4 rounded-full">' + data[i] + '</a>';
+            element_id.innerHTML +
+            `<a href="" onclick="return false;" class="bg-gray-200 py-1.5 px-4 rounded-full">${countryName}</a>`;
     }
+}
+
+async function displayCountryName(countryCode) {
+    const countries = await fetchCountries();
+    const selectedCountry = countries.find((d) => d.iso2 === countryCode);
+    return selectedCountry.name;
 }
 
 async function getStatesOfOperationNameUsingCode(stateId, elementId) {
@@ -548,7 +634,6 @@ async function getStatesOfOperationNameUsingCode(stateId, elementId) {
     if (stateId && stateId !== 'No States Found') {
         const states = await fetchStates();
         const selectedState = states.find((d) => d.id === parseInt(stateId));
-        console.log('selectedState: ', selectedState);
         element_id.innerHTML = selectedState ? selectedState.name : ' ';
     } else {
         element_id.innerHTML = 'N/A';
@@ -561,15 +646,14 @@ async function getCityOfOperationNameUsingCode(cityId, elementId) {
     if (cityId && cityId !== 'No States Found') {
         const cities = await fetchCities();
         const selectedCity = cities.find((d) => d.id === parseInt(cityId));
-        console.log('selectedCity: ', selectedCity);
         element_id.innerHTML = selectedCity ? selectedCity.name : ' ';
     } else {
         element_id.innerHTML = 'N/A';
     }
 }
-//=====================================
-// REGION OF OPERATION DETAILS - [END]
-//=====================================
+//================================================
+//  DISPLAY COMPANY REGION OF OPERATION - [END]
+//================================================
 
 //====================================
 // UPDATE COMPANY DETAILS - [START]
@@ -616,7 +700,7 @@ async function fetchCountries() {
     return countries;
 }
 
-async function getBusinessCountryLocationToBeEditAndOptions(countryCode, elementId) {
+async function getCountryToBeEditAndOptions(countryCode, elementId) {
     const element_id = getId(elementId);
     const countries = await fetchCountries();
     const selectedCountry = countries.find((country) => country.iso2 === countryCode);
@@ -626,7 +710,11 @@ async function getBusinessCountryLocationToBeEditAndOptions(countryCode, element
         : '<option value="">Select Country</option>';
 
     const unselectedCountry = countries.filter((country) => country.iso2 !== countryCode);
-    businessCountryLocationForOfLoop(unselectedCountry, element_id);
+
+    // OLD AND DELETE
+    // businessCountryLocationForOfLoop(unselectedCountry, element_id);
+    // NEW
+    optionsForOfLoop(unselectedCountry, element_id, 'iso2', 'name');
 
     $(`#${elementId}`).selectpicker('refresh');
 }
@@ -651,35 +739,25 @@ function initialOption(value = null, title, elementId) {
     $(elementId).selectpicker('refresh');
 }
 
-async function getBusinessStatesLocationToBeEditAndOptions(countryCode, stateId, elementId) {
-    try {
-        const element_id = getId(elementId);
-        !countryCode ? initialOption(null, 'Select Country First', element_id) : null;
-        stateId === 'No States Found' ? initialOption('No States Found', 'No States Found', element_id) : null;
+async function getStatesToBeEditAndOptions(countryCode, stateId, elementId) {
+    const element_id = getId(elementId);
+    !countryCode ? initialOption(null, 'Select Country First', element_id) : null;
+    stateId === 'No States Found' ? initialOption('No States Found', 'No States Found', element_id) : null;
 
-        const states = await fetchStates();
-        const statesInCountry = states.filter((state) => state.country_code === countryCode);
-        const selectedState = states.find((state) => state.id === parseInt(stateId));
-        const statesToRender = statesInCountry.filter((state) => state.id !== parseInt(stateId));
+    const states = await fetchStates();
+    const statesInCountry = states.filter((state) => state.country_code === countryCode);
+    const selectedState = states.find((state) => state.id === parseInt(stateId));
+    const statesToRender = statesInCountry.filter((state) => state.id !== parseInt(stateId));
 
-        element_id.innerHTML = !stateId
-            ? '<option value="">Select Country First</option>'
-            : `<option value="${selectedState.id}">${selectedState.name}</option>`;
+    element_id.innerHTML = !stateId
+        ? '<option value="">Select Country First</option>'
+        : `<option value="${selectedState.id}">${selectedState.name}</option>`;
 
-        businessStatesLocationForOfLoop(statesToRender, element_id);
-
-        // if (!stateId) {
-        //     initialOption(null, 'Select States', element_id);
-        //     businessStatesLocationForOfLoop(statesInCountry, element_id);
-        // } else {
-        //     const selectedState = states.find((state) => state.id === parseInt(stateId));
-        //     initialOption(selectedState.id, selectedState.name, element_id);
-        //     const statesToRender = statesInCountry.filter((state) => state.id !== parseInt(stateId));
-        //     businessStatesLocationForOfLoop(statesToRender, element_id);
-        // }
-    } catch (error) {
-        console.error('Error fetching states:', error);
-    }
+    // OLD AND DELETE
+    // businessStatesLocationForOfLoop(statesToRender, element_id);
+    // NEW
+    optionsForOfLoop(statesToRender, element_id, 'id', 'name');
+    $(element_id).selectpicker('refresh');
 }
 
 function businessStatesLocationForOfLoop(statesOptionsToRender, element_id) {
@@ -698,7 +776,7 @@ async function fetchCities() {
     return cities;
 }
 
-async function getBusinessCityLocationToBeEditAndOptions(countryCode, stateId, cityId, elementId) {
+async function getCityToBeEditAndOptions(countryCode, stateId, cityId, elementId) {
     try {
         const element_id = document.getElementById(elementId);
         let citiesUnderCountry, citiesUnderCountryAndState, selectedCity, otherCitiesUnderCountryAndState;
@@ -721,7 +799,10 @@ async function getBusinessCityLocationToBeEditAndOptions(countryCode, stateId, c
             citiesUnderCountryAndState = citiesUnderCountry.filter(({ state_id }) => state_id === parseInt(stateId));
 
             element_id.innerHTML = '<option value="">Select City</option>';
-            businessCityLocationForEachLoop(citiesUnderCountryAndState, element_id);
+            // OLD AND DELETE
+            // businessCityLocationForEachLoop(citiesUnderCountryAndState, element_id);
+            // NEW
+            optionsForOfLoop(citiesUnderCountryAndState, element_id, 'id', 'name');
         }
 
         if (countryCode && stateId && cityId) {
@@ -732,7 +813,11 @@ async function getBusinessCityLocationToBeEditAndOptions(countryCode, stateId, c
             otherCitiesUnderCountryAndState = citiesUnderCountryAndState.filter(({ id }) => id !== parseInt(cityId));
 
             element_id.innerHTML = `<option value="${selectedCity[0].id}">${selectedCity[0].name}</option>`;
-            businessCityLocationForEachLoop(otherCitiesUnderCountryAndState, element_id);
+
+            // OLD AND DELETE
+            // businessCityLocationForEachLoop(otherCitiesUnderCountryAndState, element_id);
+            // NEW
+            optionsForOfLoop(otherCitiesUnderCountryAndState, element_id, 'id', 'name');
         }
 
         $(`#${elementId}`).selectpicker('refresh');
@@ -977,7 +1062,6 @@ async function getLanguagesToBeEditAndOptions(languages) {
     }
 }
 
-
 const $form = $('#editCompanyDetails');
 
 btnUpdateCompanyDetails.addEventListener('click', (e) => {
@@ -985,7 +1069,7 @@ btnUpdateCompanyDetails.addEventListener('click', (e) => {
     e.preventDefault();
 
     console.log('editCompanyDetails');
-    
+
     $.ajax({
         // url: '/api/v2/post/update-company-details',
         url: '/api/v2/update/update-company-details',
@@ -1001,11 +1085,321 @@ btnUpdateCompanyDetails.addEventListener('click', (e) => {
             Swal.fire('Warning', 'Try again later or contact to the customer service.', 'warning');
         }
     });
-    
 });
 //====================================
 // UPDATE COMPANY DETAILS - [END]
 //====================================
+
+//==============================================
+// UPDATE COMPANY REGION OF OPERATION - [START]
+//==============================================
+btnRegionOfOperationEdit.addEventListener('click', async (e) => {
+    divDisplayRegionOfOperation.style.display = 'none';
+    divUpdateRegionOfOperation.style.display = 'block';
+    await checkRadioButtonBySelectedVisibility();
+});
+
+btnRegionOfOperationCancelUpdate.addEventListener('click', (e) => {
+    divDisplayRegionOfOperation.style.display = 'block';
+    divUpdateRegionOfOperation.style.display = 'none';
+});
+
+async function getBusinessVisibility() {
+    try {
+        const response = await fetch(API_URL.get_business_visibility, {
+            method: 'POST',
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function checkRadioButtonBySelectedVisibility() {
+    const data = await getBusinessVisibility();
+    const {
+        i_operate_on_a_world_wide_level,
+        i_operate_on_a_global_regional_level,
+        i_operate_on_a_national_level,
+        i_operate_on_a_state_level,
+        i_operate_on_a_city_level,
+    } = data[0];
+
+    if (parseInt(i_operate_on_a_world_wide_level) === 1) {
+        iOperateOnAWorldWideLevelRadioButton.checked = true;
+    }
+    if (parseInt(i_operate_on_a_global_regional_level) === 1) {
+        iOperateOnAGlobalRegionalLevelRadioButton.checked = true;
+        divRegionOfOperation.style.display = 'block';
+    }
+    if (parseInt(i_operate_on_a_national_level) === 1) {
+        iOperateOnANationalLevelRadioButton.checked = true;
+        divCountryOfOperation.style.display = 'block';
+    }
+    if (parseInt(i_operate_on_a_state_level) === 1) {
+        iOperateOnAStateLevelRadioButton.checked = true;
+        divStatesOfOperation.style.display = 'block';
+    }
+    if (parseInt(i_operate_on_a_city_level) === 1) {
+        iOperateOnACityLevelRadioButton.checked = true;
+        divCityOfOperation.style.display = 'block';
+    }
+}
+
+// Add event listeners to radio buttons
+iOperateOnAWorldWideLevelRadioButton.addEventListener(
+    'change',
+    universalToggleFunction.bind(null, 'iOperateOnAWorldWideLevelRadioButton', ''),
+);
+iOperateOnAGlobalRegionalLevelRadioButton.addEventListener(
+    'change',
+    universalToggleFunction.bind(null, 'iOperateOnAGlobalRegionalLevelRadioButton', 'divRegionOfOperation'),
+);
+iOperateOnANationalLevelRadioButton.addEventListener(
+    'change',
+    universalToggleFunction.bind(null, 'iOperateOnANationalLevelRadioButton', 'divCountryOfOperation'),
+);
+iOperateOnAStateLevelRadioButton.addEventListener(
+    'change',
+    universalToggleFunction.bind(null, 'iOperateOnAStateLevelRadioButton', 'divStatesOfOperation'),
+);
+iOperateOnACityLevelRadioButton.addEventListener(
+    'change',
+    universalToggleFunction.bind(null, 'iOperateOnACityLevelRadioButton', 'divCityOfOperation'),
+);
+
+function universalToggleFunction(radioButtonId, divId, event) {
+    const radioButton = event.target;
+    const radioButtonChecked = radioButton.checked;
+
+    if (radioButtonChecked) {
+        // Uncheck other radio buttons
+        radioButtonArray
+            .filter((id) => id !== radioButtonId)
+            .forEach((id) => {
+                const otherRadioButton = getId(id);
+                otherRadioButton.checked = false;
+            });
+
+        // Hide other divs
+        divRegionOfOperationArray
+            .filter((id) => id !== divId)
+            .forEach((id) => {
+                const otherDiv = getId(id);
+                otherDiv.style.display = 'none';
+            });
+
+        // Show the selected div
+        if (divId) {
+            const selectedDiv = getId(divId);
+            selectedDiv.style.display = 'block';
+        }
+    } else {
+        // Dont allow to uncheck the already checked radio button.
+        console.log(`"${radioButtonId}" radio button is trying to unchecked`);
+
+        radioButtonArray
+            .filter((id) => id === radioButtonId)
+            .forEach((id) => {
+                const otherRadioButton = getId(id);
+                otherRadioButton.checked = true;
+            });
+    }
+}
+
+async function getRegionOfOperation() {
+    const response = await fetch(API_URL.get_region_of_operations);
+    const data = await response.json();
+    return data;
+}
+
+// For: I operate on a Global Regional Level
+async function getRegionOfOperationToBeEditAndOptions(regionOfOperationCode, elementId) {
+    const data = await getRegionOfOperation();
+    const element_id = getId(elementId);
+    element_id.innerHTML = '';
+
+    if (regionOfOperationCode) {
+        const arr = regionOfOperationCode.split(',');
+
+        const selectedOptions = data
+            .filter((d) => arr.includes(d.iso))
+            .map((d) => `<option value="${d.iso}" selected>${d.name}</option>`);
+        const unselectedOptions = data
+            .filter((d) => !arr.includes(d.iso))
+            .map((d) => `<option value="${d.iso}">${d.name}</option>`);
+
+        element_id.innerHTML = selectedOptions.concat(unselectedOptions).join('');
+        $(`#${elementId}`).selectpicker('refresh');
+    } else {
+        // element_id.innerHTML = '<option value="" selected>Select Region</option>';
+        optionsForOfLoop(data, element_id, 'iso', 'name');
+        $(`#${elementId}`).selectpicker('refresh');
+    }
+}
+
+// For: I operate on a National Level
+async function getCountriesOfOperationToBeEditAndOptions(countryOfOperationCode, elementId) {
+    const countries = await fetchCountries();
+    const element_id = getId(elementId);
+    element_id.innerHTML = '';
+
+    if (countryOfOperationCode) {
+        const arr = countryOfOperationCode.split(',');
+
+        const selectedOptions = countries
+            .filter((d) => arr.includes(d.iso2))
+            .map((d) => `<option value="${d.iso2}" selected>${d.name}</option>`);
+        const unselectedOptions = countries
+            .filter((d) => !arr.includes(d.iso2))
+            .map((d) => `<option value="${d.iso2}">${d.name}</option>`);
+
+        element_id.innerHTML = selectedOptions.concat(unselectedOptions).join('');
+        $(`#${elementId}`).selectpicker('refresh');
+    } else {
+        // element_id.innerHTML = '<option value="" selected>Select Country</option>';
+        optionsForOfLoop(countries, element_id, 'iso2', 'name');
+        $(`#${elementId}`).selectpicker('refresh');
+    }
+}
+
+async function getCountryForStateLevelToBeEditAndOptions(countryCode, elementId) {
+    const element_id = getId(elementId);
+    const countries = await fetchCountries();
+    const selectedCountry = countries.find((country) => country.iso2 === countryCode);
+
+    element_id.innerHTML = countryCode
+        ? `<option value="${selectedCountry.iso2}">${selectedCountry.name}</option>`
+        : '<option value="">Select Country</option>';
+
+    const unselectedCountry = countries.filter((country) => country.iso2 !== countryCode);
+    businessCountryLocationForOfLoop(unselectedCountry, element_id);
+
+    $(`#${elementId}`).selectpicker('refresh');
+}
+
+async function getStateOfOperationToBeEditAndOptions(countryCode, stateId, elementId) {
+    const element_id = getId(elementId);
+    !countryCode ? initialOption(null, 'Select Country First', element_id) : null;
+    stateId === 'No States Found' ? initialOption('No States Found', 'No States Found', element_id) : null;
+
+    const states = await fetchStates();
+    const statesInCountry = states.filter((state) => state.country_code === countryCode);
+    const selectedState = states.find((state) => state.id === parseInt(stateId));
+    const statesToRender = statesInCountry.filter((state) => state.id !== parseInt(stateId));
+
+    element_id.innerHTML = !stateId
+        ? '<option value="">Select Country First</option>'
+        : `<option value="${selectedState.id}">${selectedState.name}</option>`;
+
+    businessStatesLocationForOfLoop(statesToRender, element_id);
+}
+
+countryForStateOperation.addEventListener('change', async () => {
+    $('#traderStatesOfOperation').empty();
+    const element_id = getId('traderStatesOfOperation');
+    let countryCode = countryForStateOperation.value;
+
+    const states = await fetchStates();
+    let filtered = states.filter((d) => d.country_code === countryCode);
+
+    if (filtered.length > 0) {
+        optionsForOfLoop(filtered, element_id, 'id', 'name');
+    } else {
+        let option = document.createElement('option');
+        option.value = 'No States Found';
+        option.innerHTML = 'No States Found';
+        element_id.appendChild(option);
+    }
+
+    $(element_id).selectpicker('refresh');
+});
+
+countryForCityOperation.addEventListener('change', async () => {
+    // $('#traderCityOfOperation').empty();
+    traderCityOfOperation.innerHTML = '';
+
+    const statesForCityOperation = getId('statesForCityOperation');
+    let countryCode = countryForCityOperation.value;
+    getStatesUnderCountry(statesForCityOperation, countryCode);
+
+    $(traderCityOfOperation).selectpicker('refresh');
+});
+
+async function getStatesUnderCountry(element_id, countryCode) {
+    $(element_id).empty();
+    const states = await fetchStates();
+    let filtered = states.filter((d) => d.country_code === countryCode);
+    if (filtered.length > 0) {
+        optionsForOfLoop(filtered, statesForCityOperation, 'id', 'name');
+    } else {
+        let option = document.createElement('option');
+        option.value = 'No States Found';
+        option.innerHTML = 'No States Found';
+        statesForCityOperation.appendChild(option);
+    }
+    $(element_id).selectpicker('refresh');
+}
+
+statesForCityOperation.addEventListener('change', async () => {
+    let stateId = statesForCityOperation.value;
+    getStatesUnderCountryAndStates(traderCityOfOperation, stateId);
+});
+
+async function getStatesUnderCountryAndStates(element_id, stateId) {
+    $(element_id).empty();
+    const cities = await fetchCities();
+    const filteredCities = cities.filter((d) => d.state_id === parseInt(stateId));
+
+    if (filteredCities.length > 0) {
+        optionsForLoop(filteredCities, element_id, 'id', 'name');
+    } else {
+        let option = document.createElement('option');
+        option.value = 'No Cities Found';
+        option.innerHTML = 'No Cities Found';
+        element_id.appendChild(option);
+    }
+    $(element_id).selectpicker('refresh');
+}
+
+function optionsForLoop(optionsToRender, selectElement, valueProperty, displayProperty) {
+    selectElement.innerHTML = '';
+
+    for (let i = 0; i < optionsToRender.length; i++) {
+        const data = optionsToRender[i];
+        const optionElement = document.createElement('option');
+        optionElement.value = data[valueProperty];
+        optionElement.textContent = data[displayProperty];
+        selectElement.appendChild(optionElement);
+    }
+    $(selectElement).selectpicker('refresh');
+}
+
+btnRegionOfOperationUpdate.addEventListener('click', (e) => {
+    //stop submit the form, we will post it manually.
+    e.preventDefault();
+
+
+    $.ajax({
+        // url: '/api/v2/post/update-company-details',
+        url: '/api/v2/update/region-of-operation',
+        type: 'post',
+        data: $editRegionOfOperation.serialize(),
+    }).done((response) => {
+        if (response === 'success') {
+            Swal.fire('Success', 'Update Successful.', 'success');
+            setTimeout(() => {
+                location.replace(host + '/profile');
+            }, 1500);
+        } else {
+            Swal.fire('Warning', 'Try again later or contact to the customer service.', 'warning');
+        }
+    });
+});
+//==============================================
+// UPDATE COMPANY REGION OF OPERATION - [END]
+//==============================================
 
 async function getUsersLogoAndBanner() {
     try {

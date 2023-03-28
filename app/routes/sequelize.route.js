@@ -27,6 +27,7 @@ module.exports = (app) => {
     const usersAccountsController = controllers.users_accounts;
 
     const updateTrader = controllers.update_trader;
+    const regionOfOperation = controllers.region_of_operation;
 
 
     const updateTraders = controllers.update_traders; // delete in future
@@ -89,6 +90,7 @@ module.exports = (app) => {
 
 
     app.post(['/api/v2/update/update-company-details'], updateTrader.update);
+    app.post(['/api/v2/update/region-of-operation'], regionOfOperation.update);
 
     app.post(['/api/v2/post/update-company-details'], updateTraders.update); // delete in future
     app.post(['/api/v2/post/update-large-scale-company'], updateLarge.update);  // delete in future

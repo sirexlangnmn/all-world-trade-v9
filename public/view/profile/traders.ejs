@@ -227,8 +227,8 @@
                 <!-- UPDATE COMPANY DETAILS - START  -->
                 <!-- =============================== -->
                 <div class="card mb-4" id="divUpdateCompanyDetails" style="display: none;">
-                  <form action="javascript:void(0);" method="POST" id="editCompanyDetails"
-							      name="editCompanyDetails" enctype="multipart/form-data" accept-charset="utf-8">
+                  <form action="javascript:void(0);" method="POST" id="editCompanyDetails" name="editCompanyDetails"
+                    enctype="multipart/form-data" accept-charset="utf-8">
 
                     <div class="border-b flex items-center justify-between p-4">
                       <div>
@@ -357,7 +357,7 @@
                               <p class="text-red-500" id="endOperatingHourValidation"></p>
                             </div>
                           </div>
-  
+
                           <label for="" class="orbitron">Languages of communication</label>
                           <select class="selectpicker" id="editLanguagesOfCommunication"
                             name="editLanguagesOfCommunication" multiple>
@@ -370,14 +370,14 @@
                               id="currentLanguagesOfCommunication" name="currentLanguagesOfCommunication" placeholder=""
                               class=""></textarea>
                           </div>
-  
+
                           <div>
                             <label for="" class="orbitron">Trade Category</label>
                             <select class="selectpicker" id="editTradeCategory" name="editTradeCategory">
                             </select>
                             <p class="text-red-500" id="editTradeCategoryValidation"></p>
                           </div>
-  
+
                           <!-- trial start  -->
                           <div>
                             <label for="" class="orbitron">Sub Category</label>
@@ -385,7 +385,7 @@
                             <input type="text" id="sub-category-manual" name="subCategoryManual" style="display: none;">
                             <p class="text-red-500" id="editTradeCategoryValidation"></p>
                           </div>
-  
+
                           <div>
                             <label for="" class="orbitron">Minor Sub Category</label>
                             <select class="selectpicker" id="minor-sub-category-select"
@@ -395,8 +395,8 @@
                             <p class="text-red-500" id="editTradeCategoryValidation"></p>
                           </div>
                           <!-- trial end  -->
-  
-  
+
+
                           <div>
                             <label for="" class="orbitron">How do you rank your own company</label>
                             <select id="editBusinessScale" name="editBusinessScale"
@@ -404,7 +404,7 @@
                             </select>
                             <p class="text-red-500" id="editBusinessScaleValidation"></p>
                           </div>
-  
+
                           <div>
                             <label for="" class="orbitron">Search Keywords (Maximum of 20)</label>
                             <div class="flex flex-wrap bg-white border rounded-lg shadow-md">
@@ -420,7 +420,7 @@
                             <div id="validation-message" class="hidden text-red-500">You have
                               reached the maximum number of tags (20)</div>
                           </div>
-  
+
                           <div class="col-span-2" style="display:none;">
                             <label for="" class="mb-0 ml-2 text-gray-600 text-sm">Tag List</label>
                             <textarea type="text" rows="5" class="shadow-none with-border" id="textAreaAddKeywords"
@@ -438,9 +438,9 @@
                         </div>
                       </div>
                     </div>
-                  
+
                   </form>
-                  
+
                 </div>
                 <!-- =============================== -->
                 <!-- UPDATE COMPANY DETAILS - END  -->
@@ -485,13 +485,14 @@
                 <!-- =============================================  -->
                 <!-- COMPANY REGION OF OPERATION DISPLAY - START    -->
                 <!-- =============================================  -->
-                <div class="card mb-4" style="display: block;">
+                <div class="card mb-4" id="divDisplayRegionOfOperation" style="display: block;">
                   <div class="border-b flex items-center justify-between p-4">
                     <div>
                       <h2 class="text-lg font-semibold">Region Of Operation</h2>
                     </div>
                     <div class="text-right">
-                      <!-- <button class="button blue-white-hover" type="button" id="">Update</button> -->
+                      <button class="button blue-white-hover" type="button"
+                        id="btnRegionOfOperationEdit">Update</button>
                     </div>
                   </div>
                   <div class="flex-1 space-y-4 p-6">
@@ -512,6 +513,180 @@
                 </div>
                 <!-- =============================================  -->
                 <!-- COMPANY REGION OF OPERATION DISPLAY - END    -->
+                <!-- =============================================  -->
+
+                <!-- =============================================  -->
+                <!-- COMPANY REGION OF OPERATION UPDATE - START    -->
+                <!-- =============================================  -->
+                <div class=" mb-4 bg-white rounded-lg dark:bg-white" id="divUpdateRegionOfOperation"
+                  style="display: none;">
+                  <form action="javascript:void(0);" method="POST" id="editRegionOfOperation" name="editRegionOfOperation"
+                    enctype="multipart/form-data" accept-charset="utf-8">
+                    <div class="border-b flex items-center justify-between p-4">
+                      <div>
+                        <h2 class="text-lg font-semibold">Region Of Operation</h2>
+                      </div>
+                      <div class="text-right">
+                        <button class="p-2 px-4 rounded bg-gray-50 text-red-500 orbitron"
+                          id="btnRegionOfOperationCancelUpdate">
+                          Cancel
+                        </button>
+                        <button class="button blue-white-hover orbitron" type="button" id="btnRegionOfOperationUpdate">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                    <div class="flex-1 space-y-4 p-6">
+                      <div class="space-y-3">
+
+                        <div class="flex justify-between items-center">
+                          <div>
+                            <h4 class="orbitron">I operate on a World Wide Level</h4>
+                          </div>
+                          <div class="switches-list -mt-8 is-large">
+                            <div class="switch-container">
+                              <label class="switch">
+                                <input type="checkbox" id="iOperateOnAWorldWideLevelRadioButton"
+                                  name="iOperateOnAWorldWideLevelRadioButton">
+                                <span class="switch-button"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <label for=""></label>
+                        <!-- NOTE: <label for=""></label> serves as space -->
+
+                        <div>
+                          <div class="flex justify-between items-center">
+                            <div>
+                              <h4 class="orbitron">I operate on a Global Regional Level</h4>
+                            </div>
+                            <div class="switches-list -mt-8 is-large">
+                              <div class="switch-container">
+                                <label class="switch">
+                                  <input type="checkbox" id="iOperateOnAGlobalRegionalLevelRadioButton"
+                                    name="iOperateOnAGlobalRegionalLevelRadioButton">
+                                  <span class="switch-button"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+
+                          <label for="" class="orbitron"></label>
+                          <div id="divRegionOfOperation">
+
+                            <select class="selectpicker" id="traderRegionOfOperation" name="traderRegionOfOperation"
+                              multiple>
+                            </select>
+
+                          </div>
+                          <p class="text-red-500" id="traderRegionOfOperationValidation"></p>
+                        </div>
+
+                        <div>
+                          <div class="flex justify-between items-center">
+                            <div>
+                              <h4 class="orbitron">I operate on a National Level</h4>
+                            </div>
+                            <div class="switches-list -mt-8 is-large">
+                              <div class="switch-container">
+                                <label class="switch">
+                                  <input type="checkbox" id="iOperateOnANationalLevelRadioButton"
+                                    name="iOperateOnANationalLevelRadioButton">
+                                  <span class="switch-button"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+
+                          <label for=""></label>
+                          <div id="divCountryOfOperation">
+                            <select id="traderCountryOfOperation" name="traderCountryOfOperation"
+                              class="shadow-none selectpicker with-border " multiple>
+                            </select>
+                          </div>
+                          <p class="text-red-500" id="traderCountryOfOperationValidation"></p>
+                        </div>
+
+                        <div class="">
+                          <div class="flex justify-between items-center">
+                            <div>
+                              <h4 class="orbitron">I operate on a Provincial/State Level</h4>
+                            </div>
+                            <div class="switches-list -mt-8 is-large">
+                              <div class="switch-container">
+                                <label class="switch">
+                                  <input type="checkbox" id="iOperateOnAStateLevelRadioButton"
+                                    name="iOperateOnAStateLevelRadioButton" checked="checked">
+                                  <span class="switch-button"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div id="divStatesOfOperation">
+                            <label for="" class="orbitron"></label>
+                            <div>
+                              <select id="countryForStateOperation" name="countryForStateOperation"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                            <label for="" class="orbitron"></label>
+                            <div>
+                              <select id="traderStatesOfOperation" name="traderStatesOfOperation"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                          </div>
+                          <p class="text-red-500" id="traderStatesOfOperationValidation"></p>
+                        </div>
+
+                        <label for=""></label>
+                        <!-- NOTE: <label for=""></label> serves as space -->
+                        <div>
+                          <div class="flex justify-between items-center mt-2">
+                            <div class="">
+                              <h4 class="orbitron">I operate on a City Level</h4>
+                            </div>
+                            <div class="switches-list -mt-8 is-large">
+                              <div class="switch-container">
+                                <label class="switch">
+                                  <input type="checkbox" id="iOperateOnACityLevelRadioButton"
+                                    name="iOperateOnACityLevelRadioButton" checked="checked">
+                                  <span class="switch-button"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div id="divCityOfOperation">
+                            <label for="" class="orbitron"></label>
+                            <div id="">
+                              <select id="countryForCityOperation" name="countryForCityOperation"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                            <label for="" class="orbitron"></label>
+                            <div id="">
+                              <select id="statesForCityOperation" name="statesForCityOperation"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                            <label for="" class="orbitron"></label>
+                            <div id="">
+                              <select id="traderCityOfOperation" name="traderCityOfOperation"
+                                class="shadow-none selectpicker with-border ">
+                              </select>
+                            </div>
+                          </div>
+                          <p class="text-red-500" id="traderCityOfOperationValidation"></p>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- =============================================  -->
+                <!-- COMPANY REGION OF OPERATION UPDATE - END    -->
                 <!-- =============================================  -->
               </div>
             </div>
@@ -1084,7 +1259,9 @@
           <script src="assets/js/traders-profile-v2.js"></script>
           <script src="assets/js/timezone.js"></script>
           <script src="assets/js/dropdown-select-option-with-input-other.js"></script>
-					<script src="assets/js/tags.js"></script>
+          <script src="assets/js/tags.js"></script>
+          <script src="assets/js/region-of-operation-toogle.js"></script>
+
           <!-- <script src="assets/js/traders-profile.js"></script> -->
           <!-- <script src="assets/js/global-countries.js"></script> -->
           <!-- <script src="assets/js/getStatesNameToBeDisplayUsingCode.js"></script> -->
