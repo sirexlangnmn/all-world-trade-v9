@@ -1,19 +1,12 @@
-/** @type {import('tailwindcss').Config} */
+const { Config } = require('tailwindcss');
 
-module.exports = {
+const config = {
 	mode: 'jit',
-    content: [
-		'./public/**/*.{html,js,ejs,css}',
-		'./node_modules/flowbite/**/*.js'
-	],
-	purge: [
-		'./public/**/*.{html,js,ejs, css}',
-		'./node_modules/flowbite/**/*.js'
-	],
-    theme: {
-        extend: {},
-    },
-    plugins: [require('flowbite/plugin')],
-
+	content: ["./public/**/*.ejs", "./public/**/*.html", "./public/**/*.js"],
+	theme: {
+	  extend: {},
+	},
+	plugins: [],
 };
 
+module.exports = config;
