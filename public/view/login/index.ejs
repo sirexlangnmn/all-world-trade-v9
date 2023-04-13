@@ -57,9 +57,14 @@
                                 class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginEmailAddress"
                                 name="loginEmailAddress"
+                                style="-webkit-box-shadow: 0 0 0 30px #323332 inset !important;
+                                -moz-box-shadow: 0 0 0 30px #323332 inset !important;
+                                -o-box-shadow: 0 0 0 30px #323332 inset !important;
+                                box-shadow: 0 0 0 30px #323332 inset !important;
+                                -webkit-text-fill-color: #ffffff !important;"
                             />
                         </div>
-                        <div>
+                        <div class="relative">
                             <label class="mb-0 orbitron"> Password </label>
                             <input
                                 type="password"
@@ -67,7 +72,17 @@
                                 class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginPassword"
                                 name="loginPassword"
+                                style="-webkit-box-shadow: 0 0 0 30px #323332 inset !important;
+                                -moz-box-shadow: 0 0 0 30px #323332 inset !important;
+                                -o-box-shadow: 0 0 0 30px #323332 inset !important;
+                                box-shadow: 0 0 0 30px #323332 inset !important;
+                                -webkit-text-fill-color: #ffffff !important;"
+                                
                             />
+                            <span class="absolute top-0 right-1 mr-2 mt-8 pt-2" onclick="showPassword('loginPassword')">
+                                <i id="passEyeId1" class="icon-feather-eye text-gray-600 hover:text-blue-600 cursor-pointer" style="display: none; font-size: 25px;"></i>
+                                <i id="passEyeId2" class="icon-feather-eye-off text-gray-600 hover:text-blue-600 cursor-pointer" style="font-size: 25px;"></i>
+                            </span>
                         </div>
                         <div>
                             <button
@@ -90,7 +105,7 @@
             let ourGenerateNonce = `<%= data.ourGenerateNonce %>`;
             console.log('ourGenerateNonce: ', ourGenerateNonce);
         </script>
-       
+        
         <script  src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.0/sweetalert2.min.js"></script>
         <%- include('../includes/scripts/index.ejs') %>
         <script  src="assets/js/login.js"></script>

@@ -45,3 +45,19 @@ function lookingForSmallScaleCompany() {
     // location.replace(host + '/registration-for-small-scale-company');
     location.replace(host + '/registration');
 }
+
+function showPassword(elementID) {
+    let inputPassword = getId(elementID);
+    let passEyeId1 = getId('passEyeId1');
+    let passEyeId2 = getId('passEyeId2');
+
+    if (inputPassword.type === 'password') {
+        inputPassword.type = 'text';
+        passEyeId1.style.display = 'block';
+        passEyeId2.style.display = 'none';
+    } else {
+        inputPassword.type = 'password';
+        passEyeId1.style.display = 'none';
+        passEyeId2.style.display = 'block';
+    }
+}
