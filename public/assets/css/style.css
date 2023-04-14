@@ -828,11 +828,13 @@ input.keyword-input {
 ------------------------------------- */
 body,
 html {
-    background-color: #f9fafb !important;
+    /* background-color: #f9fafb !important; */
+    background-color: #D1D1D6 !important;
 }
 
+
 body {
-    color: #666;
+    /* color: #666; */
     font-size: 15px;
     line-height: 27px;
     font-family: Inter, sans-serif !important;
@@ -10038,3 +10040,7 @@ html.dark,
 /* -------------------------------------------------------------- */
 /* 06. Add your custom classes 
 ----------------------------------------------------------------- */
+
+.displayNone {
+    display: none;
+  }
