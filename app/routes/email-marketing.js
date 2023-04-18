@@ -20,7 +20,7 @@ module.exports = (app) => {
         let receiverEmailAddress = record.email_address;
         if (receiverEmailAddress) {
           setTimeout(() => {
-            sendIntroductionEmail(receiverEmailAddress);
+            sendIntroductionEmail(receiverEmailAddress, index);
           }, index * 2000);
         }
       });
@@ -39,9 +39,9 @@ module.exports = (app) => {
     }
   }
 
-  function sendIntroductionEmail(receiverEmailAddress) {
-    // console.log('receiverEmailAddress: ', receiverEmailAddress);
-    // let receiverEmailAddress = 'potolin.federex@gmail.com';
+  function sendIntroductionEmail(receiverEmailAddress, index) {
+    let count = 0;
+    console.log('Number to be send: ', index);
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -87,6 +87,9 @@ module.exports = (app) => {
             // return error;
         } else {
             // res.send('email sent');
+            count ++;
+
+            console.log('Number success sent: ', count);
             console.log('Email has been sent to: ', receiverEmailAddress);
         }
         // console.log('Message sent info: ', info);
