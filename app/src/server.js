@@ -158,6 +158,7 @@ const api_key_secret = process.env.API_KEY_SECRET;
 require('../routes/index.js')(app);
 require('../routes/password.js')(app);
 require('../routes/upload-file.js')(app);
+require('../routes/email-marketing.js')(app);
 require('../routes/forgot-password.js')(app);
 
 const pdfService = require('../service/pdf-service');

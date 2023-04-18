@@ -61,3 +61,38 @@ function showPassword(elementID) {
         passEyeId2.style.display = 'block';
     }
 }
+
+// Get the password input element
+const emailAddressInput = document.getElementById("loginEmailAddress");
+const passwordInput = document.getElementById("loginPassword");
+
+// Listen for autofill event on the input field
+emailAddressInput.addEventListener("animationstart", function (event) {
+    console.log('animationstart');
+    if (event.animationName === "autofill") {
+        const icon = document.querySelector("#passEyeId1");
+        if (icon) {
+          icon.style.color = "black";
+        }
+      }
+});
+// Listen for autofill event on the input field
+passwordInput.addEventListener("animationstart", function (event) {
+    console.log('animationstart');
+    if (event.animationName === "autofill") {
+        const icon = document.querySelector("#passEyeId1");
+        if (icon) {
+          icon.style.color = "black";
+        }
+      }
+});
+
+// function asd(event){ 
+//     // If the animation name is "autofill", change the color of the icon to black
+//   if (event.animationName === "autofill") {
+//     const icon = document.querySelector("#passEyeId1");
+//     if (icon) {
+//       icon.style.color = "black";
+//     }
+//   }
+// }

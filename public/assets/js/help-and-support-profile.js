@@ -33,3 +33,15 @@ function btnDropHelpAndSupportCommunicatorLink() {
         },
     });
 }
+
+document.getElementById("btnSendEmailMarketing").addEventListener("click", sendEmailMarketing);
+
+function sendEmailMarketing() {
+    $.ajax({
+        url: '/api/post/emails/introduction',
+        type: 'POST',
+        success: function (data) {
+            console.log('sendEmailMarketing data: ', data);
+        },
+    });
+}

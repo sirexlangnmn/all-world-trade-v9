@@ -49,7 +49,7 @@
                         class="lg:p-10 p-6 space-y-3 relative bg-white2 shadow-xl rounded-md"
                     >
                         <h1 class="lg:text-2xl text-xl font-semibold mb-6 orbitron">Login</h1>
-                        <div>
+                        <!-- <div>
                             <label class="mb-0 orbitron"> Email Address </label>
                             <input
                                 type="email"
@@ -63,8 +63,8 @@
                                 box-shadow: 0 0 0 30px #323332 inset !important;
                                 -webkit-text-fill-color: #ffffff !important;"
                             />
-                        </div>
-                        <div class="relative">
+                        </div> -->
+                        <!-- <div class="relative">
                             <label class="mb-0 orbitron"> Password </label>
                             <input
                                 type="password"
@@ -82,6 +82,31 @@
                             <span class="absolute top-0 right-1 mr-2 mt-8 pt-2" onclick="showPassword('loginPassword')">
                                 <i id="passEyeId1" class="icon-feather-eye text-gray-600 hover:text-blue-600 cursor-pointer" style="display: none; font-size: 25px;"></i>
                                 <i id="passEyeId2" class="icon-feather-eye-off text-gray-600 hover:text-blue-600 cursor-pointer" style="font-size: 25px;"></i>
+                            </span>
+                        </div> -->
+
+                        <div>
+                            <label class="mb-0 orbitron"> Email Address </label>
+                            <input
+                                type="email"
+                                placeholder=""
+                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                id="loginEmailAddress"
+                                name="loginEmailAddress"
+                            />
+                        </div>
+                        <div  class="relative">
+                            <label class="mb-0 orbitron"> Password </label>
+                            <input
+                                type="password"
+                                placeholder=""
+                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                id="loginPassword"
+                                name="loginPassword"
+                            />
+                            <span class="absolute top-0 right-1 mr-2 mt-8 pt-2" onclick="showPassword('loginPassword')" >
+                                <i id="passEyeId1" class="icon-feather-eye cursor-pointer" style="display: none; font-size: 25px;"></i>
+                                <i id="passEyeId2" class="icon-feather-eye-off cursor-pointer" style="font-size: 25px;"></i>
                             </span>
                         </div>
                         <div>
