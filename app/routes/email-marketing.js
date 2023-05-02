@@ -40,7 +40,6 @@ module.exports = (app) => {
   }
 
   function sendIntroductionEmail(receiverEmailAddress, index) {
-    let count = 0;
     console.log('Number to be send: ', index);
 
     // create reusable transporter object using the default SMTP transport
@@ -74,7 +73,7 @@ module.exports = (app) => {
         from: process.env.SUPPORT_RECEIVER_EMAIL_ADDRESS,
         to: receiverEmailAddress,
         subject: 'All World Trade - Introduction to AllWorldTrade platform for boosting market and sales',
-        template: 'introduction',
+        template: 'introduction2',
         // context: {
         //     code: verification_code
         // },
@@ -87,9 +86,6 @@ module.exports = (app) => {
             // return error;
         } else {
             // res.send('email sent');
-            count ++;
-
-            console.log('Number success sent: ', count);
             console.log('Email has been sent to: ', receiverEmailAddress);
         }
         // console.log('Message sent info: ', info);
