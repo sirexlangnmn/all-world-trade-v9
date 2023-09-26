@@ -1,5 +1,5 @@
 <%- include('../includes/head/index.ejs') %>
-<script>
+<!-- <script>
     const ip = window.location.host;
     const url = 'https://get.geojs.io/v1/ip/geo.json';
     fetch(url)
@@ -9,18 +9,8 @@
             console.log(`IP address: ${ip}`);
             console.log(`Location: ${location}`);
         });
-</script>
-<!-- <script>
-    const ip = window.location.host;
-    const url = 'https://freegeoip.app/json/';
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const location = `${data.city}, ${data.region_name}, ${data.country_name}`;
-        console.log(`IP address: ${ip}`);
-        console.log(`Location: ${location}`);
-      });
-    </script> -->
+</script> -->
+
 <style>
     .ml-15px {
     margin-left: 15px;
@@ -38,9 +28,70 @@
         <!-- === HEADER - END === -->
         <div class="main_content_custom">
             <!-- === HERO IMAGE - START === -->
-            <div class="homepage-background">
+            <!-- solution 1 -->
+            <!-- <div class="homepage-background">
                 <img src="../../uploads/landing/all-world-trade-home-page.webp" alt="Home Page Image | All World Trade" class="responsive">
+            </div> -->
+
+            
+            <!-- solution 2 -->
+            <!-- <div class="homepage-background">
+                <img
+                    srcset="../../uploads/landing/landing1-delete.webp 480w,
+                            ../../uploads/landing/landing2-delete.webp 800w,
+                            ../../uploads/landing/landing3-delete.webp 1200w"
+                    sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, 25vw"
+                    src="../../uploads/landing/all-world-trade-home-page.webp"
+                    alt="Home Page Image | All World Trade"
+                    class="responsive"
+                    loading="lazy"
+                >
+            </div> -->
+
+            <!-- solution 3 NOt working -->
+            <!-- <div class="homepage-background">
+            <img
+                srcset="../../uploads/landing/landing1-delete.webp 320w,
+                        ../../uploads/landing/landing2-delete.webp 480w,
+                        ../../uploads/landing/landing3-delete.webp 800w,
+                        ../../uploads/landing/landing1-delete.webp 1200w,
+                        ../../uploads/landing/landing2-delete.webp 1600w,
+                        ../../uploads/landing/landing3-delete.webp 2000w"
+                sizes="(max-width: 320px) 280px,
+                        (max-width: 480px) 440px,
+                        (max-width: 800px) 760px,
+                        (max-width: 1200px) 1160px,
+                        (max-width: 1600px) 1560px,
+                        1960px"
+                src="../../uploads/landing/landing1-delete1.webp"
+                alt="Home Page Image | All World Trade"
+                class="responsive"
+                loading="lazy"
+            >
+            </div> -->
+
+             <!-- solution 4 -->
+             <div class="homepage-background">
+                <picture>
+                    <!-- WebP format for modern browsers -->
+                    <source
+                        srcset="../../uploads/landing/all-world-trade-home-page-480-2.webp 480w,
+                                ../../uploads/landing/all-world-trade-home-page-800-2.webp 800w,
+                                ../../uploads/landing/all-world-trade-home-page-1200-2.webp 1200w"
+                        sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, 25vw"
+                        type="image/webp"
+                    >
+                    <!-- Fallback for older browsers -->
+                    <img
+                        src="../../uploads/landing/a:\Downloads\all-world-trade-home-page-480-2.webp"
+                        alt="Home Page Image | All World Trade"
+                        class="responsive"
+                        loading="lazy"
+                    >
+                </picture>
             </div>
+            
+
             <!-- === HERO IMAGE - END === -->
             <!-- === TRADERS COUNT - START === -->
             <div style="display: none">
@@ -119,7 +170,7 @@
                                     <a href="https://www.youtube.com/watch?v=hwy7K7FJnZ4"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28"
                                         target="_blank">
-                                    <img src="uploads/traders-videos-thumbnail/matrix-creation-events-venue.webp"
+                                    <img src="uploads/traders-videos-thumbnail/matrix-creation-events-venue-300.webp"
                                         alt="Matrix Creation Events Venue Traders Video | All World Trade" class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -152,7 +203,7 @@
                                 <li class="mb-10">
                                     <a href="https://www.youtube.com/watch?v=ICvW1755Puc" target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/team-one-vision.jpg" alt="Team One Vision Traders Video | All World Trade"
+                                    <img src="uploads/traders-videos-thumbnail/team-one-vision-300.webp" alt="Team One Vision Traders Video | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -185,7 +236,7 @@
                                 <li class="mb-10">
                                     <a href="https://www.youtube.com/watch?v=BRHRAgIeUlE" target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/scent-4.webp" alt="Scent Traders Video | All World Trade"
+                                    <img src="uploads/traders-videos-thumbnail/scent-300.webp" alt="Scent Traders Video | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -219,7 +270,7 @@
                                 <li class="mb-10">
                                     <a href="https://www.facebook.com/watch/?v=573257374604592" target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/mgi-ionspec-medical-eye-wear.webp"
+                                    <img src="uploads/traders-videos-thumbnail/mgi-ionspec-medical-eye-wear-300.webp"
                                         alt="MGI Ionspec Medical Eye Wear Traders Video | All World Trade" class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -253,7 +304,7 @@
                                     <a href="https://www.facebook.com/mgiproductsphilippines/videos/763856057547376/"
                                         target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/mgi-ionspec-medical-eye-wear.webp"
+                                    <img src="uploads/traders-videos-thumbnail/mgi-ionspec-medical-eye-wear-300.webp"
                                         alt="MGI Ionspec Medical Eye Wear Traders Video | All World Trade" class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -287,7 +338,7 @@
                                     <a href="https://www.facebook.com/watch/?v=680867256774296&ref=sharing&_rdc=1&_rdr"
                                         target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/mystic-skin.jpg" alt="Mystic Skin Traders Video | All World Trade"
+                                    <img src="uploads/traders-videos-thumbnail/mystic-skin-300.webp" alt="Mystic Skin Traders Video | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -325,7 +376,7 @@
                                     <a href="https://www.facebook.com/watch/?v=1963204720660328&ref=sharing&_rdc=1&_rdr"
                                         target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/ding_adeth_shop.webp" alt="Ding Adeth Traders Video | All World Trade"
+                                    <img src="uploads/traders-videos-thumbnail/ding_adeth_shop-300.webp" alt="Ding Adeth Traders Video | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -358,7 +409,7 @@
                                     <a href="https://www.facebook.com/100080231707449/videos/1316147259241076/"
                                         target="_blank"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/traders-videos-thumbnail/pomeranian.jpg" alt="Pomeranian Traders Video | All World Trade"
+                                    <img src="uploads/traders-videos-thumbnail/pomeranian-300.webp" alt="Pomeranian Traders Video | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     <span class="
                                         absolute
@@ -414,7 +465,7 @@
                                     <a href="https://www.facebook.com/Matrix-Creation-Events-Venue-Events-Place-261606537670432/"
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28"
                                         target="_blank">
-                                        <img src="uploads/traders-videos-thumbnail/matrix-creation-events-venue.webp"
+                                        <img src="uploads/traders-videos-thumbnail/matrix-creation-events-venue-300.webp"
                                             alt="Matrix Creation Events Venue Traders Webinars | All World Trade" class="absolute inset-0 object-cover w-full h-full" />
                                         <span class="
                                             absolute
@@ -468,35 +519,35 @@
                                 <li class="mb-10">
                                     <div
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/sponsors/webp/matrix-creation-events-venue.webp"
+                                    <img src="uploads/traders-videos-thumbnail/matrix-creation-events-venue-300.webp"
                                         alt="Matrix Creation Events Venue Traders Sponsors | All World Trade" class="absolute inset-0 object-cover w-full h-full" />
                                     </div>
                                 </li>
                                 <li class="mb-10">
                                     <div
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/sponsors/webp/ltsjs-2.webp" alt="Little Twinkling Star Jewelry Store Traders Sponsors | All World Trade"
+                                    <img src="uploads/sponsors/webp/ltsjs-300.webp" alt="Little Twinkling Star Jewelry Store Traders Sponsors | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     </div>
                                 </li>
                                 <li class="mb-10">
                                     <div
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/sponsors/webp/dle-2.webp" alt="Diversified Lighting Enterprises  Traders Sponsors | All World Trade"
+                                    <img src="uploads/sponsors/webp/dle-300.webp" alt="Diversified Lighting Enterprises  Traders Sponsors | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     </div>
                                 </li>
                                 <li class="mb-10">
                                     <div
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/sponsors/webp/anep-top.webp" alt="Anep Top Metal Marketing Traders Sponsors | All World Trade"
+                                    <img src="uploads/sponsors/webp/anep-top-300.webp" alt="Anep Top Metal Marketing Traders Sponsors | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     </div>
                                 </li>
                                 <li class="mb-10">
                                     <div
                                         class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
-                                    <img src="uploads/sponsors/webp/tech-n-2.webp" alt="Tech N Plus Traders Sponsors | All World Trade"
+                                    <img src="uploads/sponsors/webp/tech-n-300.webp" alt="Tech N Plus Traders Sponsors | All World Trade"
                                         class="absolute inset-0 object-cover w-full h-full" />
                                     </div>
                                 </li>
