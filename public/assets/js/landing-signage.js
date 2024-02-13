@@ -315,7 +315,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "hotels",
+    name: "Hotels",
     imageSrc: "uploads/all-about-events/hotels.jpg",
     color: 'white',
   },
@@ -330,7 +330,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "JEWELRIES",
+    name: "Jewelries",
     imageSrc: "uploads/all-about-events/jewelries.jpg",
     color: 'white',
   },
@@ -360,12 +360,12 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "PHOTO & VIDEO",
+    name: "Photo & Video",
     imageSrc: "uploads/all-about-events/photo-and-video.jpg",
     color: 'white',
   },
   {
-    name: "PHOTO BOOTH",
+    name: "Photo Booth",
     imageSrc: "uploads/all-about-events/photo-booth.jpg",
     color: 'black',
   },
@@ -390,7 +390,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "STYLIST",
+    name: "Stylist",
     imageSrc: "uploads/all-about-events/stylist.jpg",
     color: 'black',
   },
@@ -405,7 +405,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "VENUES",
+    name: "Venues",
     imageSrc: "uploads/all-about-events/venues.jpg",
     color: 'black',
   },
