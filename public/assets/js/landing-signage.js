@@ -463,14 +463,13 @@ signageCardData.forEach((item) => {
 
 
 const tradersVideoData = [
-  
   {
-    title: "Robinson Land",
-    text: 'Robinsons Land Company Profile',
+    title: "Robinson Land Corporation",
+    text: 'Robinson\'s Land Corporation Residences',
     imageSrc: 'uploads/traders-videos-thumbnail/robinsons_land.jpg',
     imageAlt: 'Robinson Land Traders Video | All World Trade',
-    youtubeLink: 'https://www.youtube.com/watch?v=68lZR5Sor9k',
-    duration: '2:20',
+    youtubeLink: 'https://www.youtube.com/watch?v=4m1y7y2dBDQ',
+    duration: '3:25',
   },
   {
     title: "Matrix Creation Events Venue",
