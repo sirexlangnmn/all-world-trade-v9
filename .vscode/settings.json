@@ -1,3 +1,4 @@
 {
-  "editor.codeActionsOnSave": {}
+  "editor.codeActionsOnSave": {},
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

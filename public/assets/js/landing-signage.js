@@ -200,7 +200,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "Caterers",
+    name: "Food Catering",
     imageSrc: "uploads/all-about-events/caterers.jpg",
     color: 'white',
   },
@@ -290,7 +290,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "Gown and Suit Designer",
+    name: "Bridal Gown",
     imageSrc: "uploads/all-about-events/gown-and-suit-designer.jpg",
     color: 'white',
   },
@@ -345,7 +345,7 @@ const signageCardData = [
     color: 'white',
   },
   {
-    name: "Men's Trousseau",
+    name: "Gown and Suit Designer",
     imageSrc: "uploads/all-about-events/mens-trousseau.jpg",
     color: 'white',
   },
@@ -463,6 +463,15 @@ signageCardData.forEach((item) => {
 
 
 const tradersVideoData = [
+  
+  {
+    title: "Robinson Land",
+    text: 'Robinsons Land Company Profile',
+    imageSrc: 'uploads/traders-videos-thumbnail/robinsons_land.jpg',
+    imageAlt: 'Robinson Land Traders Video | All World Trade',
+    youtubeLink: 'https://www.youtube.com/watch?v=68lZR5Sor9k',
+    duration: '2:20',
+  },
   {
     title: "Matrix Creation Events Venue",
     text: 'Multiple Virtual Reality Scenery on 3 Story High Video Wall at Matrix Creation Events Venue',
