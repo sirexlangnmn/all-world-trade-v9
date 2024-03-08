@@ -200,7 +200,7 @@ const signageCardData = [
     color: 'black',
   },
   {
-    name: "Food Catering",
+    name: "Catering Services",
     imageSrc: "uploads/all-about-events/caterers.jpg",
     color: 'white',
   },
@@ -280,11 +280,6 @@ const signageCardData = [
     color: 'white',
   },
   {
-    name: "Food Catering",
-    imageSrc: "uploads/all-about-events/food-catering.jpg",
-    color: 'black',
-  },
-  {
     name: "Giveaways and Souvenirs",
     imageSrc: "uploads/all-about-events/giveaways-and-souvenirs.jpg",
     color: 'black',
@@ -345,7 +340,7 @@ const signageCardData = [
     color: 'white',
   },
   {
-    name: "Gown and Suit Designer",
+    name: "Men's   Toursseau",
     imageSrc: "uploads/all-about-events/mens-trousseau.jpg",
     color: 'white',
   },
@@ -480,6 +475,46 @@ const tradersVideoData = [
     duration: '12:21',
   },
   {
+    title: "Pru Life UK",
+    text: 'Sa pag-alis, pagdating at pagbalik, kasama mo ang Pru Life UK',
+    imageSrc: 'uploads/traders-videos-thumbnail/pru-life-uk.webp',
+    imageAlt: 'Pru Life UK | All World Trade',
+    youtubeLink: 'https://www.youtube.com/watch?v=pqY2cjL21C4',
+    duration: '01:33',
+  },
+  {
+    title: "8 Century Catering AVP",
+    text: '8 Century Events and Catering',
+    imageSrc: 'uploads/traders-videos-thumbnail/8-century-catering-avp.webp',
+    imageAlt: '8 Century Events and Catering | All World Trade',
+    youtubeLink: 'https://www.youtube.com/watch?v=gcDf7yt8t5I',
+    duration: '00:42',
+  },
+  {
+    title: "Design Theraphy",
+    text: 'Step into a world where events transcend the ordinary, and let curated themes weave an enchanting atmosphere, leaving a trail of awe-inspire...',
+    imageSrc: 'uploads/traders-videos-thumbnail/design-theraphy.webp',
+    imageAlt: 'Design Theraphy | All World Trade',
+    youtubeLink: 'https://www.facebook.com/watch/?v=688942983374339',
+    duration: '00:48',
+  },
+  {
+    title: "Camaya Coast",
+    text: 'CAMAYA COAST DECEMBER 2022 UPDATES',
+    imageSrc: 'uploads/traders-videos-thumbnail/camaya-coast.webp',
+    imageAlt: 'Camaya Coast | All World Trade',
+    youtubeLink: 'https://www.youtube.com/watch?v=qosfPdk08gU',
+    duration: '10:03',
+  },
+  {
+    title: "Austism Hearts Foundation",
+    text: 'About Autism Hearts Foundation (AHF) & Fashion Arts Autism Benefits (FAAB)',
+    imageSrc: 'uploads/traders-videos-thumbnail/austism-hearts-foundation.webp',
+    imageAlt: 'Austism Hearts Foundation | All World Trade',
+    youtubeLink: 'https://www.youtube.com/watch?v=QW5p9neWZt8',
+    duration: '03:00',
+  },
+  {
     title: 'Team One Vision',
     text: 'Pru Life UK continues to make it their priority to help Filipinos achieve financial stability.',
     imageSrc: 'uploads/traders-videos-thumbnail/team-one-vision-300.webp',
@@ -541,7 +576,7 @@ const tradersVideoContainer = document.getElementById("tradersVideoContainer");
 
 tradersVideoData.forEach((item) => {
   const tradersVideoHtml = `
-    <li class="mb-10">
+    <li class="px-4 mb-10">
       <a href="${item.youtubeLink}"
           class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28"
           target="_blank">
@@ -578,3 +613,206 @@ tradersVideoData.forEach((item) => {
 
   tradersVideoContainer.insertAdjacentHTML('beforeend', tradersVideoHtml);
 });
+
+
+
+
+
+
+
+
+
+// Sample data (you can replace this with your actual data)
+const exhibitorsData = [
+  {
+    src: 'uploads/exhibitors-march-logo/42.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/43.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/44.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/45.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/46.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/47.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/48.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/49.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/50.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/51.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/52.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/53.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/54.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/55.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/56.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/57.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/58.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/59.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/60.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/61.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/62.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/63.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/64.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/65.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/66.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/67.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/68.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/69.webp',
+    alt: 'Title | All World Trade'
+  }
+];
+
+// Get the UL element
+const exhibitorList = document.getElementById('exhibitorList');
+
+// Create a document fragment to batch append list items
+const fragment = document.createDocumentFragment();
+
+// Loop through the data and create <li> elements
+exhibitorsData.forEach(exhibitor => {
+  const li = document.createElement('li');
+  li.className = 'px-4 mb-10';
+  li.innerHTML = `
+      <div class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
+          <img src="${exhibitor.src}" alt="${exhibitor.alt}" class="absolute inset-0 object-cover w-full h-full" />
+      </div>`;
+  fragment.appendChild(li);
+});
+
+// Append the fragment containing all list items to the UL element
+exhibitorList.appendChild(fragment);
+
+
+
+
+
+
+
+
+// Sample data (you can replace this with your actual data)
+const mediaPartnerData = [
+  {
+    src: 'uploads/media-partners-march-logo/71.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/72.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/73.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/74.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/75.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/76.webp',
+    alt: 'Title | All World Trade'
+  },
+  {
+    src: 'uploads/media-partners-march-logo/77.webp',
+    alt: 'Title | All World Trade'
+  }
+];
+
+// Get the UL element
+const mediaPartnerList = document.getElementById('mediaPartnerList');
+
+// Create a document fragment to batch append list items
+const mediaPartnerListFragment = document.createDocumentFragment();
+
+// Loop through the data and create <li> elements
+mediaPartnerData.forEach(mediaPartner => {
+  const li = document.createElement('li');
+  li.className = 'px-4 mb-10';
+  li.innerHTML = `
+      <div class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
+          <img src="${mediaPartner.src}" alt="${mediaPartner.alt}" class="absolute inset-0 object-cover w-full h-full" />
+      </div>`;
+  mediaPartnerListFragment.appendChild(li);
+});
+
+// Append the fragment containing all list items to the UL element
+mediaPartnerList.appendChild(mediaPartnerListFragment);
