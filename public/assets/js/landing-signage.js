@@ -430,7 +430,7 @@ signageCardData.forEach((item) => {
           <div class="absolute z-10 w-full h-3/4 -bottom-12 bg-gradient-to-b from-transparent to-gray-800"></div>
           <img src="${item.imageSrc}" class="absolute object-cover w-full h-full" alt="">
         </div>
-        <p class="py-2 text-lg font-semibold text-white text-center">${item.name}</p>
+        <p class="py-2 text-lg font-semibold text-center">${item.name}</p>
       </a>
     </div>
   `;
