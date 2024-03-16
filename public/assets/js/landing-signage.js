@@ -625,116 +625,335 @@ tradersVideoData.forEach((item) => {
 // Sample data (you can replace this with your actual data)
 const exhibitorsData = [
   {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/70.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Daphne&#39;s Ligsay Events and Concepts'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/72.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Wild Cocktail'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/73.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Food Cart Events PH'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/74.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Li house of Kakanin'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/75.jpg',
+    alt: 'Title | All World Trade',
+    name: 'GQ Mobile Bar'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/76.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Invitation by Kenneth Uy'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/77.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Eloquente Catering Services'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/78.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Joan Lao Events Management'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/79.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Mi6 Photoman'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/80.jpg',
+    alt: 'Title | All World Trade',
+    name: 'PRU Life'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/81.jpg',
+    alt: 'Title | All World Trade',
+    name: 'UnionBank'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/82.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Chars am'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/83.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Shatzies Events Management'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/84.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Mcris Dela Peña'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/85.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Austism Heart Foundation'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/86.jpg',
+    alt: 'Title | All World Trade',
+    name: 'TIV Consultancy'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/87.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Focal Image 360 Photo Booth'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/88.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Jolaida Nicolas'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/89.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Grazie Pastry'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/90.jpg',
+    alt: 'Title | All World Trade',
+    name: '8 Century Catering'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/91.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Robinson Land Corporation Residences'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/92.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Scent Station'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/93.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Event Theraphy'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/94.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Momentous Journey'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/95.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Vintage Pub'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/96.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Michael Celestine'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/97.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Jeremiah Band'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/98.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Stills & Motion Creative Studio'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/99.jpg',
+    alt: 'Title | All World Trade',
+    name: '16 Cent Koffee'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/100.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Owl About Events'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/101.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Makeup Inspiration by Rich Tan'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/102.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Sunset and Pines Studio'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/103.jpg',
+    alt: 'Title | All World Trade',
+    name: 'BPI'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/104.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Crates and Trusses'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/105.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Appetite Music Entertainment'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/106.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Mesa De Comida'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/107.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Hizon&#39;s Catering'
+  },
+  {
+    src: 'uploads/exhibitors-march-logo/03-march-2024/108.jpg',
+    alt: 'Title | All World Trade',
+    name: 'Candy Rush by Ken'
+  },
+
+  {
     src: 'uploads/exhibitors-march-logo/42.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/43.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/44.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/45.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/46.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/47.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/48.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/49.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/50.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/51.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/52.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/53.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/54.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/55.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/56.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/57.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/58.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/59.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: 'asd'
   },
   {
     src: 'uploads/exhibitors-march-logo/60.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/61.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/62.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/63.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/64.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: 'asd'
   },
   {
     src: 'uploads/exhibitors-march-logo/65.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/66.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/67.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/68.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/69.webp',
-    alt: 'Title | All World Trade'
+    alt: 'Title | All World Trade',
+    name: ''
   }
 ];
 
@@ -751,7 +970,11 @@ exhibitorsData.forEach(exhibitor => {
   li.innerHTML = `
       <div class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
           <img src="${exhibitor.src}" alt="${exhibitor.alt}" class="absolute inset-0 object-cover w-full h-full" />
-      </div>`;
+      </div>
+      <p class="font-semibold line-clamp-2 text-lg text-center">
+          ${exhibitor.name}
+      </p>`;
+
   fragment.appendChild(li);
 });
 
