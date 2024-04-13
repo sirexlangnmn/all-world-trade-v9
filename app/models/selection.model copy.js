@@ -149,10 +149,10 @@ Model.getAllBySearchParameter = (param, result) => {
         query += ` AND users_business_characteristics.business_minor_sub_category = '${param.minor_sub_categories}'`;
     }
     if (param.product_service_input) {
-        query += ` AND users_business_characteristics.business_industry_belong_to LIKE '%${param.product_service_input}%'`;
+        query += ` OR users_business_characteristics.business_industry_belong_to LIKE '%${param.product_service_input}%'`;
     }
     if (param.company_name_input) {
-        query += ` AND users_businesses.business_name LIKE '%${param.company_name_input}%'`;
+        query += ` OR users_businesses.business_name LIKE '%${param.company_name_input}%'`;
     }
 
     // query += ` AND users_business_medias.banner != ''`;

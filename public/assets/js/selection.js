@@ -581,7 +581,7 @@ function displaySearchParameter() {
     displaySearchParameterId.innerHTML = '';
     let html = `
       <li>
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
       </li>
       <li class="active">
         <a href="" onclick="return false;">Selection </a>
@@ -1028,9 +1028,12 @@ function selectionSearchParameter() {
         url: '/api/post/selection-search-parameter',
         type: 'POST',
         data: {
-            regionOfOperationCode: regionOfOperationCode,
-            countryCode: countryCode,
-            selectionState: selectionState,
+            // regionOfOperationCode: regionOfOperationCode,
+            // countryCode: countryCode,
+            // selectionState: selectionState,
+            regionOfOperationCode: 'SouthEast Asia',
+            countryCode: 'PH',
+            selectionState: 1347,
             selectionCity: selectionCity,
             language: language,
             business_scale: business_scale,
@@ -1489,8 +1492,60 @@ async function getCitiesOptions(countryElementId, stateElementId, cityElementId)
         const response = await fetch('assets/json/cities.json');
         const data = await response.json();
 
-        const countryCode = document.getElementById(countryElementId).value;
-        const stateId = document.getElementById(stateElementId).value;
+        console.log('assets/json/cities.json: ', response)
+
+        // const countryCode = document.getElementById(countryElementId).value;
+        const countryCode = 'PH';
+        // const stateId = document.getElementById(stateElementId).value;
+        const stateId = 1347;
+        const filtered = data.filter((d) => d.country_code == countryCode);
+
+        if (filtered.length > 0 && stateId !== 'No States Found' && stateId !== '') {
+            const cities = filtered.filter((d) => d.state_id == stateId);
+            cityElement.insertAdjacentHTML(
+                'beforeend',
+                '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Any</div>',
+            );
+            cities.forEach((city) => {
+                cityElement.insertAdjacentHTML(
+                    'beforeend',
+                    `<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="${city.id}">${city.name}</div>`,
+                );
+            });
+        } else if (stateId === '') {
+            displaySelectedCity.innerHTML = 'Any';
+            cityElement.insertAdjacentHTML(
+                'beforeend',
+                '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Any</div>',
+            );
+        } else {
+            displaySelectedCity.innerHTML = 'No Cities Found';
+            cityElement.insertAdjacentHTML(
+                'beforeend',
+                '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="No Cities Found">No Cities Found</div>',
+            );
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
+async function getCitiesOptionsStatic() {
+    const cityElement = document.getElementById('selectionCity');
+    cityElement.innerHTML = '';
+
+    try {
+        const response = await fetch('assets/json/cities.json');
+        const data = await response.json();
+
+        console.log('assets/json/cities.json: ', response)
+
+        // const countryCode = document.getElementById(countryElementId).value;
+        const countryCode = 'PH';
+        // const stateId = document.getElementById(stateElementId).value;
+        const stateId = 1347;
         const filtered = data.filter((d) => d.country_code == countryCode);
 
         if (filtered.length > 0 && stateId !== 'No States Found' && stateId !== '') {

@@ -746,12 +746,34 @@ app.get(['/edit-large-scale-profile'], (req, res) => {
 
 // registration new
 app.get(['/registration'], (req, res) => {
-    const sessionData = {
-        ourGenerateNonce: lodashNonce,
-    };
-    res.render(path.join(__dirname, '../../', 'public/view/registration-v2/index'), {
-        data: sessionData,
-    });
+    // const sessionData = {
+    //     ourGenerateNonce: lodashNonce,
+    // };
+    // res.render(path.join(__dirname, '../../', 'public/view/registration-v2/index'), {
+    //     data: sessionData,
+    // });
+
+    if (req.session.user === undefined) {
+        const sessionData = {
+            ourGenerateNonce: lodashNonce,
+        };
+        res.render(path.join(__dirname, '../../', 'public/view/registration-v2/index'), {
+            data: sessionData,
+        });
+    } else {
+        const sessionData = {
+            uuid: req.session.user.uuid,
+            type: req.session.user.type,
+            first_name: req.session.user.first_name,
+            last_name: req.session.user.last_name,
+            email: req.session.user.email_or_social_media,
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/selection/index'), {
+            data: sessionData,
+        });
+    }
 });
 
 // registration old

@@ -459,6 +459,14 @@ signageCardData.forEach((item) => {
 
 const tradersVideoData = [
   {
+    title: "Sharp Shooters Mobile Bar",
+    text: 'Sharp Shooters Mobile Bar',
+    imageSrc: 'uploads/traders-videos-thumbnail/sharp-shooters-mobile-bar.png',
+    imageAlt: 'Sharp Shooters Mobile Bar | All World Trade',
+    youtubeLink: 'https://www.facebook.com/reel/775824217836195',
+    duration: '3:25',
+  },
+  {
     title: "Robinson Land Corporation",
     text: 'Robinson\'s Land Corporation Residences',
     imageSrc: 'uploads/traders-videos-thumbnail/robinsons_land.jpg',
@@ -624,6 +632,72 @@ tradersVideoData.forEach((item) => {
 
 // Sample data (you can replace this with your actual data)
 const exhibitorsData = [
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/8-century-april-2024.jpg',
+    alt: '8 Century April 2024 | All World Trade',
+    name: '8 Century April 2024'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/anytime-fitness-gym.png',
+    alt: 'Anytime Fitness Gym | All World Trade',
+    name: 'Anytime Fitness Gym'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/chef-berts-kitchen.jpg',
+    alt: 'Chef Bert&#39;s Kitchen | All World Trade',
+    name: 'Chef Bert&#39;s Kitchen'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/eloquente-logo-3.png',
+    alt: 'Eloquente Catering Services | All World Trade',
+    name: 'Eloquente Catering Services'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/events-by-edelbert-valenzuela-3.png',
+    alt: 'Events by Edelbert Valenzuela | All World Trade',
+    name: 'Events by Edelbert Valenzuela'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/mesa-de-comida-3.png',
+    alt: 'Mesa de Comida | All World Trade',
+    name: 'Mesa de Comida'
+  },
+  {
+    src: 'uploads/exhibitors-logo-april-15-to-17/ub-negosyante-3.png',
+    alt: 'Title | All World Trade',
+    name: ''
+  }
+];
+
+// Get the UL element
+const exhibitorList = document.getElementById('exhibitorList');
+
+// Create a document fragment to batch append list items
+const fragment = document.createDocumentFragment();
+
+// Loop through the data and create <li> elements
+exhibitorsData.forEach(exhibitor => {
+  const li = document.createElement('li');
+  li.className = 'px-4 mb-10';
+  li.innerHTML = `
+      <div class="relative block w-full overflow-hidden rounded-lg md:h-44 h-28">
+          <img src="${exhibitor.src}" alt="${exhibitor.alt}" class="absolute inset-0 object-cover w-full h-full" />
+      </div>
+      <p class="font-semibold line-clamp-2 text-lg text-center">
+          ${exhibitor.name}
+      </p>`;
+
+  fragment.appendChild(li);
+});
+
+// Append the fragment containing all list items to the UL element
+exhibitorList.appendChild(fragment);
+
+
+
+
+// Sample data (you can replace this with your actual data)
+const previousExhibitorData = [
   {
     src: 'uploads/exhibitors-march-logo/03-march-2024/70.jpg',
     alt: 'Title | All World Trade',
@@ -814,7 +888,6 @@ const exhibitorsData = [
     alt: 'Title | All World Trade',
     name: 'Candy Rush by Ken'
   },
-
   {
     src: 'uploads/exhibitors-march-logo/42.webp',
     alt: 'Title | All World Trade',
@@ -903,7 +976,7 @@ const exhibitorsData = [
   {
     src: 'uploads/exhibitors-march-logo/59.webp',
     alt: 'Title | All World Trade',
-    name: 'asd'
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/60.webp',
@@ -928,7 +1001,7 @@ const exhibitorsData = [
   {
     src: 'uploads/exhibitors-march-logo/64.webp',
     alt: 'Title | All World Trade',
-    name: 'asd'
+    name: ''
   },
   {
     src: 'uploads/exhibitors-march-logo/65.webp',
@@ -958,13 +1031,13 @@ const exhibitorsData = [
 ];
 
 // Get the UL element
-const exhibitorList = document.getElementById('exhibitorList');
+const previousExhibitorList = document.getElementById('previousExhibitorList');
 
 // Create a document fragment to batch append list items
-const fragment = document.createDocumentFragment();
+const previousExhibitorFragment = document.createDocumentFragment();
 
 // Loop through the data and create <li> elements
-exhibitorsData.forEach(exhibitor => {
+previousExhibitorData.forEach(exhibitor => {
   const li = document.createElement('li');
   li.className = 'px-4 mb-10';
   li.innerHTML = `
@@ -975,12 +1048,11 @@ exhibitorsData.forEach(exhibitor => {
           ${exhibitor.name}
       </p>`;
 
-  fragment.appendChild(li);
+      previousExhibitorFragment.appendChild(li);
 });
 
 // Append the fragment containing all list items to the UL element
-exhibitorList.appendChild(fragment);
-
+previousExhibitorList.appendChild(previousExhibitorFragment);
 
 
 

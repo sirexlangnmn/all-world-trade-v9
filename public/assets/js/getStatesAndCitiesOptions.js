@@ -68,14 +68,16 @@ function getStatesOptions(countryElementId, stateElementId, cityElementId) {
 
                 if (filtered.length > 0) {
                     document.getElementById(stateElementId).innerHTML =
-                        '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Any</div>';
+                        '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Metro Manila</div>';
                     for (var i = 0; i < filtered.length; i++) {
-                        document.getElementById(stateElementId).innerHTML +=
-                            '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="' +
-                            filtered[i].id +
-                            '">' +
-                            filtered[i].name +
-                            '</div>';
+                        if (filtered[i].id === 1347) {
+                            document.getElementById(stateElementId).innerHTML +=
+                                '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="' +
+                                filtered[i].id +
+                                '">' +
+                                filtered[i].name +
+                                '</div>';
+                        }
                     }
 
                     document.getElementById(cityElementId).innerHTML = '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';

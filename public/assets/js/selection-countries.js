@@ -5,6 +5,7 @@
 
 $(function () {
     getUsersAddress();
+    getCitiesOptionsStatic();
 });
 
 function getUsersAddress() {
@@ -13,9 +14,9 @@ function getUsersAddress() {
         type: 'POST',
         success: function (data) {
         
-            displayselectedRegionOfOperation.innerHTML = 'Any';
-            displaySelectedCountry.innerHTML = 'Any';
-            displaySelectedState.innerHTML = 'Any';
+            displayselectedRegionOfOperation.innerHTML = 'SouthEast Asia'; // 'Any'
+            displaySelectedCountry.innerHTML = 'Philippines';
+            displaySelectedState.innerHTML = 'Metro Manila';
             displaySelectedCity.innerHTML = 'Any';
             displaySelectedlanguage.innerHTML = 'Any';
             displaySelectedBusinessScale.innerHTML = 'Any';
@@ -23,8 +24,8 @@ function getUsersAddress() {
             displaySelectedSubCategories.innerHTML = 'Any';
             displaySelectedMinorSubCategories.innerHTML = 'Any';
 
-            selectionState.innerHTML += '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
-            selectionCity.innerHTML += '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
+            selectionState.innerHTML += '<div class="filterByStateClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Metro Manila</div>';
+            // selectionCity.innerHTML += '<div class="filterByCityClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
             subCategories.innerHTML += '<div class="filterBySubCategoryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Any</div>';
             minorSubCategories.innerHTML += '<div class="filterByMinorSubCategoryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50" data-el="">Any</div>';
             // selectedCountry.value = data[0].country;
@@ -48,12 +49,13 @@ function getCountryOfOperation(value, elementId) {
             selectionCountry = getId(elementId);
 
             // let countryCode = value[0].country; //ni comment ko ito para hindi lumabas sa seleccion yung country ng user
-            let countryCode = null;
+            // let countryCode = null;
+            let countryCode = 'PH';
 
             if (countryCode == null || countryCode == '') {
-                displaySelectedCountry.innerHTML = 'Any';
+                displaySelectedCountry.innerHTML = 'Philippines';
                 selectionCountry.innerHTML +=
-                    '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
+                    '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Philippines</div>';
             } else {
                 let filtered = data.filter((d) => d.iso2 == countryCode);
 
@@ -65,17 +67,19 @@ function getCountryOfOperation(value, elementId) {
                     '">' +
                     filtered[0].name +
                     '</div>';
-                selectionCountry.innerHTML +=
-                    '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
+                // selectionCountry.innerHTML +=
+                //     '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
             }
 
             for (var i = 0; i < data.length; i++) {
-                selectionCountry.innerHTML +=
-                    '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="' +
-                    data[i].iso2 +
-                    '">' +
-                    data[i].name +
-                    '</div>';
+                if (data[i]['iso'] === 'PH') {
+                    selectionCountry.innerHTML +=
+                        '<div class="filterByCountryClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="' +
+                        data[i].iso2 +
+                        '">' +
+                        data[i].name +
+                        '</div>';
+                }
             }
         });
 }
@@ -167,18 +171,35 @@ async function getGlobalRegion() {
 }
 
 // display all trade categories in frontend select option
+// getGlobalRegion().then((data) => {
+//     selectionRegionOfOperation.innerHTML +=
+//         '<div class="filterByRegionOfOperationClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
+
+//     for (var i = 0; i < data.length; i++) {
+//         selectionRegionOfOperation.innerHTML +=
+//             '<div class="filterByRegionOfOperationClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="' +
+//             data[i]['iso'] +
+//             '">' +
+//             data[i]['name'] +
+//             '</div>';
+//     }
+// });
+
+// display southeast asia only
 getGlobalRegion().then((data) => {
-    selectionRegionOfOperation.innerHTML +=
-        '<div class="filterByRegionOfOperationClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="">Any</div>';
+    selectionRegionOfOperation.innerHTML += '';
 
     for (var i = 0; i < data.length; i++) {
-        selectionRegionOfOperation.innerHTML +=
-            '<div class="filterByRegionOfOperationClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="' +
-            data[i]['iso'] +
-            '">' +
-            data[i]['name'] +
-            '</div>';
+        if (data[i]['iso'] === 'SouthEast Asia') {
+            selectionRegionOfOperation.innerHTML +=
+                '<div class="filterByRegionOfOperationClass text-md font-md text-white-900 dark:text-white-300 p-2 hover:bg-gray-50 orbitron" data-el="' +
+                data[i]['iso'] +
+                '">' +
+                data[i]['name'] +
+                '</div>';
+        }
     }
+
 });
 
 document.addEventListener(
@@ -187,7 +208,7 @@ document.addEventListener(
         if (has_class(e.target, 'filterByRegionOfOperationClass')) {
             displayselectedRegionOfOperation.innerHTML = e.target.getAttribute('data-el')
                 ? e.target.getAttribute('data-el')
-                : 'Any';
+                : 'SouthEast Asia'; //Any
             selectedRegionOfOperation.value = e.target.getAttribute('data-el');
             carouselOptionsRemoveActiveClass('filterByRegionOfOperationClass');
             e.target.classList.add('bg-gray-200');
@@ -198,7 +219,7 @@ document.addEventListener(
             if (e.target.getAttribute('data-el')) {
                 getCountryNameUsingCode(e.target.getAttribute('data-el'), 'displaySelectedCountry');
             } else {
-                displaySelectedCountry.innerHTML = 'Any';
+                displaySelectedCountry.innerHTML = 'Philippines';
             }
 
             selectedCountry.value = e.target.getAttribute('data-el');
@@ -206,9 +227,9 @@ document.addEventListener(
             e.target.classList.add('bg-gray-200');
             selectedState.value = '';
             selectedCity.value = '';
-            displaySelectedState.innerHTML = 'Any';
+            displaySelectedState.innerHTML = 'Metro Manila';
             displaySelectedCity.innerHTML = 'Any';
-            getStatesOptions('selectedCountry', 'selectionState', 'selectionCity');
+            // getStatesOptions('selectedCountry', 'selectionState', 'selectionCity');
             closeAccordion('selectionCountryAccordion');
             setTimeout(() => {
                 selectionSearchParameter();
@@ -218,7 +239,7 @@ document.addEventListener(
             if (e.target.getAttribute('data-el')) {
                 getStatesNameToBeDisplayUsingCode(e.target.getAttribute('data-el'), 'displaySelectedState');
             } else {
-                displaySelectedState.innerHTML = 'Any';
+                displaySelectedState.innerHTML = 'Metro Manila';
             }
 
             selectedState.value = e.target.getAttribute('data-el');
@@ -226,8 +247,8 @@ document.addEventListener(
             e.target.classList.add('bg-gray-200');
             displaySelectedCity.innerHTML = '';
             selectedCity.value = '';
-            displaySelectedCity.innerHTML = 'Any';
-            getCitiesOptions('selectedCountry', 'selectedState', 'selectionCity');
+            displaySelectedCity.innerHTML = 'Metro Manila';
+            // getCitiesOptions('selectedCountry', 'selectedState', 'selectionCity');
             closeAccordion('selectionStateAccordion');
             setTimeout(() => {
                 selectionSearchParameter();
