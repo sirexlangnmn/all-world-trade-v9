@@ -15,7 +15,7 @@ const getNumberOfTraderMembers = () => {
             return response.json();
         })
         .then((data) => {
-            numberOfTraderMembers.innerHTML = `Number of Trader Members: ${data.length}`;
+            numberOfTraderMembers.innerHTML = `Exhibitor Members: ${data.length}`;
         })
         .catch((error) => {
             console.error('Error fetching number of trader members:', error);
@@ -32,7 +32,7 @@ const getNumberOfVisitorMembers = () => {
             return response.json();
         })
         .then((data) => {
-            numberOfVisitorMembers.innerHTML = `Number of Visitor Members: ${data.length}`;
+            numberOfVisitorMembers.innerHTML = `Visitor Members: ${data.length}`;
         })
         .catch((error) => {
             console.error('Error fetching number of visitor members:', error);
