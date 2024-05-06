@@ -80,6 +80,8 @@ module.exports = (app) => {
 
     app.get('/api/get/communicator-link/:link', communicatorController.findCommunicator);
 
+    app.get('/api/get/communicator-participants/:peers_count', communicatorController.peersCount);
+
     app.post('/api/v2/post/submit-email-if-help-and-suggest-link-not-available', supportMessagesController.create);
 
     app.get(['/api/v2/get/number-of-trader-members'], usersBusinessesController.numberOfTraderMembers);

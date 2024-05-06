@@ -39,3 +39,9 @@ exports.findCommunicator = async (req, res) => {
         res.send(data);
     }
 };
+
+
+exports.peersCount = async (req, res) => {
+    let peersCount = req.params.peers_count;
+    console.log('controller peersCount : ', peersCount)
+};
