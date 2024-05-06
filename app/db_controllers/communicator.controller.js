@@ -43,5 +43,8 @@ exports.findCommunicator = async (req, res) => {
 
 exports.peersCount = async (req, res) => {
     let peersCount = req.params.peers_count;
+    let strippedRoomId = req.params.strippedRoomId;
+
     console.log('controller peersCount : ', peersCount)
+    console.log('controller strippedRoomId : ', strippedRoomId)
 };
