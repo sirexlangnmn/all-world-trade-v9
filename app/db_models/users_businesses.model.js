@@ -66,6 +66,9 @@ module.exports = (sequelize, Sequelize) => {
         communicator: {
             type: Sequelize.TEXT('long'),
         },
+        peers_count: {
+            type: Sequelize.TINYINT,
+        },
         status: {
             type: Sequelize.TINYINT,
         },
