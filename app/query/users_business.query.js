@@ -75,6 +75,11 @@ const QUERY = {
 			FROM users_businesses
 			WHERE uuid = ? `,
 
+        GET_PEERS_COUNT: `SELECT
+			peers_count
+			FROM users_businesses
+			WHERE uuid = ? `,
+
 	// GET_COMMUNICATOR: `SELECT
 	// 		communicator
 	// 		FROM users_businesses 

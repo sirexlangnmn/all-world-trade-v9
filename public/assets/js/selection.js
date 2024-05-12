@@ -1379,6 +1379,29 @@ function downloadOrContact(filename) {
     });
 }
 
+// function recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link) {
+//     $.ajax({
+//         url: '/api/post/record-the-meeting-of-visitor-and-trader',
+//         type: 'POST',
+//         data: { trader_uuid: trader_uuid },
+//         async: true,
+//         success: function (res) {
+//             console.log('recordTheMeetingOfVisitorAndTrader res: ', res);
+//             if (res) {
+//                 const domainLink = 'https://meet.allworldtrade.com/join/'; //new
+//                 window.open(domainLink + res[0].communicator, '_blank');
+//                 console.log('domain link', domainLink + res[0].communicator);
+//             } else {
+//             }
+//         },
+//         error: function (error) {
+//             // handle the error
+//             console.error(error);
+//         },
+//     });
+// }
+
+
 function recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link) {
     $.ajax({
         url: '/api/post/record-the-meeting-of-visitor-and-trader',
@@ -1387,11 +1410,20 @@ function recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link) {
         async: true,
         success: function (res) {
             console.log('recordTheMeetingOfVisitorAndTrader res: ', res);
-            if (res) {
-                const domainLink = 'https://meet.allworldtrade.com/join/'; //new
-                window.open(domainLink + res[0].communicator, '_blank');
-                console.log('domain link', domainLink + res[0].communicator);
+            if (res === 'max 5 already') {
+                Swal.fire({
+                    title: '<span style="color: black;">Room is full</span>',
+                    text: "Please try again later.",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                    }
+                  });
             } else {
+                const domainLink = 'https://meet.allworldtrade.com/join/'; //new
+                window.open(domainLink + res, '_blank');
+                console.log('domain link', domainLink + res);
             }
         },
         error: function (error) {

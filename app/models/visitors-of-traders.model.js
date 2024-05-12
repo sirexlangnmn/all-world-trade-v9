@@ -60,35 +60,171 @@ Model.getCurrentVisitor = (newModel, result) => {
     });
 };
 
-Model.connectVisitorAndTrader = (newModel, result) => {
-    const bytes = CryptoJS.AES.decrypt(newModel.uuid, JWT_SECRET);
-    const originalUuid = bytes.toString(CryptoJS.enc.Utf8);
+// Model.connectVisitorAndTrader = (newModel, result) => {
+//     const bytes = CryptoJS.AES.decrypt(newModel.uuid, JWT_SECRET);
+//     const originalUuid = bytes.toString(CryptoJS.enc.Utf8);
 
-    const visitorTraderObject = {
+//     const visitorTraderObject = {
+//         visitor_id: originalUuid,
+//         trader_id: newModel.trader_uuid,
+//         date_created: date_time(),
+//         createdAt: date_time(),
+//         updatedAt: date_time(),
+//     };
+
+//     sql.query(TRADERS_VISITORS.CREATE, Object.values(visitorTraderObject), function (err, rows) {
+//         if (err) {
+//             sql.rollback(function () {
+//                 throw err;
+//             });
+//         } else {
+//             sql.query(USERS_BUSINESS.GET_TRADER_COMMUNICATOR, [newModel.trader_uuid], (err, res) => {
+//                 if (err) {
+//                     result(null, err);
+//                 } else {
+//                     console.log('GET_TRADER_COMMUNICATOR: ', res);
+//                     result(null, res);
+//                 }
+//             });
+//         }
+//     });
+// };
+
+
+// Model.connectVisitorAndTrader = async (newModel, result) => {
+//     try {
+//         const bytes = CryptoJS.AES.decrypt(newModel.uuid, JWT_SECRET);
+//         const originalUuid = bytes.toString(CryptoJS.enc.Utf8);
+
+//         // Validation query
+//         const peersCount = await new Promise((resolve, reject) => {
+//             sql.query(USERS_BUSINESS.GET_PEERS_COUNT, [newModel.trader_uuid], (err, res) => {
+//                 if (err) {
+//                     reject(err);
+//                 } else {
+//                     console.log('USERS_BUSINESS.GET_PEERS_COUNT : ', res)
+//                     resolve(res);
+//                 }
+//             });
+//         });
+
+        
+//         console.log('peersCount peersCount[0].peers_count: ', peersCount[0].peers_count);
+//         // Continue if validation passes
+//         if (peersCount[0].peers_count < 4 ) {
+//             const visitorTraderObject = {
+//                 visitor_id: originalUuid,
+//                 trader_id: newModel.trader_uuid,
+//                 date_created: date_time(),
+//                 createdAt: date_time(),
+//                 updatedAt: date_time(),
+//             };
+
+//             await new Promise((resolve, reject) => {
+//                 sql.query(TRADERS_VISITORS.CREATE, Object.values(visitorTraderObject), function (err, rows) {
+//                     if (err) {
+//                         reject(err);
+//                     } else {
+//                         resolve(rows);
+//                     }
+//                 });
+//             });
+
+//             const res = await new Promise((resolve, reject) => {
+//                 sql.query(USERS_BUSINESS.GET_TRADER_COMMUNICATOR, [newModel.trader_uuid], (err, res) => {
+//                     if (err) {
+//                         reject(err);
+//                     } else {
+//                         resolve(res);
+//                     }
+//                 });
+//             });
+
+//             console.log('GET_TRADER_COMMUNICATOR: ', res[0].communicator);
+//             let data = res[0].communicator
+//             result(null, data);
+//         } else {
+//             console.log('Peers count validation failed peersCount: ', peersCount);
+//             // result("Peers count validation failed", peersCount);
+//             let data = 'max 5 already'
+//             result(null, data);
+//         }
+//     } catch (error) {
+//         result(error, null);
+//     }
+// };
+
+
+
+const decryptUuid = (encryptedUuid) => {
+    const bytes = CryptoJS.AES.decrypt(encryptedUuid, JWT_SECRET);
+    return bytes.toString(CryptoJS.enc.Utf8);
+};
+
+const getPeersCount = async (traderUuid) => {
+    return new Promise((resolve, reject) => {
+        sql.query(USERS_BUSINESS.GET_PEERS_COUNT, [traderUuid], (err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res[0].peers_count);
+            }
+        });
+    });
+};
+
+const createVisitorTraderObject = (originalUuid, traderUuid) => {
+    return {
         visitor_id: originalUuid,
-        trader_id: newModel.trader_uuid,
+        trader_id: traderUuid,
         date_created: date_time(),
         createdAt: date_time(),
         updatedAt: date_time(),
     };
+};
 
-    sql.query(TRADERS_VISITORS.CREATE, Object.values(visitorTraderObject), function (err, rows) {
-        if (err) {
-            sql.rollback(function () {
-                throw err;
-            });
-        } else {
-            sql.query(USERS_BUSINESS.GET_TRADER_COMMUNICATOR, [newModel.trader_uuid], (err, res) => {
-                if (err) {
-                    result(null, err);
-                } else {
-                    console.log('GET_TRADER_COMMUNICATOR: ', res);
-                    result(null, res);
-                }
-            });
-        }
+const createVisitorTraderConnection = async (visitorTraderObject) => {
+    return new Promise((resolve, reject) => {
+        sql.query(TRADERS_VISITORS.CREATE, Object.values(visitorTraderObject), (err, rows) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
     });
 };
+
+const getTraderCommunicator = async (traderUuid) => {
+    return new Promise((resolve, reject) => {
+        sql.query(USERS_BUSINESS.GET_TRADER_COMMUNICATOR, [traderUuid], (err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res[0].communicator);
+            }
+        });
+    });
+};
+
+Model.connectVisitorAndTrader = async (newModel, result) => {
+    try {
+        const originalUuid = decryptUuid(newModel.uuid);
+        const peersCount = await getPeersCount(newModel.trader_uuid);
+
+        if (peersCount < 4) {
+            const visitorTraderObject = createVisitorTraderObject(originalUuid, newModel.trader_uuid);
+            await createVisitorTraderConnection(visitorTraderObject);
+            const communicator = await getTraderCommunicator(newModel.trader_uuid);
+            result(null, communicator);
+        } else {
+            result(null, 'max 5 already');
+        }
+    } catch (error) {
+        result(error, null);
+    }
+};
+
 
 
 Model.getCurrentTrader = (newModel, result) => {
