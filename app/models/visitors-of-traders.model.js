@@ -212,7 +212,7 @@ Model.connectVisitorAndTrader = async (newModel, result) => {
         const originalUuid = decryptUuid(newModel.uuid);
         const peersCount = await getPeersCount(newModel.trader_uuid);
 
-        if (peersCount < 4) {
+        if (peersCount < 5) {
             const visitorTraderObject = createVisitorTraderObject(originalUuid, newModel.trader_uuid);
             await createVisitorTraderConnection(visitorTraderObject);
             const communicator = await getTraderCommunicator(newModel.trader_uuid);
