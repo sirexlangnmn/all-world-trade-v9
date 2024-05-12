@@ -14,17 +14,17 @@
         <div id="wrapper" class="flex flex-col justify-between h-screen">
             <!-- nav -->
             <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-                <div class=" flex flex-wrap justify-between items-center mx-auto">
+                <div class="flex flex-wrap items-center justify-between mx-auto ">
                 <!-- <img src="" class="h-35px" id="navLogo" alt="All World Trade" /> -->
-                <a href="#" class="flex items-center text-2xl text-gray-900 dark:text-white">
+                <a href="/" class="flex items-center text-2xl text-gray-900 dark:text-white">
                     <img class="w-16 h-10 mr-2" src="/uploads/logo/rectangle-logo-64.webp" alt="logo">
                     All World Trade
                 </a>
                 <div class="flex md:order-2">
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 orbitron" onclick="lookingForSmallScaleCompany()" >Register</button>
                 </div>
-                <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                  <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                  <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     
                   </ul>
                 </div>
@@ -35,7 +35,7 @@
 
             <!-- Content-->
             <div class="mt-32">
-                <div class="lg:p-12 max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
+                <div class="max-w-xl p-6 mx-auto my-12 lg:p-12 lg:my-0 space-y-">
                     <div class="pb-12">
                         <!-- <img src="uploads/logo/rectangle-logo2.png" alt="" class="login-image" /> -->
                     </div>
@@ -46,15 +46,15 @@
                         name="formLogin"
                         enctype="multipart/form-data"
                         accept-charset="utf-8"
-                        class="lg:p-10 p-6 space-y-3 relative bg-white2 shadow-xl rounded-md"
+                        class="relative p-6 space-y-3 rounded-md shadow-xl lg:p-10 bg-white2"
                     >
-                        <h1 class="lg:text-2xl text-xl font-semibold mb-6 orbitron">Login</h1>
+                        <h1 class="mb-6 text-xl font-semibold lg:text-2xl orbitron">Login</h1>
                         <!-- <div>
                             <label class="mb-0 orbitron"> Email Address </label>
                             <input
                                 type="email"
                                 placeholder=""
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                class="flex-1 w-full h-12 px-3 py-2 mt-2 text-gray-700 bg-gray-100 rounded-md rounded-l-lg with-border focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginEmailAddress"
                                 name="loginEmailAddress"
                                 style="-webkit-box-shadow: 0 0 0 30px #323332 inset !important;
@@ -69,7 +69,7 @@
                             <input
                                 type="password"
                                 placeholder=""
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                class="flex-1 w-full h-12 px-3 py-2 mt-2 text-gray-700 bg-gray-100 rounded-md rounded-l-lg with-border focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginPassword"
                                 name="loginPassword"
                                 style="-webkit-box-shadow: 0 0 0 30px #323332 inset !important;
@@ -79,9 +79,9 @@
                                 -webkit-text-fill-color: #ffffff !important;"
                                 
                             />
-                            <span class="absolute top-0 right-1 mr-2 mt-8 pt-2" onclick="showPassword('loginPassword')">
-                                <i id="passEyeId1" class="icon-feather-eye text-gray-600 hover:text-blue-600 cursor-pointer" style="display: none; font-size: 25px;"></i>
-                                <i id="passEyeId2" class="icon-feather-eye-off text-gray-600 hover:text-blue-600 cursor-pointer" style="font-size: 25px;"></i>
+                            <span class="absolute top-0 pt-2 mt-8 mr-2 right-1" onclick="showPassword('loginPassword')">
+                                <i id="passEyeId1" class="text-gray-600 cursor-pointer icon-feather-eye hover:text-blue-600" style="display: none; font-size: 25px;"></i>
+                                <i id="passEyeId2" class="text-gray-600 cursor-pointer icon-feather-eye-off hover:text-blue-600" style="font-size: 25px;"></i>
                             </span>
                         </div> -->
 
@@ -90,7 +90,7 @@
                             <input
                                 type="email"
                                 placeholder=""
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                class="flex-1 w-full h-12 px-3 py-2 mt-2 text-gray-700 bg-gray-100 rounded-md rounded-l-lg with-border focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginEmailAddress"
                                 name="loginEmailAddress"
                             />
@@ -100,24 +100,24 @@
                             <input
                                 type="password"
                                 placeholder=""
-                                class="bg-gray-100 h-12 mt-2 px-3 rounded-md w-full flex-1 py-2 text-gray-700 with-border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                class="flex-1 w-full h-12 px-3 py-2 mt-2 text-gray-700 bg-gray-100 rounded-md rounded-l-lg with-border focus:outline-none focus:ring-2 focus:ring-blue-600"
                                 id="loginPassword"
                                 name="loginPassword"
                             />
-                            <span class="absolute top-0 right-1 mr-2 mt-8 pt-2" onclick="showPassword('loginPassword')" >
-                                <i id="passEyeId1" class="icon-feather-eye cursor-pointer" style="display: none; font-size: 25px;"></i>
-                                <i id="passEyeId2" class="icon-feather-eye-off cursor-pointer" style="font-size: 25px;"></i>
+                            <span class="absolute top-0 pt-2 mt-8 mr-2 right-1" onclick="showPassword('loginPassword')" >
+                                <i id="passEyeId1" class="cursor-pointer icon-feather-eye" style="display: none; font-size: 25px;"></i>
+                                <i id="passEyeId2" class="cursor-pointer icon-feather-eye-off" style="font-size: 25px;"></i>
                             </span>
                         </div>
                         <div>
                             <button
                                 type="submit"
-                                class="bg-blue-600 font-semibold p-2 mt-5 rounded-md text-center text-white w-full orbitron"
+                                class="w-full p-2 mt-5 font-semibold text-center text-white bg-blue-600 rounded-md orbitron"
                             >
                                 Login
                             </button>
                         </div>
-                        <a href="#" class="block text-center pb-4 font-medium text-blue-500 orbitron" onclick="goToForgotPasswordPage();"> Forgot password. </a>
+                        <a href="#" class="block pb-4 font-medium text-center text-blue-500 orbitron" onclick="goToForgotPasswordPage();"> Forgot password. </a>
      
                     </form>
                 </div>
