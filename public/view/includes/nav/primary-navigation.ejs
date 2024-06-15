@@ -10,8 +10,8 @@
             font-family: inherit;
         }
     </style>
-    <nav class="bg-white shadow-lg defaultscroll is-sticky sticky top-0">
-        <div class="max-w-full mx-auto px-4">
+    <nav class="sticky top-0 bg-white shadow-lg defaultscroll is-sticky">
+        <div class="max-w-full px-4 mx-auto">
             <div class="flex justify-between">
                 <!-- Website Logo -->
                 <!-- <a href="#" class="flex items-center">
@@ -22,27 +22,27 @@
                     All World Trade
                 </a> -->
                 <a href="#" class="flex items-center p-2 text-2xl text-gray-900 dark:text-white ">
-                    <img class="w-16 h-10 mr-2" src="/uploads/logo/rectangle-logo-64.webp" alt="logo">
-                    <h3 class=""> All World Trade </h3>
+                    <img class="w-16 h-10 mr-2" src="/uploads/logo/rectangle-logo-64.webp" alt="logo" onclick="goToHomePage()">
+                    <h3 class="" onclick="goToHomePage()"> All World Trade </h3>
                 </a>
                 <div class="flex items-center md:order-2">
                     <!-- <div class="right_side rightSide" id="right_side_with_no_session" >
                             <div class="header_widgets">
-                                <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
+                                <div class="flex hidden my-2 space-x-3 text-sm font-semibold text-center capitalize lg:block">
                                     <a href="#" onclick="goToLoginPage()"
-                                        class="bg-blue-500 blue-500 px-6 py-3 rounded-md shadow text-white blue-white-hover">Login</a>
+                                        class="px-6 py-3 text-white bg-blue-500 rounded-md shadow blue-500 blue-white-hover">Login</a>
         
                                 </div>
                             </div>
                         </div> -->
                         <div id="right_side_with_no_session" style="display: none;">
                             <a href="#" onclick="goToLoginPage()"
-                                            class="bg-blue-500 blue-500 px-6 py-3 rounded-md shadow text-white blue-white-hover">Login</a>
+                                            class="px-6 py-3 text-white bg-blue-500 rounded-md shadow blue-500 blue-white-hover">Login</a>
 
                         </div>
 
 
-                    <div class="md:flex items-center py-2 px-2 ">
+                    <div class="items-center px-2 py-2 md:flex ">
                         <div class="right_side" id="right_side_with_session" style="display: none;">
                             <div class="header_widgets" id="primaryWidgets">
                                 <!-- === CART - START === -->
@@ -65,9 +65,9 @@
         
                         <!-- <div class="right_side rightSide" id="right_side_with_no_session" >
                             <div class="header_widgets">
-                                <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
+                                <div class="flex hidden my-2 space-x-3 text-sm font-semibold text-center capitalize lg:block">
                                     <a href="#" onclick="goToLoginPage()"
-                                        class="bg-blue-500 blue-500 px-6 py-3 rounded-md shadow text-white blue-white-hover">Login</a>
+                                        class="px-6 py-3 text-white bg-blue-500 rounded-md shadow blue-500 blue-white-hover">Login</a>
         
                                 </div>
                             </div>
@@ -77,57 +77,57 @@
                 </div>
 
                 <!-- Primary Navbar items -->
-                <!-- <div class="hidden md:flex items-center defaultscroll is-sticky sticky top-0" id="primaryNav" style="margin-left: -250px;"> -->
-                <div class="hidden md:flex items-center defaultscroll is-sticky sticky top-0" id="primaryNav" >
-                    <div class="primaryNav grid grid-cols-7">
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10 "
+                <!-- <div class="sticky top-0 items-center hidden md:flex defaultscroll is-sticky" id="primaryNav" style="margin-left: -250px;"> -->
+                <div class="sticky top-0 items-center hidden md:flex defaultscroll is-sticky" id="primaryNav" >
+                    <div class="grid grid-cols-7 primaryNav">
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 "
                             uk-tooltip="title: Home; pos: bottom">
                             <a class="" href="#" onclick="goToHomePage()">
-                                <!-- <span class="icon-feather-home nav-span dark:text-slate-500 text-black hover:text-blue-500 " > </span> -->
-                                <span class="icon-feather-home nav-span text-gray-800 dark:text-gray-400"" > </span>
+                                <!-- <span class="text-black icon-feather-home nav-span dark:text-slate-500 hover:text-blue-500 " > </span> -->
+                                <span class="text-gray-800 icon-feather-home nav-span dark:text-gray-400" > </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Event Calendar; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                            <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                                 href="/#eventCalendar">
-                                <span class="icon-feather-calendar nav-span text-gray-800 dark:text-gray-400"" > </span>
+                                <span class="text-gray-800 icon-feather-calendar nav-span dark:text-gray-400" > </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Traders Videos; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                            <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                                 href="/#tradersVideos">
-                                <span class="icon-feather-video nav-span text-gray-800 dark:text-gray-400"" > </span>
+                                <span class="text-gray-800 icon-feather-video nav-span dark:text-gray-400" > </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Traders Webinars; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                            <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                                 href="/#tradersWebinars">
-                                <span class="icon-feather-info nav-span text-gray-800 dark:text-gray-400"" > </span>
+                                <span class="text-gray-800 icon-feather-info nav-span dark:text-gray-400" > </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Pricing; pos: bottom">
-                            <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                            <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                                 href="/pricing">
-                                <span class="icon-feather-tag nav-span text-gray-800 dark:text-gray-400"" > </span>
+                                <span class="text-gray-800 icon-feather-tag nav-span dark:text-gray-400" > </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Selections; pos: bottom">
                             <a href="#" onclick="goToSelectionPage()"
-                                class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                <span class="icon-feather-users nav-span text-gray-800 dark:text-gray-400"" >
+                                class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
+                                <span class="text-gray-800 icon-feather-users nav-span dark:text-gray-400" >
                                 </span>
                             </a>
                         </div>
-                        <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-10"
+                        <div class="block px-10 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                             uk-tooltip="title: Help / Suggestion; pos: bottom">
                             <a href="#" onclick="goToHelpSuggestionPage()"
-                                class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
-                                <span class="icon-feather-message-square nav-span text-gray-800 dark:text-gray-400" >
+                                class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
+                                <span class="text-gray-800 icon-feather-message-square nav-span dark:text-gray-400" >
                                 </span>
                             </a>
                         </div>
@@ -138,9 +138,9 @@
                
     
                 <!-- Mobile menu button -->
-                <!-- <div class="md:hidden flex items-center">
+                <!-- <div class="flex items-center md:hidden">
               <button class="outline-none mobile-menu-button">
-                <svg class=" w-6 h-6 text-gray-500 hover:text-blue-500 " x-show="!showMenu" fill="none"
+                <svg class="w-6 h-6 text-gray-500 hover:text-blue-500" x-show="!showMenu" fill="none"
                   stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -152,51 +152,51 @@
         <!-- mobile menu -->
         <div class="hidden mobile-menu">
             <div class="grid grid-cols-7">
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Home; pos: bottom">
                     <a class="" href="#" onclick="goToHomePage()">
                         <span class="icon-feather-home nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Event Calendar; pos: bottom">
-                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                    <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                         href="/#eventCalendar">
                         <span class="icon-feather-calendar nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Traders Videos; pos: bottom">
-                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                    <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                         href="/#tradersVideos">
                         <span class="icon-feather-video nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Traders Webinars; pos: bottom">
-                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                    <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                         href="/#tradersWebinars">
                         <span class="icon-feather-info nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Pricing; pos: bottom">
-                    <a class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
+                    <a class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                         href="/pricing">
                         <span class="icon-feather-tag nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Selections; pos: bottom">
                     <a href="#" onclick="goToSelectionPage()"
-                        class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
+                        class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
                         <span class="icon-feather-users nav-span" > </span>
                     </a>
                 </div>
-                <div class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100 py-3 px-4"
+                <div class="block px-4 py-3 text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100"
                     uk-tooltip="title: Help / Suggestion; pos: bottom">
                     <a href="#" onclick="goToHelpSuggestionPage()"
-                        class="text-center block border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
+                        class="block text-center border-white rounded-custom hover:border-gray-100 hover:bg-gray-100">
                         <span class="icon-feather-message-square nav-span" > </span>
                     </a>
                 </div>

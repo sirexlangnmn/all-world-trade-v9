@@ -263,6 +263,44 @@ app.get(['/'], (req, res) => {
     }
 });
 
+app.get(['/all-world-trade'], (req, res) => {
+    if (req.session.user === undefined) {
+        const sessionData = {
+            uuid: '',
+            type: '',
+            first_name: '',
+            last_name: '',
+            email: '',
+            country: '',
+            state_or_province: '',
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/home-allworldtrade/index'), {
+            data: sessionData,
+        });
+    } else {
+        const sessionData = {
+            uuid: req.session.user.uuid,
+            type: req.session.user.type,
+            first_name: req.session.user.first_name,
+            last_name: req.session.user.last_name,
+            email: req.session.user.email_or_social_media,
+            country: req.session.user.country,
+            state_or_province: req.session.user.state_or_province,
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/home-allworldtrade/index'), {
+            data: sessionData,
+        });
+    }
+});
+
+app.get(['/wizard'], (req, res) => {
+    res.send('Hello Wizard, welcome to the homepage!');
+});
+
 app.get(['/template'], (req, res) => {
     if (req.session.user === undefined) {
         res.render(path.join(__dirname, '../../', 'public/view/login/index'));
