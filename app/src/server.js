@@ -263,7 +263,7 @@ app.get(['/'], (req, res) => {
     }
 });
 
-app.get(['/all-world-trade'], (req, res) => {
+app.get(['/all-about-events'], (req, res) => {
     if (req.session.user === undefined) {
         const sessionData = {
             uuid: '',
@@ -276,7 +276,7 @@ app.get(['/all-world-trade'], (req, res) => {
             ourGenerateNonce: lodashNonce,
         };
 
-        res.render(path.join(__dirname, '../../', 'public/view/home-allworldtrade/index'), {
+        res.render(path.join(__dirname, '../../', 'public/view/all-about-events/index'), {
             data: sessionData,
         });
     } else {
@@ -291,14 +291,14 @@ app.get(['/all-world-trade'], (req, res) => {
             ourGenerateNonce: lodashNonce,
         };
 
-        res.render(path.join(__dirname, '../../', 'public/view/home-allworldtrade/index'), {
+        res.render(path.join(__dirname, '../../', 'public/view/all-about-events/index'), {
             data: sessionData,
         });
     }
 });
 
-app.get(['/wizard'], (req, res) => {
-    res.send('Hello Wizard, welcome to the homepage!');
+app.get(['/job-fair'], (req, res) => {
+    res.send('Hello Wizard, welcome to the Job Fair Page!');
 });
 
 app.get(['/template'], (req, res) => {
