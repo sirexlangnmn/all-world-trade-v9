@@ -298,7 +298,37 @@ app.get(['/all-about-events'], (req, res) => {
 });
 
 app.get(['/job-fair'], (req, res) => {
-    res.send('Hello Wizard, welcome to the Job Fair Page!');
+    if (req.session.user === undefined) {
+        const sessionData = {
+            uuid: '',
+            type: '',
+            first_name: '',
+            last_name: '',
+            email: '',
+            country: '',
+            state_or_province: '',
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/wizard-job-fair/index'), {
+            data: sessionData,
+        });
+    } else {
+        const sessionData = {
+            uuid: req.session.user.uuid,
+            type: req.session.user.type,
+            first_name: req.session.user.first_name,
+            last_name: req.session.user.last_name,
+            email: req.session.user.email_or_social_media,
+            country: req.session.user.country,
+            state_or_province: req.session.user.state_or_province,
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/wizard-job-fair/index'), {
+            data: sessionData,
+        });
+    }
 });
 
 app.get(['/template'], (req, res) => {
