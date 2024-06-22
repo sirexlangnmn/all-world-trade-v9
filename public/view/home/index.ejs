@@ -158,7 +158,7 @@
 
 
             <!-- === 2 BOX - START === -->
-            <div> <!--style="display: none" -->
+            <div class="pt-10" id="selections" > <!--style="display: none" -->
                 <div class="mt-20 mb-20 mcontainer-custom-4" style="display: block">
                     <div class="relative flex justify-between mb-3 md:mb-4">
                         <div class="flex-1">
@@ -172,7 +172,7 @@
                             <img src="../../uploads/wizard/wizard.jpg" alt="Image" >
                         </div>
                         <div class="flex p-4 mb-2 card"
-                            role="alert" onclick="goToAllAboutEvents()">
+                            role="alert" onclick="goToSelectionPage()">
                                 <img src="../../uploads/landing/all-world-trade-landing-page-15-june-2024.jpg" alt="Image" >
                         </div>
                     </div>
@@ -455,11 +455,11 @@
     <script src="assets/js/home.js"></script>
 
     <script >
-        function goToAllAboutEvents() {
-            location.replace(host + '/all-about-events');
-        }
+        // delete na ito
+        // function goToAllAboutEvents() {
+        //     location.replace(host + '/all-about-events');
+        // }
 
-        
         function goToWizardJobFair() {
             location.replace(host + '/job-fair');
         }
