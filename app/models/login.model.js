@@ -65,6 +65,23 @@ Model.create = (newModel, result) => {
                     };
 
                     if (res.length) {
+                        // update login status
+                        let updateQuery = `UPDATE users_accounts SET login_status = ? WHERE uuid = ?`;
+
+                         // Execute the update query with parameters
+                        sql.query(updateQuery, [
+                            1,
+                            UuidToBeEncrypt
+                        ], (updateErr, updateRes) => {
+                            if (updateErr) {
+                                // result(updateErr, null);
+                                // return;
+                                console.log('login status update error ::: ', updateErr)
+                            }
+                            // result(null, { message: 'found and updated' });
+                            console.log('login status updated')
+                        });
+
                         newModel.session.user = sessionUser;
                         result(null, { message: 'found' });
                         return;

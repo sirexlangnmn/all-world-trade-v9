@@ -300,17 +300,9 @@ app.get(['/all-about-events'], (req, res) => {
 app.get(['/job-fair'], (req, res) => {
     if (req.session.user === undefined) {
         const sessionData = {
-            uuid: '',
-            type: '',
-            first_name: '',
-            last_name: '',
-            email: '',
-            country: '',
-            state_or_province: '',
             ourGenerateNonce: lodashNonce,
         };
-
-        res.render(path.join(__dirname, '../../', 'public/view/wizard-job-fair/index'), {
+        res.render(path.join(__dirname, '../../', 'public/view/login/index'), {
             data: sessionData,
         });
     } else {
