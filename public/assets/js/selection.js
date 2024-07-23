@@ -1342,6 +1342,44 @@ function getActiveImageToDownloadOrContact() {
     }
 }
 
+// function downloadOrContact(filename) {
+//     let leng = companyDetailsJsonObj2[0].length;
+//     let companyName;
+//     let communicator_link;
+
+//     for (let i = 0; i < leng; i++) {
+//         if (companyDetailsJsonObj2[0][i].banner === filename) {
+//             companyName = companyDetailsJsonObj2[0][i].business_name;
+//             communicator_link = companyDetailsJsonObj2[0][i].communicator;
+//             trader_uuid = companyDetailsJsonObj2[0][i].uuid;
+//         }
+//     }
+
+//     Swal.fire({
+//         title: '',
+//         text: `How do you want to engage with ${companyName}  ?`,
+//         icon: 'info',
+//         showDenyButton: true,
+//         showCancelButton: true,
+//         confirmButtonText: 'Contact Directly',
+//         denyButtonText: 'Download Details',
+//         denyButtonColor: 'blue',
+//         customClass: {
+//             actions: 'my-actions',
+//             cancelButton: 'order-1 right-gap',
+//             confirmButton: 'order-2',
+//             denyButton: 'order-3',
+//         },
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
+//         } else if (result.isDenied) {
+//             downloadCurrentTraderData(trader_uuid);
+//         }
+//     });
+// }
+
+
 function downloadOrContact(filename) {
     let leng = companyDetailsJsonObj2[0].length;
     let companyName;
@@ -1355,28 +1393,45 @@ function downloadOrContact(filename) {
         }
     }
 
-    Swal.fire({
-        title: '',
-        text: `How do you want to engage with ${companyName}  ?`,
-        icon: 'info',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Contact Directly',
-        denyButtonText: 'Download Details',
-        denyButtonColor: 'blue',
-        customClass: {
-            actions: 'my-actions',
-            cancelButton: 'order-1 right-gap',
-            confirmButton: 'order-2',
-            denyButton: 'order-3',
-        },
-    }).then((result) => {
-        if (result.isConfirmed) {
-            recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
-        } else if (result.isDenied) {
-            downloadCurrentTraderData(trader_uuid);
-        }
+    // Swal.fire({
+    //     title: '',
+    //     text: `How do you want to engage with ${companyName}  ?`,
+    //     icon: 'info',
+    //     showDenyButton: true,
+    //     showCancelButton: true,
+    //     confirmButtonText: 'Contact Directly',
+    //     denyButtonText: 'Download Details',
+    //     denyButtonColor: 'blue',
+    //     customClass: {
+    //         actions: 'my-actions',
+    //         cancelButton: 'order-1 right-gap',
+    //         confirmButton: 'order-2',
+    //         denyButton: 'order-3',
+    //     },
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
+    //     } else if (result.isDenied) {
+    //         downloadCurrentTraderData(trader_uuid);
+    //     }
+    // });
+
+
+
+
+    let selectionQuestion = UIkit.modal(
+        '#selectionQuestion',
+    );
+    selectionQuestion.show();
+
+    getId('contactTheTrader').addEventListener('click', function() {
+        recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
     });
+
+    getId('downloadTraderDetails').addEventListener('click', function() {
+        downloadCurrentTraderData(trader_uuid);
+    });
+
 }
 
 // function recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link) {
