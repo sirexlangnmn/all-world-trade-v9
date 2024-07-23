@@ -1424,6 +1424,8 @@ function downloadOrContact(filename) {
     );
     selectionQuestion.show();
 
+    getId('selectionEngagementMessage').innerHTML = `How do you want to engage with ${companyName}  ?`
+
     getId('contactTheTrader').addEventListener('click', function() {
         recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
     });
