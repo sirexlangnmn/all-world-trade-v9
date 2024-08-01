@@ -37,3 +37,36 @@ exports.tradersData = async (req, res) => {
 
     res.send(data);
 };
+
+
+
+// exports.checkIfTraderIsActive = async (req, res) => {
+//     const traderUuid = { uuid: req.body.trader_uuid };
+//     const data = await Users_accounts.findOne({
+//             where: traderUuid,
+//             attributes: ['login_Status']
+//         });
+//     console.log(`controller checkIfTraderIsActive response::: `, data.login_Status)
+//     res.send(data.login_Status);
+// };
+
+
+exports.checkIfTraderIsActive = async (req, res) => {
+    try {
+        const traderUuid = { uuid: req.body.trader_uuid };
+        const data = await Users_accounts.findOne({
+            where: traderUuid,
+            attributes: ['login_Status']
+        });
+
+        if (data) {
+            const loginStatus = data.get('login_Status'); // Extract the login_Status value
+            console.log(`controller checkIfTraderIsActive response::: `, loginStatus);
+            res.send({ isActive: loginStatus });
+        } else {
+            console.log('controller checkIfTraderIsActive response::: Trader not found');
+        }
+    } catch (error) {
+        console.error('Error in checkIfTraderIsActive:', error);
+    }
+};

@@ -33,6 +33,16 @@ function getEcN(className) {
     return document.getElementsByClassName(className);
 }
 
+// Show an element
+function showElement(element) {
+    element.style.display = 'block';
+}
+
+// Hide an element
+function hideElement(element) {
+    element.style.display = 'none';
+}
+
 // function preventBack() { window.history.forward(); }
 //     setTimeout("preventBack()", 0);
 // window.onunload = function () { null };

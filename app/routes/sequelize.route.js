@@ -97,10 +97,13 @@ module.exports = (app) => {
 
     app.get(['/api/v2/get/latest-users'], joinController.getLatestRegisteredUsers);
 
+    app.post(['/api/v2/post/check-if-trader-is-active',], usersAccountsController.checkIfTraderIsActive);
+
+
+
     app.post(['/api/v2/post/update-company-details'], updateTraders.update); // delete in future
     app.post(['/api/v2/post/update-large-scale-company'], updateLarge.update);  // delete in future
     app.post(['/api/v2/post/update-medium-scale-company',], updateMedium.update);  // delete in future
-
 
 
 };

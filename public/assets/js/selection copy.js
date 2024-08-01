@@ -1426,18 +1426,43 @@ function downloadOrContact(filename) {
 
     getId('selectionEngagementMessage').innerHTML = `How do you want to engage with ${companyName}  ?`
 
-    getId('contactTheTrader').addEventListener('click', onClickHandler);
+    // getId('contactTheTrader').addEventListener('click', function() {
+    //     recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
+    // });
 
-    function onClickHandler() {
-        getId('contactTheTrader').removeEventListener('click', onClickHandler);
+    // getId('contactTheTrader').addEventListener('click', handleContactTrader(trader_uuid, communicator_link));
+
+    getId('contactTheTrader').addEventListener('click', function() {
         handleContactTrader(trader_uuid, communicator_link);
-    }
+    });
 
     getId('downloadTraderDetails').addEventListener('click', function() {
         downloadCurrentTraderData(trader_uuid);
     });
 
 }
+
+// function recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link) {
+//     $.ajax({
+//         url: '/api/post/record-the-meeting-of-visitor-and-trader',
+//         type: 'POST',
+//         data: { trader_uuid: trader_uuid },
+//         async: true,
+//         success: function (res) {
+//             console.log('recordTheMeetingOfVisitorAndTrader res: ', res);
+//             if (res) {
+//                 const domainLink = 'https://meet.allworldtrade.com/join/'; //new
+//                 window.open(domainLink + res[0].communicator, '_blank');
+//                 console.log('domain link', domainLink + res[0].communicator);
+//             } else {
+//             }
+//         },
+//         error: function (error) {
+//             // handle the error
+//             console.error(error);
+//         },
+//     });
+// }
 
 
 async function handleContactTrader(trader_uuid, communicator_link) {
@@ -1447,6 +1472,7 @@ async function handleContactTrader(trader_uuid, communicator_link) {
         if (traderIsActive) {
             recordTheMeetingOfVisitorAndTrader(trader_uuid, communicator_link);
         } else {
+            // alert("The trader is currently inactive. Please try again later.");
             showTraderOfflineMessage()
         }
     } catch (error) {
@@ -1454,6 +1480,34 @@ async function handleContactTrader(trader_uuid, communicator_link) {
         alert("There was an error checking the trader's status. Please try again later.");
     }
 }
+
+// function showTraderOfflineMessage() {
+//     const offlineTraderMessage = getId('offlineTraderMessage');
+//     const contactTheTraderMessage = getId('contactTheTraderMessage');
+//     const offlineTraderMessageDiv = getId('offlineTraderMessageDiv');
+
+//     contactTheTraderMessage.style.display = 'none';
+//     offlineTraderMessageDiv.style.display = 'block';
+//     offlineTraderMessage.style.display = 'block';
+
+//     let countdown = 10;
+
+//     offlineTraderMessage.innerHTML = `We will open a new tab for you to watch the trader's video in ${countdown} seconds.`;
+
+//     // Update the message every second
+//     const intervalId = setInterval(() => {
+//         countdown -= 1;
+//         offlineTraderMessage.innerHTML = `We will open a new tab for you to watch the trader's video in ${countdown} seconds.`;
+
+//         if (countdown === 0) {
+//             clearInterval(intervalId);
+//             window.open('https://www.youtube.com/live/__1vfEdS2BI?si=2GlfgGGh-eeUac0k', '_blank');
+//             offlineTraderMessage.style.display = 'none';
+//             offlineTraderMessageDiv.style.display = 'none';
+//             contactTheTraderMessage.style.display = 'block';
+//         }
+//     }, 1000);
+// }
 
 
 function showTraderOfflineMessage() {
@@ -1482,14 +1536,14 @@ function showTraderOfflineMessage() {
     }, 1000);
 }
 
-
+// Update the countdown message
 function updateCountdownMessage(element, countdown) {
     element.innerHTML = `We will open a new tab for you to watch the trader's video in ${countdown} seconds.`;
 }
 
-
+// Open the trader's video in a new tab
 function openTraderVideo() {
-    window.open('https://www.youtube.com/watch?v=bGfhvSySHIw', '_blank');
+    window.open('https://www.youtube.com/live/__1vfEdS2BI?si=2GlfgGGh-eeUac0k', '_blank');
 }
 
 async function checkIfTraderIsActive(trader_uuid) {
@@ -1503,7 +1557,7 @@ async function checkIfTraderIsActive(trader_uuid) {
         return response.isActive;
     } catch (error) {
         console.error('Error:', error);
-        throw error;
+        throw error; // Optionally re-throw the error if you want to handle it further up the call chain
     }
 }
 
