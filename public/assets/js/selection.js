@@ -1449,6 +1449,9 @@ async function handleContactTrader(trader_uuid, communicator_link) {
         } else {
             showTraderOfflineMessage()
         }
+
+        notifyTraderOnClientContact(trader_uuid);
+
     } catch (error) {
         console.error('Error checking if trader is active:', error);
         alert("There was an error checking the trader's status. Please try again later.");
@@ -1480,6 +1483,17 @@ function showTraderOfflineMessage() {
             showElement(contactTheTraderMessage);
         }
     }, 1000);
+}
+
+function notifyTraderOnClientContact(trader_uuid) {
+    $.ajax({
+        url: '/api/post/emails/notify-trader-on-client-contact',
+        type: 'POST',
+        data: { trader_uuid: trader_uuid },
+        success: function (data) {
+            console.log('notifyTraderOnClientContact data: ', data);
+        },
+    });
 }
 
 
