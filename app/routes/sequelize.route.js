@@ -101,6 +101,7 @@ module.exports = (app) => {
 
 
 
+
     app.post(['/api/v2/post/update-company-details'], updateTraders.update); // delete in future
     app.post(['/api/v2/post/update-large-scale-company'], updateLarge.update);  // delete in future
     app.post(['/api/v2/post/update-medium-scale-company',], updateMedium.update);  // delete in future

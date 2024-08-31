@@ -1145,6 +1145,49 @@ app.get(['/pricing2'], (req, res) => {
     }
 });
 
+
+app.get('/traders-page/:companyName', (req, res) => {
+    const companyName = req.params.companyName; // "company-name"
+    // res.send(`Company Name: ${companyName}`);
+
+    let sessionData ={
+        companyName: companyName
+    }
+
+    if (req.session.user === undefined) {
+        const sessionData = {
+            uuid: '',
+            type: '',
+            first_name: '',
+            last_name: '',
+            email: '',
+            country: '',
+            state_or_province: '',
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/home/index'), {
+            data: sessionData,
+        });
+    } else {
+        const sessionData = {
+            uuid: req.session.user.uuid,
+            type: req.session.user.type,
+            first_name: req.session.user.first_name,
+            last_name: req.session.user.last_name,
+            email: req.session.user.email_or_social_media,
+            country: req.session.user.country,
+            state_or_province: req.session.user.state_or_province,
+            companyName: companyName,
+            ourGenerateNonce: lodashNonce,
+        };
+
+        res.render(path.join(__dirname, '../../', 'public/view/traders-page/index'), {
+            data: sessionData,
+        });
+    }
+});
+
 app.get('/logout', function (req, res, next) {
     // remove the req.user property and clear the login session
     //req.logout();
